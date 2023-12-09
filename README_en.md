@@ -6,10 +6,21 @@ Welcome to the world of **A’rosa-je**, the innovative app for all plant lovers
 
 ## Technologies Used 🛠️
 
-- **Front-end** : [VueJS](https://vuejs.org/)
-- **Back-end** : [Laravel](https://laravel.com)
-- **Database** : [SQLite](https://www.sqlite.org/index.html)
-- **Containerization** : [Docker](https://www.docker.com/)
+- **Front-end** : <a href="https://vuejs.org/">
+  <img src="https://img.shields.io/badge/%20%20-VueJS%20-grey?logo=vue.js" alt="Badge VueJS" width="70"/>
+</a>
+
+- **Back-end** : <a href="https://laravel.com">
+  <img src="https://img.shields.io/badge/%20%20-Laravel%20-grey?logo=laravel" alt="Badge Laravel" width="80"/>
+</a>
+
+- **Database** : <a href="https://www.sqlite.org/index.html">
+  <img src="https://img.shields.io/badge/%20%20-Sqlite%20-grey?logo=Sqlite" alt="Badge Docker" width="80"/>
+</a>
+
+- **Containerization** : <a href="https://www.docker.com/">
+  <img src="https://img.shields.io/badge/%20%20-Docker%20-grey?logo=docker" alt="Badge Docker" width="80"/>
+</a>
 
 ## Key Features 🔑
 
