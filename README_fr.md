@@ -62,6 +62,7 @@ cp .env.example .env
 
 ```bash
 chmod -R 775 storage bootstrap/cache
+chown -R $USER:www-data storage bootstrap/cache
 ```
 
 ```bash
