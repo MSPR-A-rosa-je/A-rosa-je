@@ -1,22 +1,18 @@
-version: '3'
-
+version: '3.8'
 services:
-  laravel-app:
-    image: thecodingmachine/php:8.2-v4-apache-node18
-    container_name: laravel-app
-    restart: unless-stopped
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:80"
     volumes:
       - .:/var/www/html
+      - ./storage:/var/www/html/storage
     environment:
-      # Laravel specific environment variables
-      - APP_NAME=Laravel
-      - APP_ENV=local
-      - APP_KEY=
-      - APP_DEBUG=true
-      - LOG_CHANNEL=stack
-      - DB_CONNECTION=sqlite
-      - ABSOLUTE_APACHE_DOCUMENT_ROOT=/var/www/html/public
-      # Other environment variables
-    working_dir: /var/www/html
+      APP_ENV: production
+      APP_KEY: base64:B0nPrxV1PX91yAb0tQkE6HEU3vyJKIXUpQ4HONWjtH8=
+      APP_DEBUG: false
+      APP_URL: http://localhost:8000
+      LOG_CHANNEL: stderr
+      DB_CONNECTION: sqlite
