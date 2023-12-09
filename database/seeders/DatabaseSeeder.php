@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             MissionsTableSeeder::class,
             QuestionsTableSeeder::class,
             AnswersTableSeeder::class,
+            AdvicesTableSeeder::class,
         ]);
     }
 }
