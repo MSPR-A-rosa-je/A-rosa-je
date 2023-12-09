@@ -11,7 +11,7 @@ services:
       - ./storage:/var/www/html/storage
     environment:
       APP_ENV: production
-      APP_KEY: base64:B0nPrxV1PX91yAb0tQkE6HEU3vyJKIXUpQ4HONWjtH8=
+      APP_KEY:
       APP_DEBUG: false
       APP_URL: http://localhost:8000
       LOG_CHANNEL: stderr
