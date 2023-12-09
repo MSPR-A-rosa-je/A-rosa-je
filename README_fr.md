@@ -42,6 +42,8 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 - Docker-compose
 - Php 8.2
 - Composer
+- Node.js
+- Npm
 
 **Installer le projet**:
 
@@ -50,33 +52,31 @@ cd A-rosa-je
 ```
 
 ```bash
-sudo chmod -R 775 storage
+composer install
+npm install 
 ```
 
 ```bash
-sudo chmod -R 775 bootstrap/cache
+cp .env.example .env
 ```
+
+```bash
+chmod -R 775 storage bootstrap/cache
+```
+
+```bash
+php artisan key:generate
+```
+
+ **Lancez l'appli et les migrations de base de données** :
 
 ```bash
 docker-compose up -d
 ```
 
 ```bash
-docker exec -it laravel-app /bin/bash 
+docker-compose exec app php artisan migrate
 ```
-
-```bash
-chmod -R 755 /var/www/html
-```
-```bash
-exit
-```
-
-```bash
-php artisan serve
-```
-
- **Lancez l'appli** : `TODO`
 
 ## Licence 📄
 
