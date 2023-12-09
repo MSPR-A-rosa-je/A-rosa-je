@@ -60,10 +60,19 @@ npm install
 cp .env.example .env
 ```
 
+Pour les distributions basées sur *Debian* :
+
 ```bash
 chmod -R 775 storage bootstrap/cache
 chown -R $USER:www-data storage bootstrap/cache
 ```
+Pour les distributions basées sur *Arch Linux* :
+
+```bash
+chmod -R 775 storage bootstrap/cache
+chown -R $USER:http storage bootstrap/cache
+```
+
 
 ```bash
 php artisan key:generate
