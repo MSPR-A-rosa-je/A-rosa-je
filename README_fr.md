@@ -94,7 +94,7 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 7. **🗄️ Effectuez les migrations de base de données** :
 
 ```bash
-   docker-compose exec app php artisan migrate
+   docker-compose exec app php artisan migrate --seed
 ```
 
 ## Licence 📄

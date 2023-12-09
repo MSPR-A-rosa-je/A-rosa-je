@@ -94,7 +94,7 @@ Welcome to the world of **A’rosa-je**, the innovative app for all plant lovers
 7. **🗄️ Perform database migrations** :
 
 ```bash
-   docker-compose exec app php artisan migrate
+   docker-compose exec app php artisan migrate --seed
 ```
 
 
