@@ -71,8 +71,8 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 - Pour les distributions basées sur *Arch Linux* :
 
 ```bash
-   chmod -R 775 storage bootstrap/cache
-   chown -R $USER:http storage bootstrap/cache
+   sudo chmod -R 775 storage bootstrap/cache
+   sudo chown -R $USER:http storage bootstrap/cache
 ```
 
 5. **🔑 Générez une clé d'application** :
