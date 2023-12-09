@@ -49,19 +49,15 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 
 ```bash
    cd A-rosa-je
-   ```
+   cp .env.example .env
+```
 
 ```bash
    composer install
-   ```
-
-```bash
    npm install
 ```
 
-```bash
-   cp .env.example .env
-```
+
 
 4. **🔒 Configurez les permissions des dossiers** :
 
@@ -69,9 +65,6 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 
 ```bash
    chmod -R 775 storage bootstrap/cache
-```
-
-```bash
    chown -R $USER:www-data storage bootstrap/cache
 ```
 
@@ -79,9 +72,6 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 
 ```bash
    chmod -R 775 storage bootstrap/cache
-```
-
-```bash
    chown -R $USER:http storage bootstrap/cache
 ```
 
