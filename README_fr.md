@@ -30,68 +30,83 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 
 ## Comment Ça Marche ? 🚀
 
- **Clonez le projet** :
-
- ```bash
- git clone git@github.com:MSPR-A-rosa-je/A-rosa-je.git
- ```
-
-**Installez les dépendances** :
-
-- Docker
-- Docker-compose
-- Php 8.2
-- Composer
-- Node.js
-- Npm
-
-**Installer le projet**:
+1. **📥 Clonez le projet** :
 
 ```bash
-cd A-rosa-je
+   git clone git@github.com:MSPR-A-rosa-je/A-rosa-je.git
+```
+
+2. **🛠️ Installez les dépendances** :
+
+   - 🐳 Docker
+   - 🔄 Docker-compose
+   - 🖥️ Php 8.2
+   - 🎼 Composer
+   - 🌐 Node.js
+   - 🧶 Npm
+
+3. **🚀 Installer le projet** :
+
+```bash
+   cd A-rosa-je
+   ```
+
+```bash
+   composer install
+   ```
+
+```bash
+   npm install
 ```
 
 ```bash
-composer install
-npm install 
+   cp .env.example .env
+```
+
+4. **🔒 Configurez les permissions des dossiers** :
+
+   Pour les distributions basées sur *Debian* :
+
+```bash
+   chmod -R 775 storage bootstrap/cache
 ```
 
 ```bash
-cp .env.example .env
+   chown -R $USER:www-data storage bootstrap/cache
 ```
 
-Pour les distributions basées sur *Debian* :
+   Pour les distributions basées sur *Arch Linux* :
 
 ```bash
-chmod -R 775 storage bootstrap/cache
-chown -R $USER:www-data storage bootstrap/cache
-```
-Pour les distributions basées sur *Arch Linux* :
-
-```bash
-chmod -R 775 storage bootstrap/cache
-chown -R $USER:http storage bootstrap/cache
-```
-
-
-```bash
-php artisan key:generate
-```
-
-Copiez la clé générée dans le fichier *.env* ```APP_KEY=``` et collez-la dans le fichier *docker-compose.yml* à la ligne 14 ```APP_KEY:```
-
-```bash
-docker-compose build
-```
-
- **Lancez l'appli et les migrations de base de données** :
-
-```bash
-docker-compose up -d
+   chmod -R 775 storage bootstrap/cache
 ```
 
 ```bash
-docker-compose exec app php artisan migrate
+   chown -R $USER:http storage bootstrap/cache
+```
+
+5. **🔑 Générez une clé d'application** :
+
+```bash
+   php artisan key:generate
+```
+
+   Copiez la clé générée dans le fichier *.env* `APP_KEY=` et collez-la dans le fichier *docker-compose.yml* à la ligne 14 `APP_KEY:`
+
+6. **🏗️ Construisez et lancez les conteneurs Docker** :
+
+```bash
+   docker-compose build
+```
+
+```bash
+   docker-compose up -d
+```
+
+7. **🗄️ Effectuez les migrations de base de données** :
+
+```bash
+   docker-compose exec app php artisan migrate
 ```
 
 ## Licence 📄
