@@ -5,18 +5,6 @@
 Choose your preferred language to learn more about our project:
 
 - 🇫🇷 [Lire le README en Français](./README_fr.md)
-  - Découvrez A’rosa-je en français !
-
-- 🇬🇧 [Read the README in English](./README_en.md)
-  - Explore A’rosa-je in English!
-
-# 🌿🌺 A’rosa-je - Your Plants, Our Passion! 🌵🌻
-
-## Welcome to A’rosa-je's GitHub Repository 🎉
-
-Choose your preferred language to learn more about our project:
-
-- 🇫🇷 [Lire le README en Français](./README_fr.md)
 
   - Découvrez A’rosa-je en français !
 
