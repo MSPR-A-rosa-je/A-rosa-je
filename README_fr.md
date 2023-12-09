@@ -68,6 +68,8 @@ chmod -R 775 storage bootstrap/cache
 php artisan key:generate
 ```
 
+Copiez la clé générée dans le fichier *.env* ```APP_KEY=``` et collez-la dans le fichier *docker-compose.yml* à la ligne 14 ```APP_KEY:```
+
 ```bash
 docker-compose build
 ```
