@@ -61,14 +61,14 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 
 4. **🔒 Configurez les permissions des dossiers** :
 
-   Pour les distributions basées sur *Debian* :
+- Pour les distributions basées sur *Debian* :
 
 ```bash
    chmod -R 775 storage bootstrap/cache
    chown -R $USER:www-data storage bootstrap/cache
 ```
 
-   Pour les distributions basées sur *Arch Linux* :
+- Pour les distributions basées sur *Arch Linux* :
 
 ```bash
    chmod -R 775 storage bootstrap/cache
