@@ -81,9 +81,7 @@ Welcome to the world of **A’rosa-je**, the innovative app for all plant lovers
    php artisan key:generate
 ```
 
-Copy the generated key into the *.env* file `APP_KEY=` and paste it into the *docker-compose.yml* file at line 14 `APP_KEY:`
-
-6. **🏗️ Build and launch Docker containers** :
+1. **🏗️ Build and launch Docker containers** :
 
 ```bash
    docker-compose build
