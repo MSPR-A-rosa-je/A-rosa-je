@@ -68,6 +68,10 @@ chmod -R 775 storage bootstrap/cache
 php artisan key:generate
 ```
 
+```bash
+docker-compose build
+```
+
  **Lancez l'appli et les migrations de base de données** :
 
 ```bash
