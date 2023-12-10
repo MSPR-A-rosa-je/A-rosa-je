@@ -47,8 +47,11 @@ jobs:
 
   RunTest:
     runs-on: ubuntu-latest
-    needs: BuildDockerImage
+    needs: [Setup, BuildDockerImage]
     steps:
+      - uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
           DB_CONNECTION: sqlite
