@@ -42,7 +42,7 @@ jobs:
     needs: PrepareDatabase
     steps:
       - name: Build with Docker Compose
-        run: docker-compose build
+        run: docker-compose -f docker-compose.yml build
 
   RunTest:
     runs-on: ubuntu-latest
