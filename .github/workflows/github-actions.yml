@@ -1,4 +1,4 @@
-name: Laravel
+name: Check
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: ["main", "7-configure-github-actions-for-automatic-testing"]
 
 jobs:
-  laravel-tests:
+  Tests:
     runs-on: ubuntu-latest
 
     steps:
