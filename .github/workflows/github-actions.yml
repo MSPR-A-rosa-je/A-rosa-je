@@ -30,6 +30,7 @@ jobs:
 
   PrepareDatabase:
     runs-on: ubuntu-latest
+    needs: Setup
     steps:
       - name: Setup Database
         run: |
@@ -38,12 +39,14 @@ jobs:
 
   BuildDockerImage:
     runs-on: ubuntu-latest
+    needs: PrepareDatabase
     steps:
       - name: Build with Docker Compose
         run: docker-compose build
 
   RunTest:
     runs-on: ubuntu-latest
+    needs: BuildDockerImage
     steps:
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
