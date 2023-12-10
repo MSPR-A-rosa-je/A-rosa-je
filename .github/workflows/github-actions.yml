@@ -41,8 +41,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: PrepareDatabase
     steps:
-      - name: Debug
-        run: pwd
+      - name: Liste des fichiers dans le répertoire
+        run: ls -la
       - name: Build with Docker Compose
         run: docker-compose -f docker-compose.yml build
 
