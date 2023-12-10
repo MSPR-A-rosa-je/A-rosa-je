@@ -23,7 +23,6 @@ return new class extends Migration
             $table->text('description');
             $table->timestamps();
 
-            // Clés étrangères
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('botanist_id')->references('id')->on('users')->onDelete('cascade');
         });
