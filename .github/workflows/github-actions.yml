@@ -43,6 +43,8 @@ jobs:
     steps:
       - name: Liste des fichiers dans le répertoire
         run: ls -la
+      - name: test
+        run: echo $USER
       - name: Build with Docker Compose
         run: docker-compose -f docker-compose.yml build
 
