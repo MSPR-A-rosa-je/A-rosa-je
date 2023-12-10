@@ -54,7 +54,6 @@ jobs:
       - name: Setup Database
         run: |
           touch database/database.sqlite
-          echo "APP_ENV=testing" >> .env
-          php artisan migrate
+          php artisan migrate --force
       - name: Run Tests
         run: php artisan test
