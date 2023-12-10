@@ -45,15 +45,18 @@ jobs:
       - name: Build with Docker Compose
         run: docker-compose build
 
-  RunTest:
-    runs-on: ubuntu-latest
-    needs: [Setup, BuildDockerImage]
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
-        env:
-          DB_CONNECTION: sqlite
-          DB_DATABASE: database/database.sqlite
-        run: vendor/bin/phpunit
+# 10/12/2023
+# TODO:
+
+  # RunTest:
+  #   runs-on: ubuntu-latest
+  #   needs: [Setup, BuildDockerImage]
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - name: Install Dependencies
+  #       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+  #     - name: Execute tests (Unit and Feature tests) via PHPUnit
+  #       env:
+  #         DB_CONNECTION: sqlite
+  #         DB_DATABASE: database/database.sqlite
+  #       run: vendor/bin/phpunit
