@@ -6,7 +6,7 @@ on:
 
 jobs:
   Setup:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted-linux, ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
       - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
@@ -22,7 +22,7 @@ jobs:
         run: chmod -R 777 storage bootstrap/cache
 
   PrepareDatabase:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted-linux, ubuntu-latest]
     needs: Setup
     steps:
       - uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
           touch database/database.sqlite
 
   BuildDockerImage:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted-linux, ubuntu-latest]
     needs: PrepareDatabase
     steps:
       - uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
         run: docker-compose build
 
   RunTest:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted-linux, ubuntu-latest]
     needs: [Setup, PrepareDatabase, BuildDockerImage]
     steps:
       - uses: actions/checkout@v3
@@ -65,7 +65,7 @@ jobs:
         run: php artisan test
 
   TestLocalHost:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted-linux, ubuntu-latest]
     needs: [Setup, PrepareDatabase, BuildDockerImage, RunTest]
     steps:
       - uses: actions/checkout@v3
