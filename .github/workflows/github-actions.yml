@@ -87,7 +87,7 @@ jobs:
       - name: Build with Docker Compose
         run: docker-compose build
       - name: Run Server
-        run: php artisan serve
+        run: npm run dev
       - name: Test Local Host
         run: |
           curl --fail --silent --show-error --location "http://localhost:8000"
