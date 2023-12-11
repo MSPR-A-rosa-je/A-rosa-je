@@ -88,8 +88,6 @@ jobs:
         run: docker-compose build
       - name: Lauch container
         run: docker-compose up -d
-      - name: Run Server
-        run: npm run dev
       - name: Test Local Host
         run: |
           curl --fail --silent --show-error --location "http://localhost:8000"
