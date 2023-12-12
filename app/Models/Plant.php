@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plant extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'owner_id',
         'specie_name',
