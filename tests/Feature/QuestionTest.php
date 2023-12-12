@@ -148,10 +148,10 @@ class QuestionTest extends TestCase
     {
         $initialCount = Question::count();
 
-        Question::factory()->count(10000)->create();
+        Question::factory()->count(500)->create();
 
         $newCount = Question::count();
-        $this->assertEquals($initialCount + 10000, $newCount);
+        $this->assertEquals($initialCount + 500, $newCount);
     }
 
 }

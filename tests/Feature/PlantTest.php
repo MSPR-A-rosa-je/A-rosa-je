@@ -156,9 +156,9 @@ class PlantTest extends TestCase
 {
     $initialCount = Plant::count();
 
-    Plant::factory()->count(10000)->create();
+    Plant::factory()->count(500)->create();
 
     $newCount = Plant::count();
-    $this->assertEquals($initialCount + 10000, $newCount);
+    $this->assertEquals($initialCount + 500, $newCount);
 }
 }

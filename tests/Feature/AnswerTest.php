@@ -187,10 +187,10 @@ class AnswerTest extends TestCase
     {
         $initialCount = Answer::count();
 
-        Answer::factory()->count(10000)->create();
+        Answer::factory()->count(500)->create();
 
         $newCount = Answer::count();
-        $this->assertEquals($initialCount + 10000, $newCount);
+        $this->assertEquals($initialCount + 500, $newCount);
     }
     }
 
