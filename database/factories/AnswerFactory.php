@@ -22,7 +22,7 @@ class AnswerFactory extends Factory
             'question_id' => Question::factory(),
             'owner_id' => User::factory(),
             'description' => $this->faker->paragraph,
-            'like_number' => $this->faker->rand(1, 100),
+            'like_number' => rand(1, 100),
         ];
     }
 }

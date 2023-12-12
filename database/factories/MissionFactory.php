@@ -16,14 +16,17 @@ class MissionFactory extends Factory
      */
     public function definition(): array
     {
+        $userIds = User::factory()->count(10)->create()->pluck('id')->toArray();
+
         return [
             'creation_date' => $this->faker->date,
             'start_date' => $this->faker->date,
             'end_date' => $this->faker->date,
             'owner_id' => User::factory(),
             'botanist_id' => User::factory(),
-            $userIds = User::factory()->count(10)->create()->pluck('id')->toArray(),
             'candidates_list' => json_encode($userIds),
+            'price' => rand(1,100),
+            'description' => $this->faker->sentence,
         ];
     }
 }

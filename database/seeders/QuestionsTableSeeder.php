@@ -46,7 +46,10 @@ class QuestionsTableSeeder extends Seeder
         foreach ($questions as $question) {
             DB::table('questions')->insert($question);
         }
-        \App\Models\Question::factory()->count(10)->create();
-
-    }
+        \App\Models\Question::factory()->count(10)->create(function (array $attributes) {
+            return [
+                'owner_id' => rand(1, 10),
+            ];
+        });
+}
 }

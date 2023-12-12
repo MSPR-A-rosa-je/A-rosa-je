@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             PlantsTableSeeder::class,
             AdvicesTableSeeder::class,
+            QuestionsTableSeeder::class,
             AnswersTableSeeder::class,
             MissionsTableSeeder::class,
-            QuestionsTableSeeder::class,
         ]);
     }
 }
