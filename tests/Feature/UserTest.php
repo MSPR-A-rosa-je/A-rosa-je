@@ -92,4 +92,14 @@ class UserTest extends TestCase
             'id' => $user_id
         ]);
     }
+    public function test_can_create_thousand_users()
+{
+    $initialCount = User::count();
+
+    User::factory()->count(1000)->create();
+
+    $newCount = User::count();
+
+    $this->assertEquals($initialCount + 1000, $newCount);
+}
 }

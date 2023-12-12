@@ -79,5 +79,7 @@ class UsersTableSeeder extends Seeder
         foreach ($users as $user) {
             DB::table('users')->insert($user);
         }
+        \App\Models\User::factory()->count(10)->create();
+
     }
 }
