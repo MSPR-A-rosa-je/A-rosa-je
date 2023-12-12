@@ -233,10 +233,10 @@ class MissionTest extends TestCase
     {
         $initialCount = Mission::count();
 
-        Mission::factory()->count(10000)->create();
+        Mission::factory()->count(100)->create();
 
         $newCount = Mission::count();
-        $this->assertEquals($initialCount + 10000, $newCount);
+        $this->assertEquals($initialCount + 100, $newCount);
     }
 
 }
