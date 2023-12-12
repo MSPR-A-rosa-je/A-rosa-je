@@ -9,17 +9,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - name: Update composer
-        run: composer update
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
       - name: Install Dependencies
         run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
       - name: Generate key
         run: php artisan key:generate
+
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
 
@@ -28,6 +40,7 @@ jobs:
     needs: Setup
     steps:
       - uses: actions/checkout@v3
+
       - name: Setup Database
         run: |
           mkdir -p database
@@ -38,60 +51,35 @@ jobs:
     needs: PrepareDatabase
     steps:
       - uses: actions/checkout@v3
-      - name: Build with Docker Compose
-        run: docker-compose build
+
+      - name: Build and Push Docker Image
+        run: |
+          docker-compose build
+          docker-compose push
 
   RunTest:
     runs-on: ubuntu-latest
-    needs: [Setup, PrepareDatabase, BuildDockerImage]
+    needs: BuildDockerImage
     steps:
       - uses: actions/checkout@v3
-      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-        with:
-          php-version: '8.2'
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - name: Install Dependencies
-        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Generate key
-        run: php artisan key:generate
-      - name: Directory Permissions
-        run: chmod -R 777 storage bootstrap/cache
-      - name: Setup Database
-        run: |
-          mkdir -p database
-          touch database/database.sqlite
-      - name: Build with Docker Compose
-        run: docker-compose build
+
+      - name: Pull Docker Image
+        run: docker-compose pull
+
       - name: Run Tests
-        run: php artisan test
+        run: docker-compose run --rm app php artisan test
 
   TestLocalHost:
     runs-on: ubuntu-latest
-    needs: [Setup, PrepareDatabase, BuildDockerImage, RunTest]
+    needs: RunTest
     steps:
       - uses: actions/checkout@v3
-      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-        with:
-          php-version: '8.2'
-      - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - name: Install Dependencies
-        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Generate key
-        run: php artisan key:generate
-      - name: Directory Permissions
-        run: chmod -R 777 storage bootstrap/cache
-      - name: Setup Database
-        run: |
-          mkdir -p database
-          touch database/database.sqlite
-      - name: Build with Docker Compose
-        run: docker-compose build
-      - name: Lauch container
+
+      - name: Pull Docker Image
+        run: docker-compose pull
+
+      - name: Launch container
         run: docker-compose up -d
+
       - name: Test Local Host
-        run: |
-          curl --fail --silent --show-error --location "http://localhost:8000"
-
-
+        run: curl --fail --silent --show-error --location "http://localhost:8000"
