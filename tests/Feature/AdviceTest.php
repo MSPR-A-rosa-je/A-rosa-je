@@ -147,4 +147,13 @@ class AdviceTest extends TestCase
 
         $this->assertEquals($user->id, $advice->owner->id);
     }
+    public function test_can_create_many_advices()
+{
+    $initialCount = Advice::count();
+
+    Advice::factory()->count(10000)->create();
+
+    $newCount = Advice::count();
+    $this->assertEquals($initialCount + 10000, $newCount);
+}
 }

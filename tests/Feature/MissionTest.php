@@ -229,4 +229,14 @@ class MissionTest extends TestCase
         $this->assertEquals($owner->id, $mission->owner->id);
         $this->assertEquals($botanist->id, $mission->botanist->id);
     }
+    public function test_can_create_many_missions()
+    {
+        $initialCount = Mission::count();
+
+        Mission::factory()->count(10000)->create();
+
+        $newCount = Mission::count();
+        $this->assertEquals($initialCount + 10000, $newCount);
+    }
+
 }

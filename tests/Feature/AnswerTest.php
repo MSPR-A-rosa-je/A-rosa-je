@@ -13,6 +13,16 @@ class AnswerTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected $user;
+    protected $question;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        User::factory()->count(100)->create();
+        Question::factory()->count(100)->create();
+    }
     /** @test */
     public function an_answer_can_be_created()
     {
@@ -173,4 +183,14 @@ class AnswerTest extends TestCase
         $this->assertEquals($user->id, $answer->owner->id);
         $this->assertEquals($question->id, $answer->question->id);
     }
-}
+    public function test_can_create_many_answers()
+    {
+        $initialCount = Answer::count();
+
+        Answer::factory()->count(10000)->create();
+
+        $newCount = Answer::count();
+        $this->assertEquals($initialCount + 10000, $newCount);
+    }
+    }
+

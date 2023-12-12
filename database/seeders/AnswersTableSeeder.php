@@ -39,9 +39,14 @@ class AnswersTableSeeder extends Seeder
             ],
         ];
 
-        // Insérer les réponses dans la table
         foreach ($answers as $answer) {
             DB::table('answers')->insert($answer);
         }
+        \App\Models\Answer::factory()->count(10)->create(function (array $attributes) {
+            return [
+                'owner_id' => rand(1, 10),
+                'question_id' => rand(1, 10),
+            ];
+        });
     }
 }

@@ -48,5 +48,6 @@ class AdvicesTableSeeder extends Seeder
         foreach ($advices as $advice) {
             DB::table('advices')->insert($advice);
         }
+        \App\Models\Advice::factory()->count(10)->create();
     }
 }

@@ -84,5 +84,7 @@ class PlantsTableSeeder extends Seeder
         foreach ($plants as $plant) {
             DB::table('plants')->insert($plant);
         }
+        \App\Models\Plant::factory()->count(10)->create();
+
     }
 }

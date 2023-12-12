@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Plant;
+use Database\Factories\PlantFactory;
 
 class PlantTest extends TestCase
 {
@@ -151,4 +152,13 @@ class PlantTest extends TestCase
 
         $this->assertEquals($user->id, $plant->owner->id);
     }
+    public function test_can_create_many_plants()
+{
+    $initialCount = Plant::count();
+
+    Plant::factory()->count(10000)->create();
+
+    $newCount = Plant::count();
+    $this->assertEquals($initialCount + 10000, $newCount);
+}
 }

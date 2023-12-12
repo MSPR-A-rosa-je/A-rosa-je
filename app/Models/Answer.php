@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'like_number',
         'question_id',
