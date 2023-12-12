@@ -144,4 +144,14 @@ class QuestionTest extends TestCase
 
         $this->assertEquals($user->id, $question->owner->id);
     }
+    public function test_can_create_many_Advices()
+    {
+        $initialCount = Question::count();
+
+        Question::factory()->count(10000)->create();
+
+        $newCount = Question::count();
+        $this->assertEquals($initialCount + 10000, $newCount);
+    }
+
 }

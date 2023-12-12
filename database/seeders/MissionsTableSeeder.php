@@ -41,5 +41,7 @@ class MissionsTableSeeder extends Seeder
         foreach ($missions as $mission) {
             DB::table('missions')->insert($mission);
         }
+        \App\Models\Mission::factory()->count(10)->create();
+
     }
 }

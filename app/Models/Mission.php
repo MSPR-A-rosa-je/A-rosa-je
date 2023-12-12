@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mission extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'creation_date',
         'start_date',

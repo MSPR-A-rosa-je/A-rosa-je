@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\User;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Plant>
  */
@@ -17,7 +17,7 @@ class PlantFactory extends Factory
     public function definition()
     {
         return [
-            'owner_id' => rand(1, 100),
+            'owner_id' => User::factory(),
             'specie_name' => $this->faker->word,
             'location' => $this->faker->city,
             'url_photo' => $this->faker->imageUrl(),

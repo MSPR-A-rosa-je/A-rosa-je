@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class AdviceFactory extends Factory
     public function definition()
     {
         return [
-            'owner_id'  => rand(1, 1000),
+            'owner_id'  => User::factory(),
             'title' => $this->faker->word,
             'creation_date' => $this->faker->date,
             'description' => $this->faker->paragraph,

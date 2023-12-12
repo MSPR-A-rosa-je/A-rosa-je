@@ -28,6 +28,9 @@ jobs:
           mkdir -p database
           touch database/database.sqlite
 
+      - name: Migrate
+        run: php artisan migrate --seed  --force
+
       - name: Change owner of SQLite file
         run: sudo chown $USER:$USER database/database.sqlite
 

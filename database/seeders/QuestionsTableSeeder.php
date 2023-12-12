@@ -46,5 +46,7 @@ class QuestionsTableSeeder extends Seeder
         foreach ($questions as $question) {
             DB::table('questions')->insert($question);
         }
+        \App\Models\Question::factory()->count(10)->create();
+
     }
 }

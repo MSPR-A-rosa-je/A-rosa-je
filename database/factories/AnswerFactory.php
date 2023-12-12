@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Question;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Answer>
@@ -17,8 +19,8 @@ class AnswerFactory extends Factory
     public function definition()
     {
         return [
-            'question_id' => $this->faker->rand(1, 1000),
-            'owner_id' => $this->faker->rand(1, 1000),
+            'question_id' => Question::factory(),
+            'owner_id' => User::factory(),
             'description' => $this->faker->paragraph,
             'like_number' => $this->faker->rand(1, 100),
         ];
