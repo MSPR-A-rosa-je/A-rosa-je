@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Mission>
  */
@@ -25,7 +26,7 @@ class MissionFactory extends Factory
             'owner_id' => User::factory(),
             'botanist_id' => User::factory(),
             'candidates_list' => json_encode($userIds),
-            'price' => rand(1,100),
+            'price' => rand(1, 100),
             'description' => $this->faker->sentence,
         ];
     }

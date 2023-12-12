@@ -3,10 +3,8 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\Plant;
 use App\Models\Mission;
 
 class MissionTest extends TestCase
@@ -238,5 +236,4 @@ class MissionTest extends TestCase
         $newCount = Mission::count();
         $this->assertEquals($initialCount + 100, $newCount);
     }
-
 }

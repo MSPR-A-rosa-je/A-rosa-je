@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -47,5 +46,5 @@ class MissionsTableSeeder extends Seeder
                 'botanist_id' => rand(1, 10)
             ];
         });
-}
+    }
 }

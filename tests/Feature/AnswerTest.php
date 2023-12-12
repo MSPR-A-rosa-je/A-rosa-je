@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Answer;
 use App\Models\User;
@@ -192,5 +191,4 @@ class AnswerTest extends TestCase
         $newCount = Answer::count();
         $this->assertEquals($initialCount + 500, $newCount);
     }
-    }
-
+}

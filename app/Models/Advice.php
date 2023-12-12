@@ -22,6 +22,4 @@ class Advice extends Model
     {
         return $this->belongsTo(User::class, 'owner_id');
     }
-
-    // Ajoute d'autres méthodes et propriétés nécessaires ici
 }

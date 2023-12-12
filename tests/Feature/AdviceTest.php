@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Advice;
 use App\Models\User;
@@ -148,12 +147,12 @@ class AdviceTest extends TestCase
         $this->assertEquals($user->id, $advice->owner->id);
     }
     public function test_can_create_many_advices()
-{
-    $initialCount = Advice::count();
+    {
+        $initialCount = Advice::count();
 
-    Advice::factory()->count(500)->create();
+        Advice::factory()->count(500)->create();
 
-    $newCount = Advice::count();
-    $this->assertEquals($initialCount + 500, $newCount);
-}
+        $newCount = Advice::count();
+        $this->assertEquals($initialCount + 500, $newCount);
+    }
 }

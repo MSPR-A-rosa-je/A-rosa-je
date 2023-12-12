@@ -3,10 +3,8 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
-use Database\Factories\UserFactory;
 
 class UserTest extends TestCase
 {
@@ -93,12 +91,12 @@ class UserTest extends TestCase
         ]);
     }
     public function test_can_create_many_users()
-{
-    $initialCount = User::count();
+    {
+        $initialCount = User::count();
 
-    User::factory()->count(500)->create();
+        User::factory()->count(500)->create();
 
-    $newCount = User::count();
-    $this->assertEquals($initialCount + 500, $newCount);
-}
+        $newCount = User::count();
+        $this->assertEquals($initialCount + 500, $newCount);
+    }
 }
