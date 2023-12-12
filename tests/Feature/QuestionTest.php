@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Answer;
 use App\Models\User;
@@ -49,7 +48,7 @@ class QuestionTest extends TestCase
     public function a_question_can_be_updated()
     {
         $user = User::create([
-             'is_botanist' => false,
+            'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
             'pseudo' => 'UserExample',
@@ -84,7 +83,7 @@ class QuestionTest extends TestCase
     public function a_question_can_be_deleted()
     {
         $user = User::create([
-             'is_botanist' => false,
+            'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
             'pseudo' => 'UserExample',
@@ -119,7 +118,7 @@ class QuestionTest extends TestCase
     public function a_question_belongs_to_a_user()
     {
         $user = User::create([
-             'is_botanist' => false,
+            'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
             'pseudo' => 'UserExample',
@@ -153,5 +152,4 @@ class QuestionTest extends TestCase
         $newCount = Question::count();
         $this->assertEquals($initialCount + 500, $newCount);
     }
-
 }

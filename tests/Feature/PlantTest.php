@@ -3,11 +3,9 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Plant;
-use Database\Factories\PlantFactory;
 
 class PlantTest extends TestCase
 {
@@ -88,7 +86,7 @@ class PlantTest extends TestCase
     public function a_plant_can_be_deleted()
     {
         $user = User::create([
-             'is_botanist' => false,
+            'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
             'pseudo' => 'UserTest',
@@ -125,7 +123,7 @@ class PlantTest extends TestCase
     public function a_plant_belongs_to_a_user()
     {
         $user = User::create([
-             'is_botanist' => false,
+            'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
             'pseudo' => 'UserTest',
@@ -153,12 +151,12 @@ class PlantTest extends TestCase
         $this->assertEquals($user->id, $plant->owner->id);
     }
     public function test_can_create_many_plants()
-{
-    $initialCount = Plant::count();
+    {
+        $initialCount = Plant::count();
 
-    Plant::factory()->count(500)->create();
+        Plant::factory()->count(500)->create();
 
-    $newCount = Plant::count();
-    $this->assertEquals($initialCount + 500, $newCount);
-}
+        $newCount = Plant::count();
+        $this->assertEquals($initialCount + 500, $newCount);
+    }
 }

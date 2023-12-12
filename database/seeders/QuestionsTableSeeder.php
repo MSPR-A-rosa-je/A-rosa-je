@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +14,6 @@ class QuestionsTableSeeder extends Seeder
      */
     public function run()
     {
-        // Vous pouvez ajuster les données des questions comme nécessaire
         $questions = [
             [
                 'title' => 'Comment entretenir un cactus ?',
@@ -51,5 +49,5 @@ class QuestionsTableSeeder extends Seeder
                 'owner_id' => rand(1, 10),
             ];
         });
-}
+    }
 }
