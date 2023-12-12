@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
-
+use Database\Factories\UserFactory;
 
 class UserTest extends TestCase
 {
@@ -92,14 +92,13 @@ class UserTest extends TestCase
             'id' => $user_id
         ]);
     }
-    public function test_can_create_thousand_users()
+    public function test_can_create_many_users()
 {
     $initialCount = User::count();
 
-    User::factory()->count(1000)->create();
+    User::factory()->count(10000)->create();
 
     $newCount = User::count();
-
-    $this->assertEquals($initialCount + 1000, $newCount);
+    $this->assertEquals($initialCount + 10000, $newCount);
 }
 }
