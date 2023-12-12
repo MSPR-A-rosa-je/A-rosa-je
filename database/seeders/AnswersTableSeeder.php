@@ -43,5 +43,6 @@ class AnswersTableSeeder extends Seeder
         foreach ($answers as $answer) {
             DB::table('answers')->insert($answer);
         }
+        \App\Models\Answer::factory()->count(10)->create();
     }
 }

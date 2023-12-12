@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Advice>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Answer>
  */
-class AdviceFactory extends Factory
+class AnswerFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,11 +17,10 @@ class AdviceFactory extends Factory
     public function definition()
     {
         return [
-            'owner_id'  => rand(1, 1000),
-            'title' => $this->faker->word,
-            'creation_date' => $this->faker->date,
+            'question_id' => $this->faker->rand(1, 1000),
+            'owner_id' => $this->faker->rand(1, 1000),
             'description' => $this->faker->paragraph,
-            'like_number'  => rand(1, 100),
+            'like_number' => $this->faker->rand(1, 100),
         ];
     }
 }
