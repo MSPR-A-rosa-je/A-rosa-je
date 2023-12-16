@@ -22,10 +22,8 @@ class User extends Authenticatable
         'email',
         'birth_date',
         'url_picture',
-        'zip_code',
-        'city',
-        'address',
         'password',
+        'address_id'
     ];
 
     protected $hidden = [
@@ -44,4 +42,10 @@ class User extends Authenticatable
         'botanist_since',
         'birth_date',
     ];
+
+
+    public function address()
+    {
+        return $this->hasOne(Address::class, 'user _id');
+    }
 }

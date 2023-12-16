@@ -190,7 +190,7 @@ class MissionTest extends TestCase
     }
 
     /** @test */
-    public function a_mission_belongs_to_an_owner_and_a_botanist()
+    public function a_mission_belongs_to_an_owner_and_a_gardiens()
     {
         $owner = User::create([
             'id' => 1,
