@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
-
 class MissionsTableSeeder extends Seeder
 {
     /**
@@ -15,6 +14,7 @@ class MissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        $seed_sample = config('app.seed_sample');
         try {
             $missions = [
                 [
@@ -46,7 +46,7 @@ class MissionsTableSeeder extends Seeder
             foreach ($missions as $mission) {
                 DB::table('missions')->insert($mission);
             }
-            \App\Models\Mission::factory()->count(5)->create(function (array $attributes) {
+            \App\Models\Mission::factory()->count($seed_sample / 2)->create(function (array $attributes) {
                 return [
                     'owner_id' => rand(1, 10),
                     'gardien_id' => rand(1, 10)

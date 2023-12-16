@@ -12,6 +12,7 @@ class UsersTableSeeder extends Seeder
 {
     public function run()
     {
+        $seed_sample = config('app.seed_sample');
         try {
             $users = [
                 [
@@ -80,7 +81,7 @@ class UsersTableSeeder extends Seeder
             foreach ($users as $user) {
                 DB::table('users')->insert($user);
             }
-            \App\Models\User::factory()->count(10)->create();
+            \App\Models\User::factory()->count($seed_sample)->create();
             try {
                 Log::info('Users table seeded ✅');
             } catch (\Exception $e) {

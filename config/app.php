@@ -15,6 +15,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+    'seed_sample' => env('SEED_SAMPLE', 10),
 
     'name' => env('APP_NAME', 'Laravel'),
 

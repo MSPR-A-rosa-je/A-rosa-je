@@ -14,6 +14,7 @@ class AdvicesTableSeeder extends Seeder
      */
     public function run()
     {
+        $seed_sample = config('app.seed_sample');
         try {
             $advices = [
                 [
@@ -49,7 +50,7 @@ class AdvicesTableSeeder extends Seeder
             foreach ($advices as $advice) {
                 DB::table('advices')->insert($advice);
             }
-            \App\Models\Advice::factory()->count(10)->create();
+            \App\Models\Advice::factory()->count($seed_sample)->create();
             try {
                 Log::info('Advices table seeded ✅');
             } catch (\Exception $e) {
