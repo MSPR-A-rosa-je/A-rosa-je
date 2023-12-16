@@ -12,7 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Log::info('Creating users table...');
+        try {
+            Log::info('Creating users table...');
+        } catch (\Exception $e) {
+        }
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_botanist');
@@ -38,7 +41,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Log::info('Dropping users table...');
+        try {
+            Log::info('Dropping users table...');
+        } catch (\Exception $e) {
+        }
         Schema::dropIfExists('users');
     }
 };

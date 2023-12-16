@@ -14,7 +14,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Log::info('Renaming users password...');
+        try {
+            Log::info('Renaming users password...');
+        } catch (\Exception $e) {
+        }
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('hashed_password', 'password');
         });
@@ -27,7 +30,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Log::info('Renaming users password back...');
+        try {
+            Log::info('Renaming users password...');
+        } catch (\Exception $e) {
+        }
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('password', 'hashed_password');
         });

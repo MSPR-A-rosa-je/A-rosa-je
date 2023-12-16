@@ -14,7 +14,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Log::info('Renaming users email...');
+        try {
+            Log::info('Renaming users mail to email.');
+        } catch (\Exception $e) {
+        }
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('mail', 'email');
         });
@@ -27,7 +30,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Log::info('Renaming users email back.');
+        try {
+            Log::info('Renaming users email to mail.');
+        } catch (\Exception $e) {
+        }
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('email', 'mail');
         });

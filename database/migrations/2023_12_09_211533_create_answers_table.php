@@ -12,7 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Log::info('Creating answers table...');
+        try {
+            Log::info('Creating answers table...');
+        } catch (\Exception $e) {
+        }
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -30,7 +33,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Log::info('Dropping answers table...');
+        try {
+            Log::info('Dropping answers table...');
+        } catch (\Exception $e) {
+        }
         Schema::dropIfExists('answers');
     }
 };

@@ -12,7 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Log::info('Creating advices table...');
+        try {
+            Log::info('Creating advices table...');
+        } catch (\Exception $e) {
+        }
         Schema::create('advices', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -31,7 +34,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Log::info('Dropping advices table...');
+        try {
+            Log::info('Dropping advices table...');
+        } catch (\Exception $e) {
+        }
         Schema::dropIfExists('advices');
     }
 };

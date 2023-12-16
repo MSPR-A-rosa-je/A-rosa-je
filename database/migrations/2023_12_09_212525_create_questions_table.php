@@ -12,7 +12,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Log::info('Creating questions table...');
+        try {
+            Log::info('Creating questions table...');
+        } catch (\Exception $e) {
+        }
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -34,7 +37,10 @@ return new class extends Migration
 
     public function down()
     {
-        Log::info('Dropping questions table...');
+        try {
+            Log::info('Dropping questions table...');
+        } catch (\Exception $e) {
+        }
         Schema::dropIfExists('answer_question');
         Schema::dropIfExists('questions');
     }
