@@ -31,7 +31,7 @@ return new class extends Migration
     public function down()
     {
         try {
-            Log::info('Renaming users email to mail.');
+            Log::info('Renaming users email to mail...');
         } catch (\Exception $e) {
         }
         Schema::table('users', function (Blueprint $table) {
