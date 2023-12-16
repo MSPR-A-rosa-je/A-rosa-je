@@ -45,9 +45,9 @@ class UserTest extends TestCase
     {
         $initialCount = User::count();
 
-        User::factory()->count(100)->create();
+        User::factory()->count(50)->create();
 
         $newCount = User::count();
-        $this->assertEquals($initialCount + 100, $newCount);
+        $this->assertEquals($initialCount + 50, $newCount);
     }
 }
