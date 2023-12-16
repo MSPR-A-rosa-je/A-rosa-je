@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Question;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Answer>
@@ -18,10 +19,14 @@ class AnswerFactory extends Factory
      */
     public function definition()
     {
+        $description = $this->faker->sentence;
+        if (!app()->runningUnitTests() && !app()->runningInConsole()) {
+            Log::info("Creating a new answer: $description ✅");
+        }
         return [
             'question_id' => Question::factory(),
             'owner_id' => User::factory(),
-            'description' => $this->faker->paragraph,
+            'description' => $description,
             'like_number' => rand(1, 100),
         ];
     }

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Log;
 
 return new class extends Migration
 {
@@ -11,6 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
+        try {
+            Log::info('Creating missions table...');
+        } catch (\Exception $e) {
+        }
         Schema::create('missions', function (Blueprint $table) {
             $table->id();
             $table->dateTime('creation_date');
@@ -33,6 +38,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        try {
+            Log::info('Dropping missions table...');
+        } catch (\Exception $e) {
+        }
         Schema::dropIfExists('missions');
     }
 };
