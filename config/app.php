@@ -170,6 +170,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         MarvinLabs\DiscordLogger\ServiceProvider::class,
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
     ])->toArray(),
 
     /*
