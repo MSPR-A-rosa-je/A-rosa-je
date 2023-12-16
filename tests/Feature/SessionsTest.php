@@ -6,12 +6,12 @@ use Tests\TestCase;
 use App\Models\Session;
 use App\Models\Mission;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SessionsTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
+    use RefreshDatabase;
+
     public function test_a_session_can_be_created()
     {
         $session = Session::factory()->create();
