@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Log;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Question>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Address>
  */
-class QuestionFactory extends Factory
+class AddressFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,15 +18,16 @@ class QuestionFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->sentence;
+        $city =   $this->faker->city;
+
         if (!app()->runningUnitTests() && !app()->runningInConsole()) {
-            Log::info("Creating a new question: $title ✅");
+            Log::info('Creating a new address: ' . $city . ' ✅');
         }
         return [
-            'title' => $title,
-            'description' => $this->faker->paragraph,
-            'creation_date' => $this->faker->date,
-            'owner_id' => User::factory(),
+            'address' => $this->faker->streetAddress,
+            'zip_code' => $this->faker->postcode,
+            'user_id' => User::factory()->create()->id,
+            'city' => $city,
         ];
     }
 }

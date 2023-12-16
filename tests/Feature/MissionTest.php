@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Mission;
+use Illuminate\Support\Facades\Log;
 
 class MissionTest extends TestCase
 {
@@ -15,6 +16,7 @@ class MissionTest extends TestCase
     public function a_mission_can_be_created()
     {
         $owner = User::create([
+            'id' => 8,
             'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
@@ -31,7 +33,8 @@ class MissionTest extends TestCase
             'password' => bcrypt('password'),
         ]);
 
-        $botanist = User::create([
+        $gardien = User::create([
+            'id' => 7,
             'is_botanist' => true,
             'creation_date' => now(),
             'botanist_since' => now(),
@@ -49,11 +52,13 @@ class MissionTest extends TestCase
         ]);
 
         $mission = Mission::create([
+            'number_of_sessions' => 2,
+            'plants_list' => json_encode([1, 2]),
             'creation_date' => now(),
             'start_date' => now(),
             'end_date' => now()->addDays(7),
             'owner_id' => $owner->id,
-            'botanist_id' => $botanist->id,
+            'gardien_id' => $gardien->id,
             'candidates_list' => json_encode([]),
             'price' => 100.0,
             'description' => 'A mission description.'
@@ -68,6 +73,7 @@ class MissionTest extends TestCase
     public function a_mission_can_be_updated()
     {
         $owner = User::create([
+            'id' => 6,
             'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
@@ -84,7 +90,8 @@ class MissionTest extends TestCase
             'password' => bcrypt('password'),
         ]);
 
-        $botanist = User::create([
+        $gardien = User::create([
+            'id' => 5,
             'is_botanist' => true,
             'creation_date' => now(),
             'botanist_since' => now(),
@@ -102,11 +109,13 @@ class MissionTest extends TestCase
         ]);
 
         $mission = Mission::create([
+            'number_of_sessions' => 2,
+            'plants_list' => json_encode([1, 2]),
             'creation_date' => now(),
             'start_date' => now(),
             'end_date' => now()->addDays(7),
             'owner_id' => $owner->id,
-            'botanist_id' => $botanist->id,
+            'gardien_id' => $gardien->id,
             'candidates_list' => json_encode([]),
             'price' => 100.0,
             'description' => 'A mission description.'
@@ -124,6 +133,7 @@ class MissionTest extends TestCase
     public function a_mission_can_be_deleted()
     {
         $owner = User::create([
+            'id' => 4,
             'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
@@ -140,7 +150,8 @@ class MissionTest extends TestCase
             'password' => bcrypt('password'),
         ]);
 
-        $botanist = User::create([
+        $gardien = User::create([
+            'id' => 3,
             'is_botanist' => true,
             'creation_date' => now(),
             'botanist_since' => now(),
@@ -158,11 +169,13 @@ class MissionTest extends TestCase
         ]);
 
         $mission = Mission::create([
+            'number_of_sessions' => 2,
+            'plants_list' => json_encode([1, 2]),
             'creation_date' => now(),
             'start_date' => now(),
             'end_date' => now()->addDays(7),
             'owner_id' => $owner->id,
-            'botanist_id' => $botanist->id,
+            'gardien_id' => $gardien->id,
             'candidates_list' => json_encode([]),
             'price' => 100.0,
             'description' => 'A mission description.'
@@ -177,9 +190,10 @@ class MissionTest extends TestCase
     }
 
     /** @test */
-    public function a_mission_belongs_to_an_owner_and_a_botanist()
+    public function a_mission_belongs_to_an_owner_and_a_gardiens()
     {
         $owner = User::create([
+            'id' => 1,
             'is_botanist' => false,
             'creation_date' => now(),
             'botanist_since' => null,
@@ -196,7 +210,8 @@ class MissionTest extends TestCase
             'password' => bcrypt('password'),
         ]);
 
-        $botanist = User::create([
+        $gardien = User::create([
+            'id' => 2,
             'is_botanist' => true,
             'creation_date' => now(),
             'botanist_since' => now(),
@@ -214,18 +229,20 @@ class MissionTest extends TestCase
         ]);
 
         $mission = Mission::create([
+            'number_of_sessions' => 2,
+            'plants_list' => json_encode([1, 2]),
             'creation_date' => now(),
             'start_date' => now(),
             'end_date' => now()->addDays(7),
             'owner_id' => $owner->id,
-            'botanist_id' => $botanist->id,
+            'gardien_id' => $gardien->id,
             'candidates_list' => json_encode([]),
             'price' => 100.0,
             'description' => 'A mission description.'
         ]);
 
         $this->assertEquals($owner->id, $mission->owner->id);
-        $this->assertEquals($botanist->id, $mission->botanist->id);
+        $this->assertEquals($gardien->id, $mission->gardien->id);
     }
     public function test_can_create_many_missions()
     {

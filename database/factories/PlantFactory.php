@@ -32,6 +32,7 @@ class PlantFactory extends Factory
             'url_photo' => $this->faker->imageUrl(),
             'status' => $status,
             'description' => $this->faker->paragraph,
+            'advices_list' => rand(1, 10),
         ];
     }
 }

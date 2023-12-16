@@ -9,11 +9,13 @@ class Mission extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'number_of_sessions',
+        'plants_list',
         'creation_date',
         'start_date',
         'end_date',
         'owner_id',
-        'botanist_id',
+        'gardien_id',
         'candidates_list',
         'price',
         'description',
@@ -24,9 +26,9 @@ class Mission extends Model
         return $this->belongsTo(User::class, 'owner_id');
     }
 
-    public function botanist()
+    public function gardien()
     {
-        return $this->belongsTo(User::class, 'botanist_id');
+        return $this->belongsTo(User::class, 'gardien_id');
     }
 
     protected $casts = [
