@@ -48,9 +48,15 @@ class MissionsTableSeeder extends Seeder
                     'botanist_id' => rand(1, 10)
                 ];
             });
-            Log::info('Missions table seeded ✅');
+            try {
+                Log::info('Missions table seeded ✅');
+            } catch (\Exception $e) {
+            }
         } catch (\Exception $e) {
-            Log::error('Failed to seed missions table ❌', ['error' => $e->getMessage()]);
+            try {
+                Log::error('Failed to seed missions table ❌', ['error' => $e->getMessage()]);
+            } catch (\Exception $e) {
+            }
         }
     }
 }

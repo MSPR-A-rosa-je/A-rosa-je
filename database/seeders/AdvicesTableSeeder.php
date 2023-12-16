@@ -50,9 +50,15 @@ class AdvicesTableSeeder extends Seeder
                 DB::table('advices')->insert($advice);
             }
             \App\Models\Advice::factory()->count(10)->create();
-            Log::info('Advices table seeded ✅');
+            try {
+                Log::info('Advices table seeded ✅');
+            } catch (\Exception $e) {
+            }
         } catch (\Exception $e) {
-            Log::error('Failed to seed advices table ❌', ['error' => $e->getMessage()]);
+            try {
+                Log::error('Failed to seed advices table ❌', ['error' => $e->getMessage()]);
+            } catch (\Exception $e) {
+            }
         }
     }
 }

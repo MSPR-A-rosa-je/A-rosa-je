@@ -86,9 +86,15 @@ class PlantsTableSeeder extends Seeder
                 DB::table('plants')->insert($plant);
             }
             \App\Models\Plant::factory()->count(10)->create();
-            Log::info('Plants table seeded ✅');
+            try {
+                Log::info('Plants table seeded ✅');
+            } catch (\Exception $e) {
+            }
         } catch (\Exception $e) {
-            Log::error('Failed to seed plants table ❌', ['error' => $e->getMessage()]);
+            try {
+                Log::error('Failed to seed plants table ❌', ['error' => $e->getMessage()]);
+            } catch (\Exception $e) {
+            }
         }
     }
 }

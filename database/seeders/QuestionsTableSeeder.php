@@ -50,9 +50,15 @@ class QuestionsTableSeeder extends Seeder
                     'owner_id' => rand(1, 10),
                 ];
             });
-            Log::info('Questions table seeded ✅');
+            try {
+                Log::info('Questions table seeded ✅');
+            } catch (\Exception $e) {
+            }
         } catch (\Exception $e) {
-            Log::error('Failed to seed questions table ❌', ['error' => $e->getMessage()]);
+            try {
+                Log::error('Failed to seed questions table ❌', ['error' => $e->getMessage()]);
+            } catch (\Exception $e) {
+            }
         }
     }
 }

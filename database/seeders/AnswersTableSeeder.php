@@ -46,11 +46,18 @@ class AnswersTableSeeder extends Seeder
                 return [
                     'owner_id' => rand(1, 10),
                     'question_id' => rand(1, 10),
-                    Log::info('Answers table seeded ✅')
                 ];
+
+                try {
+                    Log::info('Answers table seeded ✅');
+                } catch (\Exception $e) {
+                }
             });
         } catch (\Exception $e) {
+        }
+        try {
             Log::error('Failed to seed answers table ❌', ['error' => $e->getMessage()]);
+        } catch (\Exception $e) {
         }
     }
 }
