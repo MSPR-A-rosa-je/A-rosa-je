@@ -12,8 +12,10 @@ class AddressesTableSeeder extends Seeder
     /**
      * Run the database seeds.
      */
+
     public function run()
     {
+        $seed_sample = config('app.seed_sample');
         try {
             $addresses = [
                 [
@@ -44,7 +46,7 @@ class AddressesTableSeeder extends Seeder
             foreach ($addresses as $address) {
                 DB::table('addresses')->insert($address);
             }
-            \App\Models\Address::factory()->count(10)->create();
+            \App\Models\Address::factory()->count($seed_sample)->create();
             try {
                 Log::info('Addresses table seeded ✅');
             } catch (\Exception $e) {

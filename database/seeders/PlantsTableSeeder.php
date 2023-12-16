@@ -13,6 +13,7 @@ class PlantsTableSeeder extends Seeder
      */
     public function run()
     {
+        $seed_sample = config('app.seed_sample');
         try {
             $plants = [
                 [
@@ -93,7 +94,7 @@ class PlantsTableSeeder extends Seeder
             foreach ($plants as $plant) {
                 DB::table('plants')->insert($plant);
             }
-            \App\Models\Plant::factory()->count(10)->create();
+            \App\Models\Plant::factory()->count($seed_sample)->create();
             try {
                 Log::info('Plants table seeded ✅');
             } catch (\Exception $e) {

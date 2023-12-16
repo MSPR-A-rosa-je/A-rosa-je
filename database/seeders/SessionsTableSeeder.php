@@ -12,6 +12,7 @@ class SessionsTableSeeder extends Seeder
 {
     public function run()
     {
+        $seed_sample = config('app.seed_sample');
         try {
             $sessions = [
                 [
@@ -47,7 +48,7 @@ class SessionsTableSeeder extends Seeder
             foreach ($sessions as $session) {
                 DB::table('sessions')->insert($session);
             }
-            \App\Models\Session::factory()->count(5)->create();
+            \App\Models\Session::factory()->count($seed_sample / 2)->create();
             try {
                 Log::info('Sessions table seeded ✅');
             } catch (\Exception $e) {
