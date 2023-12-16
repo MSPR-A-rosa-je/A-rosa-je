@@ -46,7 +46,7 @@ class MissionsTableSeeder extends Seeder
             foreach ($missions as $mission) {
                 DB::table('missions')->insert($mission);
             }
-            \App\Models\Mission::factory()->count(10)->create(function (array $attributes) {
+            \App\Models\Mission::factory()->count(5)->create(function (array $attributes) {
                 return [
                     'owner_id' => rand(1, 10),
                     'gardien_id' => rand(1, 10)

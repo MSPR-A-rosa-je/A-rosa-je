@@ -32,18 +32,26 @@ class DatabaseSeeder extends Seeder
         } catch (\Exception $e) {
             $this->call(AdvicesTableSeeder::class);
         }
-        try {
-            $this->call(AddressesTableSeeder::class);
-            Log::info('Seeding Addresses table...');
-        } catch (\Exception $e) {
-            $this->call(AddressesTableSeeder::class);
-        }
 
         try {
             $this->call(MissionsTableSeeder::class);
             Log::info('Seeding missions table...');
         } catch (\Exception $e) {
             $this->call(MissionsTableSeeder::class);
+        }
+
+        try {
+            $this->call(SessionsTableSeeder::class);
+            Log::info('Seeding sessions table...');
+        } catch (\Exception $e) {
+            $this->call(SessionsTableSeeder::class);
+        }
+
+        try {
+            $this->call(AddressesTableSeeder::class);
+            Log::info('Seeding Addresses table...');
+        } catch (\Exception $e) {
+            $this->call(AddressesTableSeeder::class);
         }
     }
 }
