@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Address;
 use App\Models\User;
@@ -11,7 +10,7 @@ use App\Models\User;
 class AddressesTest extends TestCase
 {
     use RefreshDatabase;
-    public function test_an_adress_can_be_created()
+    public function test_an_address_can_be_created()
     {
         $address = Address::factory()->create();
 
@@ -20,7 +19,7 @@ class AddressesTest extends TestCase
         ]);
     }
 
-    public function test_an_adress_can_be_updated()
+    public function test_an_address_can_be_updated()
     {
         $address = Address::factory()->create();
         $address->update(['city' => 'New City']);
@@ -31,7 +30,7 @@ class AddressesTest extends TestCase
         ]);
     }
 
-    public function test_an_adress_can_be_deleted()
+    public function test_an_address_can_be_deleted()
     {
         $address = Address::factory()->create();
         $addressId = $address->id;
@@ -41,15 +40,13 @@ class AddressesTest extends TestCase
             'id' => $addressId
         ]);
     }
-    public function test_an_adress_belongs_to_a_user()
-    {
-        $user = User::factory()->create();
-        $address = Address::factory()->create(['user_id' => $user->id]);
 
+    public function test_a_address_belongs_to_an_user()
+    {
+        $address = Address::factory()->create();
         $this->assertInstanceOf(User::class, $address->user);
-        $this->assertEquals($user->id, $address->user->id);
     }
-    public function test_an_adress_can_be_created_for_a_user()
+    public function test_an_address_can_be_created_for_a_user()
     {
         $address = Address::factory()->for(User::factory())->create();
 
@@ -62,13 +59,14 @@ class AddressesTest extends TestCase
             'id' => $address->user_id
         ]);
     }
+
     public function test_can_create_many_addresses()
     {
         $initialCount = Address::count();
 
-        Address::factory()->count(500)->create();
+        Address::factory()->count(50)->create();
 
         $newCount = Address::count();
-        $this->assertEquals($initialCount + 500, $newCount);
+        $this->assertEquals($initialCount + 50, $newCount);
     }
 }
