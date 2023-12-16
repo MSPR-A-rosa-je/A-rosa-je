@@ -13,7 +13,6 @@ class PlantsTableSeeder extends Seeder
      */
     public function run()
     {
-        Log::info('Seeding plants table...');
         try {
             $plants = [
                 [
@@ -91,6 +90,5 @@ class PlantsTableSeeder extends Seeder
         } catch (\Exception $e) {
             Log::error('Failed to seed plants table ❌', ['error' => $e->getMessage()]);
         }
-
     }
 }

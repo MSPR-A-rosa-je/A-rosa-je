@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Log;
 
 return new class extends Migration
 {
@@ -11,6 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Log::info('Creating users table...');
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_botanist');
@@ -36,6 +38,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Log::info('Dropping users table...');
         Schema::dropIfExists('users');
     }
 };

@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Log;
 
 return new class extends Migration
 {
@@ -11,6 +12,7 @@ return new class extends Migration
      */
     public function up()
     {
+        Log::info('Creating questions table...');
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -32,6 +34,7 @@ return new class extends Migration
 
     public function down()
     {
+        Log::info('Dropping questions table...');
         Schema::dropIfExists('answer_question');
         Schema::dropIfExists('questions');
     }

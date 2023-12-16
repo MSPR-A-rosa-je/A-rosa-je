@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Log;
 
 return new class extends Migration
 {
@@ -11,6 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Log::info('Creating advices table...');
         Schema::create('advices', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -29,6 +31,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Log::info('Dropping advices table...');
         Schema::dropIfExists('advices');
     }
 };
