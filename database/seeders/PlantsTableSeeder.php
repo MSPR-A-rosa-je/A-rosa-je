@@ -16,6 +16,7 @@ class PlantsTableSeeder extends Seeder
         try {
             $plants = [
                 [
+                    'advices_list' =>  json_encode([3, 4]),
                     'owner_id' => 1,
                     'specie_name' => 'Rose',
                     'location' => 'Jardin',
@@ -24,6 +25,7 @@ class PlantsTableSeeder extends Seeder
                     'description' => 'Belle rose rouge épanouie.'
                 ],
                 [
+                    'advices_list' =>  json_encode([3, 4]),
                     'owner_id' => 1,
                     'specie_name' => 'Tulipe',
                     'location' => 'Balcon',
@@ -32,6 +34,7 @@ class PlantsTableSeeder extends Seeder
                     'description' => 'Tulipes jaunes nécessitant un arrosage régulier.'
                 ],
                 [
+                    'advices_list' =>  json_encode([3, 4]),
                     'owner_id' => 2,
                     'specie_name' => 'Chêne',
                     'location' => 'Cour arrière',
@@ -40,6 +43,7 @@ class PlantsTableSeeder extends Seeder
                     'description' => 'Grand chêne avec une large canopée.'
                 ],
                 [
+                    'advices_list' =>  json_encode([3, 4]),
                     'owner_id' => 2,
                     'specie_name' => 'Lavande',
                     'location' => 'Jardin avant',
@@ -48,6 +52,7 @@ class PlantsTableSeeder extends Seeder
                     'description' => 'Lavande parfumée attirant les abeilles et les papillons.'
                 ],
                 [
+                    'advices_list' =>  json_encode([3, 4]),
                     'owner_id' => 3,
                     'specie_name' => 'Cactus',
                     'location' => 'Fenêtre intérieure',
@@ -56,6 +61,7 @@ class PlantsTableSeeder extends Seeder
                     'description' => 'Un cactus résistant nécessitant peu d\'arrosage.'
                 ],
                 [
+                    'advices_list' =>  json_encode([3, 4]),
                     'owner_id' => 3,
                     'specie_name' => 'Orchidée',
                     'location' => 'Serre',
@@ -64,6 +70,7 @@ class PlantsTableSeeder extends Seeder
                     'description' => 'Orchidée exotique avec de magnifiques fleurs.'
                 ],
                 [
+                    'advices_list' =>  json_encode([3, 4]),
                     'owner_id' => 4,
                     'specie_name' => 'Bambou',
                     'location' => 'Bord de l\'étang',
@@ -72,6 +79,7 @@ class PlantsTableSeeder extends Seeder
                     'description' => 'Bambou vert poussant rapidement près de l\'eau.'
                 ],
                 [
+                    'advices_list' =>  json_encode([3, 4]),
                     'owner_id' => 4,
                     'specie_name' => 'Érable japonais',
                     'location' => 'Jardin japonais',

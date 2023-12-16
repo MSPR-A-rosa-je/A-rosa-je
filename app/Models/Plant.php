@@ -15,6 +15,7 @@ class Plant extends Model
         'url_photo',
         'status',
         'description',
+        'advices_list',
     ];
 
     public function owner()
