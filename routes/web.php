@@ -16,5 +16,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/header', function () {
+    return view('header');
+});
 
 Route::resource('users', UserController::class);

@@ -90,9 +90,9 @@ class UserController extends Controller
         try {
             $user->delete();
             Log::info('User deleted: ' . $user->pseudo);
-            return redirect()->route('users.index')->with('success', 'User: ' . $user->pseudo . ' deleted successfully.');
+            return redirect()->route('users.index')->with('success', 'User: ' . $user->pseudo . ' deleted successfully ✅');
         } catch (\Exception $e) {
-            return redirect()->route('users.index')->with('error', 'An error occurred while deleting the user: ' . $e->getMessage() . '.');
+            return redirect()->route('users.index')->with('error', 'An error occurred while deleting the user: ' . $e->getMessage() . '❌');
         }
     }
 }

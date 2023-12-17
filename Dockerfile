@@ -18,6 +18,9 @@ RUN echo '<VirtualHost *:80>\n\tDocumentRoot /var/www/html/public\n\t<Directory 
 WORKDIR /var/www/html
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN rm -r composer.lock
+RUN composer update --no-interaction
 RUN composer install --no-dev --optimize-autoloader
 
 RUN chown -R www-data:www-data /var/www/html/storage
