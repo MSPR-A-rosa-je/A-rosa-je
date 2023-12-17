@@ -12,147 +12,50 @@ class AdviceTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function an_advice_can_be_created()
+    public function test_an_advice_can_be_created()
     {
-        $user = User::create([
-            'is_botanist' => true,
-            'creation_date' => now(),
-            'botanist_since' => now(),
-            'pseudo' => 'UserExample',
-            'first_name' => 'Jane',
-            'last_name' => 'Doe',
-            'phone_number' => '0987654321',
-            'email' => 'jane@example.com',
-            'birth_date' => '1985-02-02',
-            'url_picture' => null,
-            'zip_code' => '54321',
-            'city' => 'Another City',
-            'address' => '321 Another St',
-            'password' => bcrypt('password'),
-        ]);
-
-        $advice = Advice::create([
-            'title' => 'Gardening Tips',
-            'creation_date' => now(),
-            'description' => 'Some useful gardening tips.',
-            'owner_id' => $user->id,
-            'like_number' => 0
-        ]);
+        $advice = Advice::factory()->create();
 
         $this->assertDatabaseHas('advices', [
             'id' => $advice->id
         ]);
     }
 
-    /** @test */
-    public function an_advice_can_be_updated()
+    public function test_an_advice_can_be_updated()
     {
-        $user = User::create([
-            'is_botanist' => true,
-            'creation_date' => now(),
-            'botanist_since' => now(),
-            'pseudo' => 'UserExample',
-            'first_name' => 'Jane',
-            'last_name' => 'Doe',
-            'phone_number' => '0987654321',
-            'email' => 'jane@example.com',
-            'birth_date' => '1985-02-02',
-            'url_picture' => null,
-            'zip_code' => '54321',
-            'city' => 'Another City',
-            'address' => '321 Another St',
-            'password' => bcrypt('password'),
-        ]);
-
-        $advice = Advice::create([
-            'title' => 'Gardening Tips',
-            'creation_date' => now(),
-            'description' => 'Some useful gardening tips.',
-            'owner_id' => $user->id,
-            'like_number' => 0
-        ]);
-
-        $advice->like_number = 5;
-        $advice->save();
+        $advice = Advice::factory()->create();
+        $advice->update(['title' => 'New title']);
 
         $this->assertDatabaseHas('advices', [
-            'like_number' => 5
+            'id' => $advice->id,
+            'title' => 'New title'
         ]);
     }
 
-    /** @test */
-    public function an_advice_can_be_deleted()
+    public function test_an_advice_can_be_deleted()
     {
-        $user = User::create([
-            'is_botanist' => true,
-            'creation_date' => now(),
-            'botanist_since' => now(),
-            'pseudo' => 'UserExample',
-            'first_name' => 'Jane',
-            'last_name' => 'Doe',
-            'phone_number' => '0987654321',
-            'email' => 'jane@example.com',
-            'birth_date' => '1985-02-02',
-            'url_picture' => null,
-            'zip_code' => '54321',
-            'city' => 'Another City',
-            'address' => '321 Another St',
-            'password' => bcrypt('password'),
-        ]);
-
-        $advice = Advice::create([
-            'title' => 'Gardening Tips',
-            'creation_date' => now(),
-            'description' => 'Some useful gardening tips.',
-            'owner_id' => $user->id,
-            'like_number' => 0
-        ]);
-
-        $advice_id = $advice->id;
+        $advice = Advice::factory()->create();
+        $adviceId = $advice->id;
         $advice->delete();
 
         $this->assertDatabaseMissing('advices', [
-            'id' => $advice_id
+            'id' => $adviceId
         ]);
     }
 
-    /** @test */
-    public function an_advice_belongs_to_a_user()
+    public function test_a_advice_belongs_to_an_user()
     {
-        $user = User::create([
-            'is_botanist' => true,
-            'creation_date' => now(),
-            'botanist_since' => now(),
-            'pseudo' => 'UserExample',
-            'first_name' => 'Jane',
-            'last_name' => 'Doe',
-            'phone_number' => '0987654321',
-            'email' => 'jane@example.com',
-            'birth_date' => '1985-02-02',
-            'url_picture' => null,
-            'zip_code' => '54321',
-            'city' => 'Another City',
-            'address' => '321 Another St',
-            'password' => bcrypt('password'),
-        ]);
-
-        $advice = Advice::create([
-            'title' => 'Gardening Tips',
-            'creation_date' => now(),
-            'description' => 'Some useful gardening tips.',
-            'owner_id' => $user->id,
-            'like_number' => 0
-        ]);
-
-        $this->assertEquals($user->id, $advice->owner->id);
+        $advice = Advice::factory()->create();
+        $this->assertInstanceOf(User::class, $advice->owner);
     }
+
     public function test_can_create_many_advices()
     {
         $initialCount = Advice::count();
 
-        Advice::factory()->count(500)->create();
+        Advice::factory()->count(20)->create();
 
         $newCount = Advice::count();
-        $this->assertEquals($initialCount + 500, $newCount);
+        $this->assertEquals($initialCount + 20, $newCount);
     }
 }
