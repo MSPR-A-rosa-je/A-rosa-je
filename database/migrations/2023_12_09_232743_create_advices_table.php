@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('like_number')->default(0);
             $table->timestamps();
 
-            $table->foreign('owner_id')->references('id')->on('users');
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');;
         });
     }
 
