@@ -243,7 +243,7 @@
             <li class="list"><a href="#">Users</a>
                 <ul class="under">
                     <li><a href="{{ route('users.index') }}">View</a></li>
-                    <li><a href="#">Create</a></li>
+                    <li><a href="{{ route('users.create') }}">Create</a></li>
                     <li><a href="#">Update</a></li>
                     <li><a href="#">Delete</a></li>
                 </ul>
@@ -299,3 +299,15 @@
         </ul>
     </nav>
 </header>
+<div class="message-container">
+    @if (session('error'))
+    <div style="color: red;">
+        {{ session('error') }}
+    </div>
+    @endif
+    @if (session('success'))
+    <div style="color: green;">
+        {{ session('success') }}
+    </div>
+    @endif
+</div>

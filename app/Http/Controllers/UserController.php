@@ -20,33 +20,31 @@ class UserController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'is_botanist' => 'required|boolean',
-            'creation_date' => 'required|date',
-            'botanist_since' => 'nullable|date',
-            'pseudo' => 'required|string|max:255',
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'phone_number' => 'nullable|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'birth_date' => 'required|date',
-            'url_picture' => 'nullable|string|max:255',
-            'password' => 'required|string|min:6',
-            'address_id' => 'nullable|integer|exists:addresses,id'
-        ]);
+{
+    $validatedData = $request->validate([
+        'pseudo' => 'required|string|max:255',
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'birth_date' => 'required|date',
+        'password' => 'required|string|min:6',
+    ]);
 
-        if (isset($validatedData['password'])) {
-            $validatedData['password'] = bcrypt($validatedData['password']);
-        }
-        try {
-            $user = User::create($validatedData);
-            Log::info('User created: ' . $user->pseudo);
-            return redirect()->route('users.create')->with('success', 'User: ' . $user->pseudo . ' created successfully.');
-        } catch (\Exception $e) {
-            return redirect()->route('users.create')->with('error', 'An error occurred while creating the user: ' . $e->getMessage() . '.');
-        }
+    $validatedData['is_botanist'] = false;
+    $validatedData['creation_date'] = now();
+
+    if (isset($validatedData['password'])) {
+        $validatedData['password'] = bcrypt($validatedData['password']);
     }
+
+    try {
+        $user = User::create($validatedData);
+        Log::info('User created: ' . $user->pseudo);
+        return redirect()->route('users.index')->with('success', 'User: ' . $user->pseudo . ' created successfully.');
+    } catch (\Throwable $e) {
+        return "<div>test</div>";
+    }
+}
 
     public function show(User $user)
     {

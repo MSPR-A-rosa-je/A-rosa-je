@@ -1,18 +1,4 @@
 @include('header')
-
-<div class="message-container" style="">
-    @if (session('error'))
-    <div style="color: red;">
-        {{ session('error') }}
-    </div>
-    @endif
-    @if (session('success'))
-    <div style="color: green;">
-        {{ session('success') }}
-    </div>
-    @endif
-</div>
-
 <div class="user-table">
     <table>
         <thead>
