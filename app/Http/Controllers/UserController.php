@@ -56,11 +56,13 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        error_log("dfghj");
         return view('users.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
     {
+        error_log("AAAAAAA");
         $validatedData = $request->validate([
             'is_botanist' => 'required|boolean',
             'creation_date' => 'required|date',
