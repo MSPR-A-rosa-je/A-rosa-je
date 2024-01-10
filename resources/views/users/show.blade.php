@@ -39,7 +39,7 @@
             @csrf
             @method('DELETE')
             <a href="/users" class="button" style="margin-right: 66em; margin-left: 2em">Back</a>
-            <a class="button">Edit</a>
+            <a class="button" href="{{ route('users.edit', [$user->id]) }}">Edit</a>
             <button class="button" type="submit" onclick="return confirm('Are you sure you want to delete this user?');">Delete</button>
         </div>
     </div>
