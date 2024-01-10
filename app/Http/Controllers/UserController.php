@@ -42,6 +42,9 @@ class UserController extends Controller
             Log::info('User created: ' . $user->pseudo);
             return redirect()->route('users.index')->with('success', 'User: ' . $user->pseudo . ' created successfully.');
         } catch (\Throwable $e) {
+            echo '<pre>';
+            echo $e;
+            echo '</pre>';
             return "<div>test</div>";
         }
     }
