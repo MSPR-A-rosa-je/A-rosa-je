@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlantController;
+use App\Http\Controllers\AddressController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,4 @@ Route::get('/admin', function () {
 
 Route::resource('users', UserController::class);
 Route::resource('plants', PlantController::class);
+Route::resource('addresses', AddressController::class);
