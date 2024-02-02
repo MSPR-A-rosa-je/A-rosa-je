@@ -6,7 +6,7 @@
     </div>
 
     <nav class="col-start-3 col-span-1">
-        <ul>
+        <ul class="flex">
             <li class="">
                 <a href="#">About us</a>
             </li>
