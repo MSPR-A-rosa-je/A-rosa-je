@@ -15,8 +15,6 @@
                 <ul class="under">
                     <li><a href="{{ route('users.index') }}">View</a></li>
                     <li><a href="{{ route('users.create') }}">Create</a></li>
-                    <li><a href="#">Update</a></li>
-                    <li><a href="#">Delete</a></li>
                 </ul>
             </li>
             <li class="list"><a href="#">Plants</a>
