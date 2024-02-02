@@ -19,6 +19,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_botanist');
+            $table->boolean('is_admin');
             $table->dateTime('creation_date');
             $table->dateTime('botanist_since')->nullable();
             $table->string('pseudo');

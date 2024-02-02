@@ -7,8 +7,8 @@
     <title>ADMIN PANEL</title>
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 </head>
-<header class="header">
-    <h1 class="logo"><a href="/admin">Admin pannel</a></h1>
+<header class="card">
+    <h1 class="logo"><a href="/home">Admin panel</a></h1>
     <nav>
         <ul>
             <li class="list"><a href="#">Users</a>
@@ -57,7 +57,14 @@
                     <li><a href="#">My account</a></li>
                     <li><a href="#">Informations</a></li>
                     <li><a href=/log-viewer>Logs Dashboard</a></li>
-                    <li><a href="#">Log out</a></li>
+                    <li>
+                        <form action="{{ route('admin.logout') }}" method="POST" id="logout-form" class="hidden">
+                            @csrf
+                        </form>
+                        <a href="#" class="list" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Log out
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

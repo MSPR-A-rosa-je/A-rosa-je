@@ -13,6 +13,7 @@
                     <th>Email</th>
                     <th>Birth date</th>
                     <th>Is botanist</th>
+                    <th>Is admin</th>
                     <th>Creation date</th>
                     <th>Botanist since</th>
                     <th>Address id</th>
@@ -27,6 +28,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->birth_date->format('d/m/Y') }}</td>
                     <td>{{ $user->is_botanist ? 'Yes' : 'No' }}</td>
+                    <td>{{ $user->is_admin ? 'Yes' : 'No' }}</td>
                     <td>{{ $user->creation_date->format('d/m/Y H:i') }}</td>
                     <td>{{ $user->botanist_since ? $user->botanist_since->format('d/m/Y') : 'N/A' }}</td>
                     <td>{{ $user->address_id }}</td>

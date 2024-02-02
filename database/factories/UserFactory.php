@@ -25,6 +25,7 @@ class UserFactory extends Factory
         }
         return [
             'is_botanist' => $this->faker->boolean,
+            'is_admin' => $this->faker->boolean,
             'creation_date' => now(),
             'botanist_since' => $this->faker->dateTimeBetween('-2 years', 'now'),
             'pseudo' => $pseudo,
