@@ -228,5 +228,11 @@ Media Queries
 }
 
 .filter {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    background-color: #fff
+    height: 40px;
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #34495e;
+    border-radius: 5px;
 }

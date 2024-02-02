@@ -1,7 +1,8 @@
 @include('admin')
 <div class="user-table">
-    <input class="filter" type="text" id="pseudo-filter" placeholder="Filter by pseudonym">
-    <input class="filter" type="text" id="id-filter" placeholder="Filter by ID">
+    <input class="filter" type="text" id="pseudo-filter" placeholder="Pseudo">
+    <input class="filter" type="text" id="id-filter" placeholder="ID">
+    <input class="filter" type="text" id="email-filter" placeholder="Email">
     <table>
         <thead>
             <tr>
@@ -22,5 +23,6 @@
     </table>
 </div>
 @include('layouts/footer')
+
 
 

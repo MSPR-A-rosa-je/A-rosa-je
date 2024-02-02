@@ -41,3 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const emailFilter = document.getElementById("email-filter");
+    emailFilter.addEventListener("keyup", function () {
+        const searchTerm = emailFilter.value.toLowerCase();
+        const tableRows = document.querySelectorAll(".user-table tbody tr");
+        tableRows.forEach(function (row) {
+            const emailTd = row.querySelector("td:nth-child(2)");
+            const email = emailTd.textContent.toLowerCase();
+            if (email.includes(searchTerm)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    });
+});
