@@ -170,7 +170,7 @@ nav>ul li:hover .under {
     cursor: pointer;
 }
 
-.user-table {
+.list-table {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -178,7 +178,7 @@ nav>ul li:hover .under {
 
 }
 
-.user-table-row {
+.list-table-row {
     width: auto;
 }
 

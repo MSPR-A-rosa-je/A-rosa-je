@@ -1,5 +1,5 @@
 @include('admin')
-<div class="user-table">
+<div class="list-table">
     <input class="filter" type="text" id="pseudo-filter" placeholder="Pseudo">
     <input class="filter" type="text" id="id-filter" placeholder="ID">
     <input class="filter" type="text" id="email-filter" placeholder="Email">
