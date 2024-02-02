@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlantController;
+use App\Http\Controllers\Auth\AdminLoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,19 @@ use App\Http\Controllers\PlantController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin-login', function () {
+    return view('admin-login');
+})->name('admin.login.form');
+
+Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
+
 Route::get('/admin', function () {
     return view('admin');
-});
+})->middleware('admin');
 
 Route::resource('users', UserController::class);
 Route::resource('plants', PlantController::class);
+
+
+

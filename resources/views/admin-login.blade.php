@@ -15,8 +15,17 @@
         <div class="container mx-auto h-full flex flex-1 justify-center items-center">
             <div class="w-full max-w-lg">
                 <div class="leading-loose">
+
                     <form class="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl login-form-container" method="POST" action="{{ route('admin.login') }}">
-                        @csrf
+                    @if ($errors->any())
+                    <div class="flex items-center justify-center mt-4">
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-auto" role="alert">
+                            <strong class="font-bold">Error !</strong>
+                            <span class="block sm:inline">{{ $errors->first() }}</span>
+                        </div>
+                    </div>
+                    @endif
+                    @csrf
                         <p class="text-gray-800 font-medium text-center text-lg font-bold">ADMIN LOGIN</p>
                         <label class="block text-sm text-white" for="email">Email</label>
                         <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white" type="email" name="email" placeholder="Email" aria-label="email" required>
@@ -24,13 +33,11 @@
                             <label class="block text-sm text-white">Password</label>
                             <input class="w-full px-5 py-1 text-gray-700 bg-gray-300 rounded focus:outline-none focus:bg-white" type="password" name="password" placeholder="Password" aria-label="password" required>
                         </div>
-                        <div class="mt-4 items-center flex justify-between">
+                        <div class="mt-4 items-center flex justify-center">
                             <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 hover:bg-gray-800 rounded" type="submit">Submit</button>
                         </div>
-                    </form>
-
-                    <div class="text-center">
-                    </div>
+                        <div class="text-center">
+                        </div>
                     </form>
                 </div>
             </div>

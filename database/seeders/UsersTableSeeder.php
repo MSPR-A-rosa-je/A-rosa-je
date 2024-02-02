@@ -80,6 +80,22 @@ class UsersTableSeeder extends Seeder
                     'address' => '5 Place de l\'Eglise',
                     'password' => Hash::make('98d8caeb4'),
                 ],
+                [
+                    'is_botanist' => false,
+                    'is_admin' => false,
+                    'creation_date' => Carbon::now(),
+                    'pseudo' => 'Ptitlu',
+                    'first_name' => 'Lucas' ,
+                    'last_name' => 'Beyer',
+                    'phone_number' => '0787215507',
+                    'email' => 'lucas.beyer2@gmx.fr',
+                    'birth_date' => '1998-30-07',
+                    'url_picture' => 'https://ibb.co/PzvZCbh',
+                    'zip_code' => '35133',
+                    'city' => 'Saint Germain en Cogles',
+                    'address' => '5 Place de l\'Eglise',
+                    'password' => Hash::make('98d8caeb4'),
+                ],
             ];
 
             foreach ($users as $user) {
