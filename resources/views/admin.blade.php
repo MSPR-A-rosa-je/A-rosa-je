@@ -8,7 +8,7 @@
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 </head>
 <header class="header">
-    <h1 class="logo"><a href="/header">Admin pannel</a></h1>
+    <h1 class="logo"><a href="/admin">Admin pannel</a></h1>
     <nav>
         <ul>
             <li class="list"><a href="#">Users</a>
