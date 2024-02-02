@@ -2,7 +2,7 @@
 <body>
     <div>
         <h2 class="logo">Profil of '{{ $user->pseudo }}'</h2>
-        <div class="user-table">
+        <div class="list-table">
         <table>
             <thead>
                 <tr>
