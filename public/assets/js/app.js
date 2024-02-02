@@ -1,59 +1,46 @@
-// import "./bootstrap.js";
-
 document.addEventListener("DOMContentLoaded", function () {
-    const rows = document.querySelectorAll(".clickable-row");
-    const pseudoFilter = document.getElementById("pseudo-filter");
-    const idFilter = document.getElementById("id-filter");
+    const clickableRows = document.querySelectorAll(".clickable-row");
+    const pseudoFilterInput = document.getElementById("pseudo-filter");
+    const idFilterInput = document.getElementById("id-filter");
 
-    if (pseudoFilter && idFilter) {
-        rows.forEach((row) => {
+    if (pseudoFilterInput && idFilterInput) {
+        clickableRows.forEach((row) => {
             row.addEventListener("click", () => {
                 window.location.href = row.dataset.href;
             });
         });
 
-        pseudoFilter.addEventListener("input", function () {
-            const filterValue = pseudoFilter.value.toLowerCase();
-            rows.forEach((row) => {
+        pseudoFilterInput.addEventListener("input", function () {
+            const filterValue = pseudoFilterInput.value.toLowerCase();
+            clickableRows.forEach((row) => {
                 const pseudo = row
                     .querySelector("td:first-child")
                     .textContent.toLowerCase();
-                if (pseudo.includes(filterValue)) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
+                row.style.display = pseudo.includes(filterValue) ? "" : "none";
             });
         });
 
-        idFilter.addEventListener("input", function () {
-            const filterValue = idFilter.value.toLowerCase();
-            rows.forEach((row) => {
+        idFilterInput.addEventListener("input", function () {
+            const filterValue = idFilterInput.value.toLowerCase();
+            clickableRows.forEach((row) => {
                 const id = row
                     .querySelector("td:nth-child(3)")
                     .textContent.toLowerCase();
-                if (id.includes(filterValue)) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
+                row.style.display = id.includes(filterValue) ? "" : "none";
             });
         });
     }
 });
+
 document.addEventListener("DOMContentLoaded", function () {
-    const emailFilter = document.getElementById("email-filter");
-    emailFilter.addEventListener("keyup", function () {
-        const searchTerm = emailFilter.value.toLowerCase();
+    const emailFilterInput = document.getElementById("email-filter");
+    emailFilterInput.addEventListener("keyup", function () {
+        const searchTerm = emailFilterInput.value.toLowerCase();
         const tableRows = document.querySelectorAll(".user-table tbody tr");
         tableRows.forEach(function (row) {
             const emailTd = row.querySelector("td:nth-child(2)");
             const email = emailTd.textContent.toLowerCase();
-            if (email.includes(searchTerm)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
+            row.style.display = email.includes(searchTerm) ? "" : "none";
         });
     });
 });
