@@ -3,6 +3,7 @@
 use App\Http\Controllers\PlantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PlantController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +18,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/header', function () {
-    return view('header');
+Route::get('/admin', function () {
+    return view('admin');
 });
 
 Route::resource('users', UserController::class);

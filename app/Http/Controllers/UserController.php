@@ -20,31 +20,34 @@ class UserController extends Controller
     }
 
     public function store(Request $request)
-{
-    $validatedData = $request->validate([
-        'pseudo' => 'required|string|max:255',
-        'first_name' => 'required|string|max:255',
-        'last_name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'birth_date' => 'required|date',
-        'password' => 'required|string|min:6',
-    ]);
+    {
+        $validatedData = $request->validate([
+            'pseudo' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'birth_date' => 'required|date',
+            'password' => 'required|string|min:6',
+        ]);
 
-    $validatedData['is_botanist'] = false;
-    $validatedData['creation_date'] = now();
+        $validatedData['is_botanist'] = false;
+        $validatedData['creation_date'] = now();
 
-    if (isset($validatedData['password'])) {
-        $validatedData['password'] = bcrypt($validatedData['password']);
+        if (isset($validatedData['password'])) {
+            $validatedData['password'] = bcrypt($validatedData['password']);
+        }
+
+        try {
+            $user = User::create($validatedData);
+            Log::info('User created: ' . $user->pseudo);
+            return redirect()->route('users.index')->with('success', 'User: ' . $user->pseudo . ' created successfully.');
+        } catch (\Throwable $e) {
+            echo '<pre>';
+            echo $e;
+            echo '</pre>';
+            return "<div>test</div>";
+        }
     }
-
-    try {
-        $user = User::create($validatedData);
-        Log::info('User created: ' . $user->pseudo);
-        return redirect()->route('users.index')->with('success', 'User: ' . $user->pseudo . ' created successfully.');
-    } catch (\Throwable $e) {
-        return "<div>test</div>";
-    }
-}
 
     public function show(User $user)
     {
@@ -53,11 +56,13 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        error_log("dfghj");
         return view('users.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
     {
+        error_log("AAAAAAA");
         $validatedData = $request->validate([
             'is_botanist' => 'required|boolean',
             'creation_date' => 'required|date',
@@ -76,12 +81,16 @@ class UserController extends Controller
         if (!empty($validatedData['password'])) {
             $validatedData['password'] = bcrypt($validatedData['password']);
         } else {
+
             unset($validatedData['password']);
         }
-
-        $user->update($validatedData);
-
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        try {
+            $user->update($validatedData);
+            Log::info('User updated: ' . $user->pseudo);
+            return redirect()->route('users.index')->with('success', 'User: ' . $user->pseudo . ' Edited successfully ✅');
+        } catch (\Exception $e) {
+            return redirect()->route('users.index')->with('error', 'An error occurred while editing the user: ' . $e->getMessage() . '❌');
+        }
     }
     public function destroy(User $user)
     {

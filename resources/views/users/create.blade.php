@@ -1,4 +1,4 @@
-@include('header')
+@include('admin')
 <body>
 <h2>Create User</h2>
     <form action="/users" method="POST">
@@ -22,7 +22,6 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
 
-        <button class="button" type="submit"">Submit</button>
+        <button class="button" type="submit">Submit</button>
     </form>
-</body>
 </body>
