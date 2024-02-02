@@ -24,6 +24,14 @@ a {
     text-decoration: none;
 }
 
+/* TITLES */
+body h2 {
+    font-size: 32px;
+}
+body h3 {
+    font-size: 26px;
+}
+
 .logo {
     margin: 0;
     font-size: 1.45em;
@@ -72,7 +80,7 @@ header .logo p {
 nav {
     width: 100%;
     margin: 0 auto;
-    background-color: white;
+    /*background-color: white;*/
     /*position: sticky;*/
     top: 0px;
 }
@@ -197,6 +205,34 @@ td {
     min-height: 50px;
     text-align: center;
     font-size: 25px;
+}
+
+.accueil-bg-img {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+#accueil-img-1 {
+    background-image: url("/assets/pictures/img_plant_001.jpg");
+}
+#accueil-img-2 {
+    background-image: url("/assets/pictures/img_plant_002.jpg");
+}
+#accueil-img-3 {
+    height: 500px;
+    background-image: url("/assets/pictures/img_plant_003.jpg");
+}
+
+.bgc-white-transp {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+footer.footer {
+    background-color: #c4e7cd;
+}
+footer #footer-logo {
+    max-width: 150px;
+    padding: 10px 20px;
 }
 
 /* =================================
