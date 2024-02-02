@@ -7,8 +7,8 @@
     <title>ADMIN PANEL</title>
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 </head>
-<header class="header">
-    <h1 class="logo"><a href="/admin">Admin pannel</a></h1>
+<header class="card">
+    <h1 class="logo"><a href="/home">Admin panel</a></h1>
     <nav>
         <ul>
             <li class="list"><a href="#">Users</a>

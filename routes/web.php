@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlantController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,8 @@ Route::post('/admin/logout', function () {
     Auth::logout();
     return redirect('/');
 })->name('admin.logout');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('users', UserController::class);
 Route::resource('plants', PlantController::class);

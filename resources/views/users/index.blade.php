@@ -1,8 +1,10 @@
 @include('admin')
 <div class="user-table">
-    <input class="filter" type="text" id="pseudo-filter" placeholder="Pseudo">
-    <input class="filter" type="text" id="id-filter" placeholder="ID">
-    <input class="filter" type="text" id="email-filter" placeholder="Email">
+<div class="filter">
+    <input class="search" type="text" id="pseudo-filter" placeholder="Pseudo">
+    <input class="search" type="text" id="id-filter" placeholder="ID">
+    <input class="search" type="text" id="email-filter" placeholder="Email">
+</div>
     <table>
         <thead>
             <tr>

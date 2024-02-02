@@ -1,5 +1,11 @@
 <head>
-<link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 </head>
-<a class="logo" href="/admin">A'Rosa-je</a>
+<body>
+<div class="center">
+    <button class="delete-button" onclick="window.location.href='/admin'">
+        ␡
+    </button>
+</div>
+</body>
+
