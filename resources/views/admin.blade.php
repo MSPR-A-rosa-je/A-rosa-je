@@ -8,22 +8,22 @@
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 </head>
 <header class="header">
-    <h1 class="logo"><a href="/admin">Admin pannel</a></h1>
+    <h1 class="logo"><a href="/">Admin pannel</a></h1>
     <nav>
         <ul>
-            <li class="list"><a href="#">Users</a>
+            <li class="list" style="width: 12%"><a href="#">Users</a>
                 <ul class="under">
                     <li><a href="{{ route('users.index') }}">View</a></li>
                     <li><a href="{{ route('users.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li class="list"><a href="#">Plants</a>
+            <li class="list" style="width: 12%"><a href="#">Plants</a>
                 <ul class="under">
                     <li><a href="{{ route('plants.index') }}">View</a></li>
                     <li><a href="{{ route('plants.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li class="list"><a href="#">Missions</a>
+            <li class="list" style="width: 12%"><a href="#">Missions</a>
                 <ul class="under">
                     <li><a href="#">View</a></li>
                     <li><a href="#">Create</a></li>
@@ -31,7 +31,7 @@
                     <li><a href="#">Delete</a></li>
                 </ul>
             </li>
-            <li class="list"><a href="#">Advices</a>
+            <li class="list" style="width: 12%"><a href="#">Advices</a>
                 <ul class="under">
                     <li><a href="#">View</a></li>
                     <li><a href="#">Create</a></li>
@@ -39,7 +39,7 @@
                     <li><a href="#">Delete</a></li>
                 </ul>
             </li>
-            <li class="list"><a href="#">Sessions</a>
+            <li class="list" style="width: 12%"><a href="#">Sessions</a>
                 <ul class="under">
                     <li><a href="#">View</a></li>
                     <li><a href="#">Create</a></li>
@@ -47,12 +47,12 @@
                     <li><a href="#">Delete</a></li>
                 </ul>
             </li>
-            <li class="list"><a href="#">Addresses</a>
+            <li class="list" style="width: 12%"><a href="#">Addresses</a>
                 <ul class="under">
                     <li><a href="{{ route('addresses.index') }}">View</a></li>
                     <li><a href="{{ route('addresses.create') }}">Create</a></li>
                 </ul>
-            <li class="list"><a href="#">Settings</a>
+            <li class="list" style="width: 12%"><a href="#">Settings</a>
                 <ul class="under">
                     <li><a href="#">My account</a></li>
                     <li><a href="#">Informations</a></li>
