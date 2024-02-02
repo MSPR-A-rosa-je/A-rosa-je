@@ -1,4 +1,4 @@
-@include('header')
+@include('admin')
 <div class="user-table">
     <table>
         <thead>

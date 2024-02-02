@@ -1,4 +1,4 @@
-@include('header')
+@include('admin')
 <body>
 <h2>Create User</h2>
     <form action="/users" method="POST">

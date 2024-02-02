@@ -1,4 +1,4 @@
-@include('header')
+@include('admin')
 <body>
     <div>
         <h2 class="logo">Profil of '{{ $user->pseudo }}'</h2>

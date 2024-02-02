@@ -1,4 +1,4 @@
-@include('header')
+@include('admin')
 
 <body>
     <h2>Edit User</h2>
