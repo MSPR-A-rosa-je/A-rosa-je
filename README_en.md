@@ -81,7 +81,7 @@ Welcome to the world of **A’rosa-je**, the innovative app for all plant lovers
    php artisan key:generate
 ```
 
-1. **🏗️ Build and launch Docker containers** :
+6. **🏗️ Build and launch Docker containers** :
 
 ```bash
    docker-compose build
@@ -97,6 +97,11 @@ Welcome to the world of **A’rosa-je**, the innovative app for all plant lovers
    docker-compose exec app php artisan migrate --seed
 ```
 
+8. **Start project** :
+
+```bash
+   npm run dev 
+```
 
 ## License 📄
 
