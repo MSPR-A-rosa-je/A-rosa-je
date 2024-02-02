@@ -49,10 +49,8 @@
             </li>
             <li class="list"><a href="#">Addresses</a>
                 <ul class="under">
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Create</a></li>
-                    <li><a href="#">Update</a></li>
-                    <li><a href="#">Delete</a></li>
+                    <li><a href="{{ route('addresses.index') }}">View</a></li>
+                    <li><a href="{{ route('addresses.create') }}">Create</a></li>
                 </ul>
             <li class="list"><a href="#">Settings</a>
                 <ul class="under">
