@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Address::class, 'user_id');
     }
+
+    public function plant(){
+        return $this->hasMany(Plant::class, 'plant_id');
+    }
+
 }

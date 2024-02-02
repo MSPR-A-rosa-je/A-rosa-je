@@ -240,7 +240,7 @@
     <h1 class="logo"><a href="/header">Admin pannel</a></h1>
     <nav>
         <ul>
-            <li class="list"><a href="#">Users</a>
+            <li class="list"><a href="{{ route('users.index') }}">Users</a>
                 <ul class="under">
                     <li><a href="{{ route('users.index') }}">View</a></li>
                     <li><a href="{{ route('users.create') }}">Create</a></li>
@@ -248,10 +248,10 @@
                     <li><a href="#">Delete</a></li>
                 </ul>
             </li>
-            <li class="list"><a href="#">Plants</a>
+            <li class="list"><a href="{{ route('plants.index') }}">Plants</a>
                 <ul class="under">
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Create</a></li>
+                    <li><a href="{{ route('plants.index') }}">View</a></li>
+                    <li><a href="{{ route('plants.create')}}">Create</a></li>
                     <li><a href="#">Update</a></li>
                     <li><a href="#">Delete</a></li>
                 </ul>

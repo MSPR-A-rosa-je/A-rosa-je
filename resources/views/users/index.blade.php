@@ -1,6 +1,6 @@
 @include('header')
 <div class="user-table">
-    <table>
+    <table style="padding-bottom: 2%">
         <thead>
             <tr>
                 <th>Pseudo</th>

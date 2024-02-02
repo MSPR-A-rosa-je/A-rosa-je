@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 /*
@@ -21,3 +22,4 @@ Route::get('/header', function () {
 });
 
 Route::resource('users', UserController::class);
+Route::resource('plants', PlantController::class);
