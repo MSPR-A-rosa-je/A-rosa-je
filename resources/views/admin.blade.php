@@ -19,10 +19,8 @@
             </li>
             <li class="list"><a href="#">Plants</a>
                 <ul class="under">
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Create</a></li>
-                    <li><a href="#">Update</a></li>
-                    <li><a href="#">Delete</a></li>
+                    <li><a href="{{ route('plants.index') }}">View</a></li>
+                    <li><a href="{{ route('plants.create') }}">Create</a></li>
                 </ul>
             </li>
             <li class="list"><a href="#">Missions</a>
