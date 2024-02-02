@@ -1,4 +1,4 @@
-@include('header')
+@include('admin')
 <body>
 <h2>Create Plant</h2>
 <form action="/plants" method="POST">
