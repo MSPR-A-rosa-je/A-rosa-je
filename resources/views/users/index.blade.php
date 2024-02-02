@@ -1,5 +1,7 @@
 @include('admin')
 <div class="user-table">
+    <input class="filter" type="text" id="pseudo-filter" placeholder="Filter by pseudonym">
+    <input class="filter" type="text" id="id-filter" placeholder="Filter by ID">
     <table>
         <thead>
             <tr>
@@ -15,21 +17,10 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->id }}</td>
             </tr>
-            </div>
             @endforeach
+        </tbody>
     </table>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const rows = document.querySelectorAll('.clickable-row');
+@include('layouts/footer')
 
-        rows.forEach(row => {
-            row.addEventListener('click', () => {
-                window.location.href = row.dataset.href;
-            });
-        });
-    });
-</script>
-</body>
 
-</html>
