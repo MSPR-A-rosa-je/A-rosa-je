@@ -1,4 +1,4 @@
-@include('header')
+@include('admin')
 <div class="plant-table">
     <table style="padding-bottom: 2%">
         <thead>
