@@ -59,7 +59,14 @@
                     <li><a href="#">My account</a></li>
                     <li><a href="#">Informations</a></li>
                     <li><a href=/log-viewer>Logs Dashboard</a></li>
-                    <li><a href="#">Log out</a></li>
+                    <li>
+                        <form action="{{ route('admin.logout') }}" method="POST" id="logout-form" class="hidden">
+                            @csrf
+                        </form>
+                        <a href="#" class="list" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Log out
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

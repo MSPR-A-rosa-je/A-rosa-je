@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlantController;
 use App\Http\Controllers\Auth\AdminLoginController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,11 @@ Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin
 Route::get('/admin', function () {
     return view('admin');
 })->middleware('admin');
+
+Route::post('/admin/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('admin.logout');
 
 Route::resource('users', UserController::class);
 Route::resource('plants', PlantController::class);
