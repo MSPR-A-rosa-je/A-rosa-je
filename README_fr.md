@@ -96,6 +96,11 @@ Bienvenue dans l'univers de **A’rosa-je**, l'application innovante pour tous l
 ```bash
    docker-compose exec app php artisan migrate --seed
 ```
+8. **Lancer le projet** :
+
+```bash
+    npm run dev
+```
 
 ## Licence 📄
 
