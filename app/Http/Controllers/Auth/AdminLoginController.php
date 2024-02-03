@@ -17,7 +17,7 @@ class AdminLoginController extends Controller
 
         if (Auth::guard('web')->attempt($credentials)) {
             if (Auth::user()->is_admin) {
-                return redirect()->intended('/admin');
+                return redirect()->intended('/home');
             } else {
                 Auth::logout();
                 return back()->withErrors(['email' => 'You do not have access to admin panel.']);

@@ -29,7 +29,7 @@ Route::get('/admin-login', function () {
 Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
 
 Route::get('/admin', function () {
-    return view('admin');
+    return view('home');
 })->middleware('admin');
 
 Route::post('/admin/logout', function () {
