@@ -1,8 +1,10 @@
 @include('admin')
 <div class="list-table">
-    <input class="filter" type="text" id="specie-filter" placeholder="Specie">
-    <input class="filter" type="text" id="id-filter" placeholder="ID">
-    <input class="filter" type="text" id="location-filter" placeholder="Location">
+<div class="filter">
+    <input class="search" type="text" id="specie-filter" placeholder="Specie">
+    <input class="search" type="text" id="id-filter" placeholder="ID">
+    <input class="search" type="text" id="location-filter" placeholder="Location">
+</div>
     <table style="padding-bottom: 2%">
         <thead>
             <tr>

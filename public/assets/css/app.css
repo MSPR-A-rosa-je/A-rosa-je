@@ -229,18 +229,10 @@ Media Queries
 }
 
 .filter {
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(252, 225, 225, 0.1);
-    margin: 5px;
     display: flex;
-    flex-direction: row; /* Updated */
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: #1f2937;
-    width: 250px;
-    font-size: 12px;
-    height: 35px;
 }
 
 .login-form-container {
