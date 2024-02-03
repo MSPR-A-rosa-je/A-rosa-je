@@ -84,9 +84,9 @@ class AddressController extends Controller
     {
         try{
             $address->delete();
-            Log::info('Address deleted:'.$adress->id);
+            Log::info('Address deleted:'.$address->id);
             return redirect()->route('addresses.index')->with(
-                'success', 'Adress'.$address->id.'deleted successfully ✅');
+                'success', 'Adress: '.$address->id.' deleted successfully ✅');
         }catch(\Exception $e){
             return redirect()->route('addresses.index')->with('error', 'An error occured while deleting the adress : '.$e->getMessage().'❌');
         }

@@ -89,7 +89,7 @@ class PlantController extends Controller
         try{
             $plant->delete();
             Log::info('Plant deleted: '.$plant->id);
-            return redirect()->route('plants.index')->with('success', 'Plant: '.$plant->id.'deleted successfully ✅');
+            return redirect()->route('plants.index')->with('success', 'Plant: '.$plant->id.' deleted successfully ✅');
         }catch (\Exception $e){
             return redirect()->route('plants.index')->with('error', 'An error occured while deleting the plant : '.$e->getMessage().'❌');
         }

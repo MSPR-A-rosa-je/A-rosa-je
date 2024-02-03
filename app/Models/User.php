@@ -55,4 +55,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Plant::class, "owner_id");
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {
+            $user->address()->delete();
+            $user->plant()->delete();
+        });
+    }
 }
