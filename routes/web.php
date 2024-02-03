@@ -28,17 +28,14 @@ Route::get('/admin-login', function () {
 
 Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
 
-Route::get('/admin', function () {
-    return view('home');
-})->middleware('admin');
+Route::get('/admin', [HomeController::class, 'index'])->middleware('admin');
 
 Route::post('/admin/logout', function () {
     Auth::logout();
     return redirect('/');
 })->name('admin.logout');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Route::resource('users', UserController::class);
-Route::resource('plants', PlantController::class);
-Route::resource('addresses', AddressController::class);
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('admin');
+Route::resource('users', UserController::class)->middleware('admin');
+Route::resource('plants', PlantController::class)->middleware('admin');
+Route::resource('addresses', AddressController::class)->middleware('admin');
