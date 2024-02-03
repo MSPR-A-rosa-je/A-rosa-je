@@ -27,9 +27,6 @@ class UsersTableSeeder extends Seeder
                     'email' => 'buddingbotanist@example.com',
                     'birth_date' => '1998-07-30',
                     'url_picture' => 'https://ibb.co/JFcBKW2',
-                    'zip_code' => '42545',
-                    'city' => 'Greenhaven',
-                    'address' => '100 Sunnybrook Lane',
                     'password' => Hash::make('password42'),
                 ],
                 [
@@ -43,9 +40,6 @@ class UsersTableSeeder extends Seeder
                     'email' => 'cactuscharmer@example.com',
                     'birth_date' => '1985-05-16',
                     'url_picture' => 'https://ibb.co/NrMQNVm',
-                    'zip_code' => '67890',
-                    'city' => 'Flowerfield',
-                    'address' => '55 Blossom Hill Road',
                     'password' => Hash::make('password17'),
                 ],
                 [
@@ -59,9 +53,6 @@ class UsersTableSeeder extends Seeder
                     'email' => 'floralfiesta@example.com',
                     'birth_date' => '1964-08-11',
                     'url_picture' => 'https://ibb.co/ts5cY79',
-                    'zip_code' => '13579',
-                    'city' => 'LeafyVale',
-                    'address' => '22 Ivy Crescent',
                     'password' => Hash::make('password24'),
                 ],
                 [
@@ -75,9 +66,6 @@ class UsersTableSeeder extends Seeder
                     'email' => 'lucas.beyer@gmx.fr',
                     'birth_date' => '1998-30-07',
                     'url_picture' => 'https://ibb.co/PzvZCbh',
-                    'zip_code' => '35133',
-                    'city' => 'Saint Germain en Cogles',
-                    'address' => '5 Place de l\'Eglise',
                     'password' => Hash::make('98d8caeb4'),
                 ],
                 [
@@ -91,9 +79,6 @@ class UsersTableSeeder extends Seeder
                     'email' => 'lucas.beyer2@gmx.fr',
                     'birth_date' => '1998-30-07',
                     'url_picture' => 'https://ibb.co/PzvZCbh',
-                    'zip_code' => '35133',
-                    'city' => 'Saint Germain en Cogles',
-                    'address' => '5 Place de l\'Eglise',
                     'password' => Hash::make('98d8caeb4'),
                 ],
             ];
