@@ -57,6 +57,20 @@ body, html {
     transition-delay: calc(var(--index) * .05s);
 }
 
+div{
+    .bottom-link{
+        & button {
+            background: none;
+            color: black;
+            padding: 1px;
+            margin: 10px;
+            transition: color 0.3s ease;
+        }
+        & button:hover {
+            color: #35c01f;
+        }
+    }
+}
 .wave-group .input:focus ~ label .label-char,
 .wave-group .input:valid ~ label .label-char {
     transform: translateY(-20px);

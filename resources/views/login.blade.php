@@ -16,7 +16,7 @@
 <body>
 <div class="container">
     <div class="left-side">
-        <button class="cancel-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <button class="cancel-button" onclick="window.location.href='/welcome.blade.php'"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M7.07 7.07l9.17 9.17M7.07 16.24L16.24 7.07" fill="none" stroke="#ffffff" stroke-width="2"/>
             </svg></button>
         <div class="centered-content">
@@ -51,8 +51,8 @@
             <button id="Validate-button" class="gradient-button" type="submit">Validate</button>
         </div>
         <div class="bottom-link">
-            <a href="">Create account</a>
-            <a href="">Forgot password?</a>
+            <button>Create account</button>
+            <button onclick="window.location.href='/passwordReset.blade.php'">Forgot password?</button>
         </div>
     </div>
     <div class="center-line"></div>
