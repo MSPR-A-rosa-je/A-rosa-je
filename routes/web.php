@@ -2,18 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
-    return view('login');
+    return view('signup');
 });
-Route::resource('login', \App\Http\Controllers\LoginController::class);
+
+Route::get('/login', 'App\Http\Controllers\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'App\Http\Controllers\LoginController@login');
+Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+Route::get('/password/reset', 'PasswordResetController@showResetForm')->name('password.request');
+Route::post('/password/email', 'PasswordResetController@sendResetLinkEmail')->name('password.email');
+Route::get('/password/reset/{token}', 'PasswordResetController@showResetForm')->name('password.reset');
+Route::post('/password/reset', 'PasswordResetController@reset')->name('password.update');
+Route::view('/passwordReset', 'passwordReset');
+Route::get('/signup', 'App\Http\Controllers\SignupController@showSignupForm')->name('signup');

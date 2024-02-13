@@ -51,8 +51,8 @@
             <button id="Validate-button" class="gradient-button" type="submit">Validate</button>
         </div>
         <div class="bottom-link">
-            <button>Create account</button>
-            <button onclick="window.location.href='/passwordReset.blade.php'">Forgot password?</button>
+            <button onclick="window.location.href='/signup'">Create account</button>
+            <button onclick="window.location.href='/passwordReset'">Forgot password?</button>
         </div>
     </div>
     <div class="center-line"></div>
