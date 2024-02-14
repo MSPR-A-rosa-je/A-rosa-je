@@ -10,5 +10,8 @@ class SignupController extends Controller
     {
         return view('signup');
     }
-    //
+    public function signup(Request $request)
+    {
+
+    }
 }

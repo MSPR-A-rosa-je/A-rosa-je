@@ -15,3 +15,5 @@ Route::get('/password/reset/{token}', 'PasswordResetController@showResetForm')->
 Route::post('/password/reset', 'PasswordResetController@reset')->name('password.update');
 Route::view('/passwordReset', 'passwordReset');
 Route::get('/signup', 'App\Http\Controllers\SignupController@showSignupForm')->name('signup');
+Route::get('/legal-notice', 'App\Http\Controllers\LegalNoticeController@showLegalNoticeForm')->name('legal-notice');
+
