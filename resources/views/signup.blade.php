@@ -24,7 +24,7 @@
             </svg>
         </button>
         <div class="centered-content">
-            <form action="/signup" method="post">
+            <form id="signUpForm" action="/signup" method="post">
                 @csrf
                 <div class="wave-group">
                     <input required="" type="email" class="input"
@@ -151,22 +151,14 @@
                 <div class="container" id="specific-container">
                     <input required="" type="date" class="input" id="birthdate-input" placeholder="birthdate">
                     <div class="wave-group">
-                        <input required="" type="text" class="input" id="picture-input">
+                        <input required="" type="file" class="input" id="picture-input">
                         <span class="bar"></span>
-                        <label class="label">
-                            <span class="label-char" style="--index: 1">P</span>
-                            <span class="label-char" style="--index: 2">i</span>
-                            <span class="label-char" style="--index: 3">c</span>
-                            <span class="label-char" style="--index: 4">t</span>
-                            <span class="label-char" style="--index: 5">u</span>
-                            <span class="label-char" style="--index: 6">r</span>
-                            <span class="label-char" style="--index: 7">e</span>
-                        </label>
                     </div>
                 </div>
                 <br>
                 <div class="wave-group">
-                    <input required="required" type="password" class="input" name="password">
+                    <input required="required" type="password" class="input" name="password"
+                           oninput="comparePasswords()">
                     <span class="bar"></span>
                     <label class="label">
                         <span class="label-char" style="--index: 1">P</span>
@@ -181,7 +173,7 @@
                 </div>
                 <br>
                 <div class="wave-group">
-                    <input required="" type="password" class="input" name="password">
+                    <input required="" type="password" class="input" name="confirmation" oninput="comparePasswords()">
                     <span class="bar"></span>
                     <label class="label">
                         <span class="label-char" style="--index: 1">C</span>
@@ -201,6 +193,7 @@
                         <span class="label-char" style="--index: 8">d</span>
                     </label>
                 </div>
+                <p id="passwordError" style="color: red;"></p>
                 <br>
                 <div class="container" id="validation-container">
                     <div class="container" id="condition-container">
@@ -243,6 +236,28 @@
         <img src="{{ asset('assets/pictures/log_background.jpg') }}">
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var passwordInput = document.querySelector('input[name="password"]');
+        var confirmPasswordInput = document.querySelector('input[name="confirmation"]');
+        var error = document.getElementById("passwordError");
+
+        function comparePasswords() {
+            var password = passwordInput.value;
+            var confirmPassword = confirmPasswordInput.value;
+
+            if (password !== confirmPassword) {
+                error.innerText = "Passwords do not match.";
+            } else {
+                error.innerText = "";
+            }
+        }
+
+        passwordInput.addEventListener("input", comparePasswords);
+        confirmPasswordInput.addEventListener("input", comparePasswords);
+    });
+</script>
 
 
 </body>

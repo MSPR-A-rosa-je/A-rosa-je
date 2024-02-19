@@ -39,18 +39,18 @@ body, html {
     outline: none;
 
     ::placeholder {
-        color: #999; /* Couleur du texte de l'attribut placeholder */
-        font-style: italic; /* Style du texte de l'attribut placeholder */
+        color: #999;
+        font-style: italic;
     }
 }
 
 /* validation container with condition of use and validate button*/
 #validation-container {
-    align-items: center; /* Alignez les éléments verticalement */
-    justify-content: space-between; /* Alignez les éléments horizontalement */
+    align-items: center;
+    justify-content: space-between;
 
     #condition-container {
-        align-items: center; /* Alignez les éléments verticalement */
+        align-items: center;
 
     }
 }
@@ -129,25 +129,25 @@ body, html {
     position: absolute;
     left: 30%;
     top: 0;
-    padding: 5px 10px; /* Ajustez la taille du padding du bouton */
+    padding: 5px 10px;
 }
 
 .cancel-button svg {
-    width: 24px; /* Ajustez la taille du SVG */
-    height: 24px; /* Ajustez la taille du SVG */
+    width: 24px;
+    height: 24px;
     fill: white;
 }
 
 #Validate-button {
-    margin-top: 20px; /* Ajoutez une marge supérieure pour séparer le bouton des champs à remplir */
+    margin-top: 20px;
 }
 
 .image-overlay {
     position: absolute;
-    top: 50%; /* Ajustez la position verticale */
-    color: white; /* Couleur du texte */
-    font-size: 35px; /* Taille de la police */
-    text-align: center; /* Alignement du texte */
+    top: 50%;
+    color: white;
+    font-size: 35px;
+    text-align: center;
 }
 
 .wave-group .bar {
@@ -187,7 +187,7 @@ body, html {
 }
 
 .bottom-link a {
-    margin: 0 10px; /* Ajoutez une marge entre les liens */
+    margin: 0 10px;
 }
 
 
