@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\PlantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -25,3 +26,5 @@ Route::get('/admin', function () {
 Route::resource('users', UserController::class);
 Route::resource('plants', PlantController::class);
 Route::resource('addresses', AddressController::class);
+Route::resource('missions', MissionController::class);
+
