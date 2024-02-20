@@ -1,41 +1,35 @@
 @include('admin')
 <div class="address-table">
-    <h2 style="padding-bottom: 2%; font-size: 30px">Adresses</h2>
 
+    <div class="filter">
+        <input class="search" type="text" id="id-filter" placeholder="ID">
+        <input class="search" type="text" id="address-filter" placeholder="Address">
+        <input class="search" type="text" id="city-filter" placeholder="City">
+        <input class="search" type="text" id="zip_code-filter" placeholder="Zip Code">
+        <input class="search" type="text" id="user_id-filter" placeholder="User ID">
+    </div>
     <table style="padding-bottom: 2%">
         <thead>
-        <tr>
-            <th>Address</th>
-            <th>City</th>
-            <th>Zip Code</th>
-            <th>ID</th>
-            <th>User ID</th>
-        </tr>
+            <tr>
+                <th>Address</th>
+                <th>City</th>
+                <th>Zip Code</th>
+                <th>ID</th>
+                <th>User ID</th>
+            </tr>
         </thead>
-        <tbody>
-        @foreach ($addresses as $address)
-        <tr class="clickable-row" data-href="{{ url('/addresses/' . $address->id) }}">
-            <td>{{ $address->address }}</td>
-            <td>{{ $address->city }}</td>
-            <td>{{ $address->zip_code }}</td>
-            <td>{{ $address->id }}</td>
-            <td>{{ $address->user_id }}</td>
-        </tr>
+        <tbody id="table-body">
+            @foreach ($addresses as $address)
+            <tr class="clickable-row" data-href="{{ url('/addresses/' . $address->id) }}">
+                <td>{{ $address->address }}</td>
+                <td>{{ $address->city }}</td>
+                <td>{{ $address->zip_code }}</td>
+                <td>{{ $address->id }}</td>
+                <td>{{ $address->user_id }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
-@endforeach
-</table>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const rows = document.querySelectorAll('.clickable-row');
+@include('layouts/footer')
 
-        rows.forEach(row => {
-            row.addEventListener('click', () => {
-                window.location.href = row.dataset.href;
-            });
-        });
-    });
-</script>
-</body>
-
-</html>

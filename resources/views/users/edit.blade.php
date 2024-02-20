@@ -30,6 +30,9 @@
         <label for="is_botanist">Is Botanist:</label>
         <input type="checkbox" id="is_botanist" name="is_botanist" value="{{ $user->is_botanist}}"><br><br>
 
+        <label for="is_admin">Is Admin:</label>
+        <input type="checkbox" id="is_admin" name="is_admin" value="{{ $user->is_admin}}"><br><br>
+
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" value="{{ $user->password}}"><br><br>
 

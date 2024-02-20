@@ -13,6 +13,7 @@ class User extends Authenticatable
 
     protected $fillable = [
         'is_botanist',
+        'is_admin',
         'creation_date',
         'botanist_since',
         'pseudo',
@@ -31,6 +32,7 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
+        'is_admin' => 'boolean',
         'is_botanist' => 'boolean',
         'creation_date' => 'datetime',
         'botanist_since' => 'datetime',
@@ -52,5 +54,15 @@ class User extends Authenticatable
     public function plant()
     {
         return $this->hasMany(Plant::class, "owner_id");
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($user) {
+            $user->address()->delete();
+            $user->plant()->delete();
+        });
     }
 }

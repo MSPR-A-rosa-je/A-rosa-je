@@ -25,6 +25,7 @@ class UserFactory extends Factory
         }
         return [
             'is_botanist' => $this->faker->boolean,
+            'is_admin' => $this->faker->boolean,
             'creation_date' => now(),
             'botanist_since' => $this->faker->dateTimeBetween('-2 years', 'now'),
             'pseudo' => $pseudo,
@@ -34,9 +35,6 @@ class UserFactory extends Factory
             'email' => $email,
             'birth_date' => $this->faker->dateTimeBetween('-30 years', '-18 years'),
             'url_picture' => $this->faker->imageUrl,
-            'zip_code' => $this->faker->postcode,
-            'city' => $this->faker->city,
-            'address' => $this->faker->address,
             'password' => bcrypt('secret'),
         ];
     }
