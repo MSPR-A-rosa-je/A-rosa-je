@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <h1 class="logo"><a href="/home">Benchmarks</a></h1>
     <div class="bench">
         <button class="benchmark-btn" data-test="test1">Users Benchmark</button>
         <button class="benchmark-btn" data-test="test2">Plants Benchmark</button>
@@ -22,56 +21,47 @@
         <button class="benchmark-btn" data-test="test6">Adresses Benchmark</button>
     </div>
     <div class="bench">
-        <button class="benchmark-btn" data-test="testall">All Benchmark</button>
+        <button class="benchmark-btn" data-test="test7">All Benchmark</button>
     </div>
     <div class="bench">
-        <button class="clear-btn" id="clear"> CLEAR</button>
+        <button class="clear-btn" id="clear">CLEAR</button>
     </div>
     <div class="results_container">
         <div class="results" id="results">
-            <div class="results_attempt" style="display: none;">
-                <div class="dot-spinner">
-                    <div class="dot-spinner__dot"></div>
-                    <div class="dot-spinner__dot"></div>
-                    <div class="dot-spinner__dot"></div>
-                    <div class="dot-spinner__dot"></div>
-                    <div class="dot-spinner__dot"></div>
-                    <div class="dot-spinner__dot"></div>
-                    <div class="dot-spinner__dot"></div>
-                    <div class="dot-spinner__dot"></div>
-                </div>
-            </div>
         </div>
     </div>
-
     <script>
-        $(document).on('click', '#clear', function() {
-            $('#results').empty();
-        })
         $(document).ready(function() {
             $('.benchmark-btn').click(function() {
                 var testType = $(this).data('test');
+                $('#results').empty().append('<div class="results_attempt"><div class="dot-spinner"><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div></div></div>');
+
                 $.ajax({
                     url: '/benchmark/run/' + testType,
                     type: 'GET',
-                    beforeSend: function() {
-                        $('.results_attempt').show();
-                    },
+                    timeout: 999999999,
+                    beforeSend: function() {},
                     success: function(response) {
-                        var message = '<strong>Test:</strong> ' + response.test + '<br>' +
-                            '<strong>Execution time:</strong> ' + response.executionTime + ' seconds<br>' +
-                            '<strong>Results:</strong><br>';
+                        var message = '<strong class="innerdiv">Time:</strong><div class="innerdiv test"> ' + response.executionTime + ' seconds</div><br>' +
+                            '<strong class="innerdiv">Results:</strong><br>';
                         $.each(response.results, function(test, result) {
                             var resultString = JSON.stringify(result, null, 2);
                             message += '<strong>' + test + ':</strong><pre>' + resultString + '</pre><br>';
                         });
                         $('#results').html('<div>' + message + '</div>');
-                        $('.results_attempt').hide();
                     },
                     error: function(err) {
                         console.error('AJAX ERROR :', err);
+                        $('#results').text('An error occurred. Please try again.');
+                    },
+                    complete: function() {
+                        $('.results_attempt').remove();
                     }
                 });
+            });
+
+            $('#clear').click(function() {
+                $('#results').empty();
             });
         });
     </script>

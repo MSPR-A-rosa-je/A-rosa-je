@@ -570,9 +570,9 @@ nav > ul > li {
     }
   }
 
-  .results_attempt {
-    height: 300px;
-    width: 400px;
+.results_attempt {
+    height: 200px;
+    width: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -582,5 +582,19 @@ nav > ul > li {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
+
+.innerdiv {
+    display: flex;
+    justify-content: center;
+    color: #1f2937;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
+
+.innerdiv.test {
+    color: #ff0000;
+}
+

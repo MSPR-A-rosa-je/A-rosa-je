@@ -51,6 +51,7 @@
                     <li><a href="#">My account</a></li>
                     <li><a href="#">Informations</a></li>
                     <li><a href=/log-viewer>Logs Dashboard</a></li>
+                    <li><a href="/benchmark">Benchmarks</a></li>
                     <li>
                         <form action="{{ route('admin.logout') }}" method="POST" id="logout-form" class="hidden">
                             @csrf

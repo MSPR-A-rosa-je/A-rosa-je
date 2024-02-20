@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\BenchmarkController;
+use GuzzleHttp\Middleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,8 +51,5 @@ Route::resource('sessions', SessionController::class)->middleware('admin');
 
 Route::get('/benchmark', function () {
     return view('benchmark');
-});
-
-Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest']);
-
-
+})->middleware('admin');
+Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest'])->middleware('admin');
