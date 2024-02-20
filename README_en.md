@@ -6,8 +6,8 @@ Welcome to the world of **A’rosa-je**, the innovative app for all plant lovers
 
 ## Technologies Used 🛠️
 
-- **Front-end** : <a href="https://vuejs.org/">
-  <img src="https://img.shields.io/badge/%20%20-VueJS%20-grey?logo=vue.js" alt="Badge VueJS" width="70"/>
+- **Front-end** : <a href="https://tailwindcss.com/">
+  <img src="https://img.shields.io/badge/%20%20-Tailwind%20-grey?logo=tailwind-css" alt="Badge Tailwind" width="80"/>
 </a>
 
 - **Back-end** : <a href="https://laravel.com">
