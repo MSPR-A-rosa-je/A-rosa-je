@@ -35,10 +35,10 @@
                     <li><a href="{{ route('advices.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li class="list" style="width: 12%"><a href="#">Sessions</a>
+            <li class="list" style="width: 12%"><a href="{{ route('sessions.index') }}">Sessions</a>
                 <ul class="under">
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Create</a></li>
+                    <li><a href="{{ route('sessions.index') }}">View</a></li>
+                    <li><a href="{{ route('sessions.create') }}">Create</a></li>
                 </ul>
             </li>
             <li class="list" style="width: 12%"><a href="{{ route('addresses.index') }}">Addresses</a>

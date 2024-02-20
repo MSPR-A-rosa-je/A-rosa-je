@@ -24,6 +24,8 @@
         </tbody>
     </table>
 </div>
+<script src="{{ asset('assets/js/app.js') }}"></script>
+
 @include('layouts/footer')
 
 

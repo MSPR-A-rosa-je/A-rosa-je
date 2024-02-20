@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\PlantController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AddressController;
@@ -29,4 +30,5 @@ Route::resource('plants', PlantController::class);
 Route::resource('addresses', AddressController::class);
 Route::resource('missions', MissionController::class);
 Route::resource('advices', AdviceController::class);
+Route::resource('sessions', SessionController::class);
 
