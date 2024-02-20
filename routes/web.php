@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdviceController;
+use App\Http\Controllers\MissionController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlantController;
@@ -39,4 +42,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::resource('users', UserController::class)->middleware('admin');
 Route::resource('plants', PlantController::class)->middleware('admin');
 Route::resource('addresses', AddressController::class)->middleware('admin');
+Route::resource('missions', MissionController::class)->middleware('admin');
+Route::resource('advices', AdviceController::class)->middleware('admin');
+Route::resource('sessions', SessionController::class)->middleware('admin');
 
