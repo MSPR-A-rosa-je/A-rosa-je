@@ -81,6 +81,19 @@ class UsersTableSeeder extends Seeder
                     'url_picture' => 'https://ibb.co/PzvZCbh',
                     'password' => Hash::make('98d8caeb4'),
                 ],
+                [
+                    'is_botanist' => true,
+                    'is_admin' => true,
+                    'creation_date' => Carbon::now(),
+                    'pseudo' => 'Admin',
+                    'first_name' => 'Admin' ,
+                    'last_name' => 'Admin',
+                    'phone_number' => '0787215507',
+                    'email' => 'admin@root.dev',
+                    'birth_date' => '1998-30-07',
+                    'url_picture' => 'https://ibb.co/PzvZCbh',
+                    'password' => Hash::make('admin1234'),
+                ],
             ];
 
             foreach ($users as $user) {
