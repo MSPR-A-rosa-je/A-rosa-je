@@ -1,5 +1,6 @@
 @include('admin')
 <div class="address-table">
+
     <div class="filter">
         <input class="search" type="text" id="id-filter" placeholder="ID">
         <input class="search" type="text" id="address-filter" placeholder="Address">

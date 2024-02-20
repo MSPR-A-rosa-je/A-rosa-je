@@ -39,3 +39,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::resource('users', UserController::class)->middleware('admin');
 Route::resource('plants', PlantController::class)->middleware('admin');
 Route::resource('addresses', AddressController::class)->middleware('admin');
+

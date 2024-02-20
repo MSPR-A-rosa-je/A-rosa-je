@@ -1,5 +1,6 @@
 @include('admin')
 <div class="list-table">
+
 <div class="filter">
     <input class="search" type="text" id="specie-filter" placeholder="Specie">
     <input class="search" type="text" id="location-filter" placeholder="Location">

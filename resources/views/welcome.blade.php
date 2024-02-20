@@ -1,3 +1,4 @@
+
 <head>
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
 </head>
