@@ -1,5 +1,7 @@
 @include('admin')
 <div class="list-table">
+    <h2 style="padding-bottom: 2%; font-size: 30px">Users</h2>
+
     <input class="filter" type="text" id="pseudo-filter" placeholder="Pseudo">
     <input class="filter" type="text" id="id-filter" placeholder="ID">
     <input class="filter" type="text" id="email-filter" placeholder="Email">

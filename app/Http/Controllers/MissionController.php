@@ -42,7 +42,7 @@ class MissionController extends Controller
 
         try {
             $mission = Mission::create($validatedData);
-            Log::info('Mission created: ' . $plant->id);
+            Log::info('Mission created: ' . $mission->id);
             return redirect()->route('missions.index')->with('success', 'Mission: ' . $mission->id . ' created successfully.');
         } catch (\Throwable $e) {
             return "<div>test</div>";

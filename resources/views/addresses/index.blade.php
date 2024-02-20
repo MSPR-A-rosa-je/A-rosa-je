@@ -1,5 +1,7 @@
 @include('admin')
 <div class="address-table">
+    <h2 style="padding-bottom: 2%; font-size: 30px">Adresses</h2>
+
     <table style="padding-bottom: 2%">
         <thead>
         <tr>

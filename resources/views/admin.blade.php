@@ -11,13 +11,13 @@
     <h1 class="logo"><a href="/">Admin pannel</a></h1>
     <nav>
         <ul>
-            <li class="list" style="width: 12%"><a href="#">Users</a>
+            <li class="list" style="width: 12%"><a href="{{ route('users.index') }}">Users</a>
                 <ul class="under">
                     <li><a href="{{ route('users.index') }}">View</a></li>
                     <li><a href="{{ route('users.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li class="list" style="width: 12%"><a href="#">Plants</a>
+            <li class="list" style="width: 12%"><a href="{{ route('plants.index') }}">Plants</a>
                 <ul class="under">
                     <li><a href="{{ route('plants.index') }}">View</a></li>
                     <li><a href="{{ route('plants.create') }}">Create</a></li>
@@ -29,23 +29,19 @@
                     <li><a href="{{ route('missions.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li class="list" style="width: 12%"><a href="#">Advices</a>
+            <li class="list" style="width: 12%"><a href="{{ route('advices.index') }}">Advices</a>
                 <ul class="under">
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Create</a></li>
-                    <li><a href="#">Update</a></li>
-                    <li><a href="#">Delete</a></li>
+                    <li><a href="{{ route('advices.index') }}">View</a></li>
+                    <li><a href="{{ route('advices.create') }}">Create</a></li>
                 </ul>
             </li>
             <li class="list" style="width: 12%"><a href="#">Sessions</a>
                 <ul class="under">
                     <li><a href="#">View</a></li>
                     <li><a href="#">Create</a></li>
-                    <li><a href="#">Update</a></li>
-                    <li><a href="#">Delete</a></li>
                 </ul>
             </li>
-            <li class="list" style="width: 12%"><a href="#">Addresses</a>
+            <li class="list" style="width: 12%"><a href="{{ route('addresses.index') }}">Addresses</a>
                 <ul class="under">
                     <li><a href="{{ route('addresses.index') }}">View</a></li>
                     <li><a href="{{ route('addresses.create') }}">Create</a></li>
