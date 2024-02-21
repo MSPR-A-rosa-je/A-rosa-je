@@ -71,6 +71,8 @@ header .logo p {
     margin: 0 auto;
     padding: 0;
     height: 3em;
+    position: sticky;
+    top: 0;
     /*padding-top: 2em;*/
     /*padding-bottom: 2em;*/
     background-color: #c4e7cd;
