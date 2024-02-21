@@ -38,7 +38,7 @@ body h3 {
 }
 header .logo a {
     height: 80px;
-    width: 200px;
+    width: 100px;
     display: inline-flex;
     padding: 10px;
 }
@@ -208,7 +208,7 @@ td {
 }
 
 .accueil-bg-img {
-    height: 400px;
+    /*height: 400px;*/
     background-size: cover;
     background-position: center;
 }

@@ -19,10 +19,8 @@
 <header class="header">
     <div class="logo">
         <a href="/">
-            <img src="{{ asset('assets/pictures/logo2.png') }}"/>
-            <p>Sabota'je</p>
+            <img src="{{ asset('assets/pictures/logo.png') }}"/>
         </a>
-        <!-- Sabota'je -->
     </div>
     <nav>
         <ul>
