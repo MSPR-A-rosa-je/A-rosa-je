@@ -43,7 +43,7 @@ class UserController extends Controller
             $user = User::create($validatedData);
             Log::info('User created: ' . $user->pseudo);
             return redirect()->route('users.index')->
-            with('success', 'User: ' . $user->pseudo . ' created successfully.');
+            with('success', 'User : ' . $user->pseudo . ' created successfully.');
         } catch (\Throwable $e) {
             return redirect()->route('users.index')->
             with('error', 'An error occurred while creating the user: ' . $e->getMessage());
