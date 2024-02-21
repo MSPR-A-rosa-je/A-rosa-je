@@ -16,7 +16,7 @@
         </style>
     </head>
     <body class="antialiased">
-        @include('layouts/header')
+        @include('auth.layouts')
 
     </body>
 </html>
