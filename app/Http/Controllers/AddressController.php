@@ -1,4 +1,3 @@
---- {Lkrms\Utility\Env::apply:83} Locale: en_US.UTF-8
 <?php
 
 namespace App\Http\Controllers;
