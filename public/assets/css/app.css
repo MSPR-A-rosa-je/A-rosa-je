@@ -82,7 +82,7 @@ header .logo p {
     border-radius: 5px;
 }
 
-nav {
+nav.header-nav {
     width: 100%;
     margin: 0 auto;
     /*background-color: white;*/
@@ -94,19 +94,19 @@ nav ul {
     list-style-type: none;
 }
 
-nav ul li {
+nav.header-nav ul li {
     float: left;
     text-align: center;
     position: relative;
 }
 
-nav ul::after {
+nav.header-nav ul::after {
     content: "";
     display: table;
     clear: both;
 }
 
-nav a {
+nav.header-nav a {
     display: block;
     text-decoration: none;
     border-bottom: 2px solid transparent;
@@ -116,7 +116,7 @@ nav a {
     text-align: center;
 }
 
-nav a:hover {
+nav.header-nav a:hover {
     border-bottom: 2px solid #c8c8c81a;
     cursor: pointer;
     background-color: #34495e;
@@ -263,6 +263,18 @@ footer #footer-logo {
     max-width: 150px;
     padding: 10px 20px;
 }
+footer.footer nav.nav-soc-net ul li a i.fa-brands {
+    font-size: 25px;
+}
+footer.footer nav.nav-soc-net ul li {
+    margin-right: 15px;
+}
+footer.footer nav.nav-footer-spec ul li a {
+    padding: 10px 15px;
+}
+/*footer.footer nav.nav-footer-spec ul li a:hover {*/
+/*    color: initial;*/
+/*}*/
 
 /* =================================
 Media Queries
@@ -285,6 +297,12 @@ Media Queries
 /*        !*max-width: 1150px;*!*/
 /*    }*!*/
 /*}*/
+
+.flex-class-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 @media (min-width: 667px) {
     header.header nav {
@@ -324,5 +342,8 @@ Media Queries
     #burger-menu div.burger-active {
         margin-right: 37px;
         margin-bottom: 13px;
+    }
+    footer.footer nav.nav-soc-net ul li {
+        margin-right: 5px;
     }
 }

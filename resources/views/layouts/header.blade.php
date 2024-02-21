@@ -11,6 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
 
     <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,7 +23,7 @@
             <img src="{{ asset('assets/pictures/logo.png') }}"/>
         </a>
     </div>
-    <nav class="testt">
+    <nav class="header-nav">
         <ul class="h-20">
             <li class="h-20 list"><a href="#">Missions</a>
                 <ul class="under">

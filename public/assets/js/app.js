@@ -9,6 +9,5 @@ if (menuBurger){
             navBar.style.display = "none";
         }
         menuBurger.classList.toggle('burger-active');
-        console.log(menuBurger);
     });
 }
