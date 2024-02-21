@@ -25,11 +25,11 @@ use GuzzleHttp\Middleware;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('back.welcome');
 });
 
 Route::get('/admin-login', function () {
-    return view('admin-login');
+    return view('back.admin-login');
 })->name('admin.login.form');
 
 Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
@@ -50,6 +50,6 @@ Route::resource('advices', AdviceController::class)->middleware('admin');
 Route::resource('sessions', SessionController::class)->middleware('admin');
 
 Route::get('/benchmark', function () {
-    return view('benchmark');
+    return view('back.benchmark');
 })->middleware('admin');
 Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest'])->middleware('admin');

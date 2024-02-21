@@ -15,12 +15,12 @@ class AdviceController extends Controller
     {
         $advices = Advice::all();
 
-        return view('advices.index', compact('advices'));
+        return view('back.advices.index', compact('advices'));
     }
 
     public function create()
     {
-        return view('advices.create');
+        return view('back.advices.create');
     }
 
     public function store(Request $request)
@@ -41,18 +41,18 @@ class AdviceController extends Controller
                        ->route('advices.index')
                        ->with('success', 'Advice: ' . $advice->id . ' created successfully.');
         } catch (\Throwable $e) {
-            return '<div>test</div>';
+            Log::error($e);
         }
     }
 
     public function show(Advice $advice)
     {
-        return view('advices.show', compact('advice'));
+        return view('back.advices.show', compact('advice'));
     }
 
     public function edit(Advice $advice)
     {
-        return view('advices.edit', compact('advice'));
+        return view('back.advices.edit', compact('advice'));
     }
 
     public function update(Request $request, Advice $advice)

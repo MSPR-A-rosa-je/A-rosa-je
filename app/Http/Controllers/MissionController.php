@@ -13,12 +13,12 @@ class MissionController extends Controller
     {
         $missions = Mission::all();
 
-        return view('missions.index', compact('missions'));
+        return view('back.missions.index', compact('missions'));
     }
 
     public function create()
     {
-        return view('missions.create');
+        return view('back.missions.create');
     }
 
     public function store(Request $request)
@@ -41,18 +41,18 @@ class MissionController extends Controller
                        ->route('missions.index')
                        ->with('success', 'Mission: ' . $mission->id . ' created successfully.');
         } catch (\Throwable $e) {
-            return '<div>test</div>';
+            Log::error($e);
         }
     }
 
     public function show(Mission $mission)
     {
-        return view('missions.show', compact('mission'));
+        return view('back.missions.show', compact('mission'));
     }
 
     public function edit(Mission $mission)
     {
-        return view('missions.edit', compact('mission'));
+        return view('back.missions.edit', compact('mission'));
     }
 
     public function update(Request $request, Mission $mission)

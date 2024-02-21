@@ -1,4 +1,3 @@
---- {Lkrms\Utility\Env::apply:83} Locale: en_US.UTF-8
 <?php
 
 namespace App\Http\Controllers;
@@ -16,12 +15,12 @@ class AddressController extends Controller
     {
         $addresses = Address::all();
 
-        return view('addresses.index', compact('addresses'));
+        return view('back.addresses.index', compact('addresses'));
     }
 
     public function create()
     {
-        return view('addresses.create');
+        return view('back.addresses.create');
     }
 
     public function store(Request $request)
@@ -40,18 +39,18 @@ class AddressController extends Controller
                        ->route('addresses.index')
                        ->with('success', 'Address' . $address->id . 'created successfully.');
         } catch (\Throwable $e) {
-            return '<div>test</div>';
+            Log::error($e);
         }
     }
 
     public function show(Address $address)
     {
-        return view('addresses.show', compact('address'));
+        return view('back.addresses.show', compact('address'));
     }
 
     public function edit(Address $address)
     {
-        return view('addresses.edit', compact('address'));
+        return view('back.addresses.edit', compact('address'));
     }
 
     public function update(Request $request, Address $address)
