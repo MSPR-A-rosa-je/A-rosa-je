@@ -41,63 +41,66 @@ class PlantsTableSeeder extends Seeder
             'url_photo' => OtherConstants::FAKE_PIC_URL,
         ];
 
-        return [
-            array_merge($basePlant, [
+        $plantsDetails = [
+            [
                 'owner_id' => 1,
                 'specie_name' => 'Rose',
                 'location' => 'Jardin',
                 'status' => 'En bonne santé',
                 'description' => 'Belle rose rouge épanouie.'
-            ]),
-            array_merge($basePlant, [
+            ],
+            [
                 'owner_id' => 1,
                 'specie_name' => 'Tulipe',
                 'location' => 'Balcon',
                 'status' => 'Besoin d\'eau',
                 'description' => 'Tulipes jaunes nécessitant un arrosage régulier.'
-            ]),
-            array_merge($basePlant, [
+            ],
+            [
                 'owner_id' => 2,
                 'specie_name' => 'Chêne',
                 'location' => 'Cour arrière',
                 'status' => 'Robuste',
                 'description' => 'Grand chêne avec une large canopée.'
-            ]),
-            array_merge($basePlant, [
+            ],
+            [
                 'owner_id' => 2,
                 'specie_name' => 'Lavande',
                 'location' => 'Jardin avant',
                 'status' => 'Florissante',
                 'description' => 'Lavande parfumée attirant les abeilles et les papillons.'
-            ]),
-            array_merge($basePlant, [
+            ],
+            [
                 'owner_id' => 3,
                 'specie_name' => 'Cactus',
                 'location' => 'Fenêtre intérieure',
                 'status' => 'Nécessite peu de soins',
                 'description' => 'Un cactus résistant nécessitant peu d\'arrosage.'
-            ]),
-            array_merge($basePlant, [
+            ],
+            [
                 'owner_id' => 3,
                 'specie_name' => 'Orchidée',
                 'location' => 'Serre',
                 'status' => 'Délicate',
                 'description' => 'Orchidée exotique avec de magnifiques fleurs.'
-            ]),
-            array_merge($basePlant, [
+            ],
+            [
                 'owner_id' => 4,
                 'specie_name' => 'Bambou',
                 'location' => 'Bord de l\'étang',
                 'status' => 'Croissance rapide',
                 'description' => 'Bambou vert poussant rapidement près de l\'eau.'
-            ]),
-            array_merge($basePlant, [
+            ],
+            [
                 'owner_id' => 4,
                 'specie_name' => 'Érable japonais',
                 'location' => 'Jardin japonais',
                 'status' => 'Coloré',
                 'description' => 'Petit érable avec des feuilles rouges et oranges éclatantes.'
-            ]),
+            ]
         ];
+        return array_map(function ($plantDetails) use ($basePlant) {
+            return array_merge($basePlant, $plantDetails);
+        }, $plantsDetails);
     }
 }
