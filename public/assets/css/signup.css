@@ -5,11 +5,32 @@ body, html {
 }
 
 
-.container {
-    display: flex;
-    height: 100%;
+.centered-content {
+    text-align: center;
 }
 
+
+.container {
+    display: flex;
+}
+
+
+.left-side {
+margin-bottom: 50%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
 
 #specific-container {
     max-width: 100%;
@@ -53,21 +74,7 @@ body, html {
     }
 }
 
-.left-side {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.right-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-}
-
+/*input style*/
 .wave-group {
     position: relative;
 }
@@ -184,9 +191,7 @@ body, html {
     bottom: 0;
 }
 
-.bottom-link a {
-    margin: 0 10px;
-}
+
 
 
 button {
@@ -204,33 +209,25 @@ button {
     height: auto;
 }
 
-.centered-content {
-    text-align: center;
-}
-
 
 /*toggle style*/
 .switch {
-    /* switch */
     --switch-width: 46px;
     --switch-height: 24px;
     --switch-bg: rgb(131, 131, 131);
     --switch-checked-bg: rgb(0, 218, 80);
     --switch-offset: calc((var(--switch-height) - var(--circle-diameter)) / 2);
     --switch-transition: all .2s cubic-bezier(0.27, 0.2, 0.25, 1.51);
-    /* circle */
     --circle-diameter: 18px;
     --circle-bg: #fff;
     --circle-shadow: 1px 1px 2px rgba(146, 146, 146, 0.45);
     --circle-checked-shadow: -1px 1px 2px rgba(163, 163, 163, 0.45);
     --circle-transition: var(--switch-transition);
-    /* icon */
     --icon-transition: all .2s cubic-bezier(0.27, 0.2, 0.25, 1.51);
     --icon-cross-color: var(--switch-bg);
     --icon-cross-size: 6px;
     --icon-checkmark-color: var(--switch-checked-bg);
     --icon-checkmark-size: 10px;
-    /* effect line */
     --effect-width: calc(var(--circle-diameter) / 2);
     --effect-height: calc(var(--effect-width) / 2 - 1px);
     --effect-bg: var(--circle-bg);

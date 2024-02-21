@@ -56,7 +56,7 @@
                 <button id="Validate-button" class="gradient-button" type="submit" value="Login">Validate</button>
         </div>
         <div class="bottom-link">
-            <button onclick="window.location.href='/signup'">Create account</button>
+            <button onclick="window.location.href='/register'">Create account</button>
             <button onclick="window.location.href='/passwordReset'">Forgot password?</button>
         </div>
     </div>
