@@ -34,15 +34,26 @@
         $(document).ready(function() {
             $('.benchmark-btn').click(function() {
                 var testType = $(this).data('test');
-                $('#results').empty().append('<div class="results_attempt"><div class="dot-spinner"><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div><div class="dot-spinner__dot"></div></div></div>');
-
+                $('#results').empty().append('<div class="results_attempt">' +
+                    '<div class="dot-spinner">' +
+                    '<div class="dot-spinner__dot"></div>' +
+                    '<div class="dot-spinner__dot"></div>' +
+                    '<div class="dot-spinner__dot"></div>' +
+                    '<div class="dot-spinner__dot"></div>' +
+                    '<div class="dot-spinner__dot"></div>' +
+                    '<div class="dot-spinner__dot"></div>' +
+                    '<div class="dot-spinner__dot"></div>' +
+                    '<div class="dot-spinner__dot"></div>' +
+                    '</div>' +
+                    '</div>');
                 $.ajax({
                     url: '/benchmark/run/' + testType,
                     type: 'GET',
                     timeout: 999999999,
                     beforeSend: function() {},
                     success: function(response) {
-                        var message = '<strong class="innerdiv">Time:</strong><div class="innerdiv test"> ' + response.executionTime + ' seconds</div><br>' +
+                        var message = '<strong class="innerdiv">Time:</strong><div class="innerdiv test"> ' +
+                            response.executionTime + ' seconds</div><br>' +
                             '<strong class="innerdiv">Results:</strong><br>';
                         $.each(response.results, function(test, result) {
                             var resultString = JSON.stringify(result, null, 2);

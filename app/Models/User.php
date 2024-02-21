@@ -32,11 +32,11 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'is_admin' => 'boolean',
-        'is_botanist' => 'boolean',
-        'creation_date' => 'datetime',
+        'is_admin'       => 'boolean',
+        'is_botanist'    => 'boolean',
+        'creation_date'  => 'datetime',
         'botanist_since' => 'datetime',
-        'birth_date' => 'datetime',
+        'birth_date'     => 'datetime',
     ];
 
     protected $dates = [
@@ -45,7 +45,6 @@ class User extends Authenticatable
         'birth_date',
     ];
 
-
     public function address()
     {
         return $this->hasOne(Address::class, 'user_id');
@@ -53,7 +52,7 @@ class User extends Authenticatable
 
     public function plant()
     {
-        return $this->hasMany(Plant::class, "owner_id");
+        return $this->hasMany(Plant::class, 'owner_id');
     }
 
     protected static function boot()
