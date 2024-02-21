@@ -5,6 +5,7 @@
     <input class="filter" type="text" id="description-filter" placeholder="Description">
     <input class="filter" type="text" id="owner_id-filter" placeholder="Owner ID">
     <table style="padding-bottom: 2%">
+        <caption>Menu</caption>
         <thead>
         <tr>
             <th>Title</th>

@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use App\Constants\OtherConstants;
 
 class UsersTableSeeder extends Seeder
 {
@@ -23,10 +24,10 @@ class UsersTableSeeder extends Seeder
                     'pseudo' => 'BuddingBotanist',
                     'first_name' => 'Jasper',
                     'last_name' => 'Rosebush',
-                    'phone_number' => '0787215507',
+                    'phone_number' => '0787215505',
                     'email' => 'buddingbotanist@example.com',
                     'birth_date' => '1998-07-30',
-                    'url_picture' => 'https://ibb.co/JFcBKW2',
+                    'url_picture' => OtherConstants::FAKE_PIC_URL,
                     'password' => Hash::make('password42'),
                 ],
                 [
@@ -39,7 +40,7 @@ class UsersTableSeeder extends Seeder
                     'phone_number' => '0626711181',
                     'email' => 'cactuscharmer@example.com',
                     'birth_date' => '1985-05-16',
-                    'url_picture' => 'https://ibb.co/NrMQNVm',
+                    'url_picture' => OtherConstants::FAKE_PIC_URL,
                     'password' => Hash::make('password17'),
                 ],
                 [
@@ -52,7 +53,7 @@ class UsersTableSeeder extends Seeder
                     'phone_number' => '0726211107',
                     'email' => 'floralfiesta@example.com',
                     'birth_date' => '1964-08-11',
-                    'url_picture' => 'https://ibb.co/ts5cY79',
+                    'url_picture' => OtherConstants::FAKE_PIC_URL,
                     'password' => Hash::make('password24'),
                 ],
                 [
@@ -65,7 +66,7 @@ class UsersTableSeeder extends Seeder
                     'phone_number' => '0787215507',
                     'email' => 'lucas.beyer@gmx.fr',
                     'birth_date' => '1998-30-07',
-                    'url_picture' => 'https://ibb.co/PzvZCbh',
+                    'url_picture' => OtherConstants::FAKE_PIC_URL,
                     'password' => Hash::make('98d8caeb4'),
                 ],
                 [
@@ -75,10 +76,10 @@ class UsersTableSeeder extends Seeder
                     'pseudo' => 'Ptitlu',
                     'first_name' => 'Lucas' ,
                     'last_name' => 'Beyer',
-                    'phone_number' => '0787215507',
+                    'phone_number' => '0787215504',
                     'email' => 'lucas.beyer2@gmx.fr',
-                    'birth_date' => '1998-30-07',
-                    'url_picture' => 'https://ibb.co/PzvZCbh',
+                    'birth_date' => '1998-30-06',
+                    'url_picture' => OtherConstants::FAKE_PIC_URL,
                     'password' => Hash::make('98d8caeb4'),
                 ],
                 [
@@ -91,7 +92,7 @@ class UsersTableSeeder extends Seeder
                     'phone_number' => '0787215507',
                     'email' => 'admin@root.dev',
                     'birth_date' => '1998-30-07',
-                    'url_picture' => 'https://ibb.co/PzvZCbh',
+                    'url_picture' => OtherConstants::FAKE_PIC_URL,
                     'password' => Hash::make('admin1234'),
                 ],
             ];
@@ -103,11 +104,13 @@ class UsersTableSeeder extends Seeder
             try {
                 Log::info('Users table seeded ✅');
             } catch (\Exception $e) {
+                Log::error('$e');
             }
         } catch (\Exception $e) {
             try {
                 Log::error('Failed to seed users table ❌', ['error' => $e->getMessage()]);
             } catch (\Exception $e) {
+                Log::error('$e');
             }
         }
     }

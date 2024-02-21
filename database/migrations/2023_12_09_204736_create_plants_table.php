@@ -15,6 +15,7 @@ return new class extends Migration
         try {
             Log::info('Creating plants table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
@@ -37,6 +38,8 @@ return new class extends Migration
         try {
             Log::info('Dropping plants table...');
         } catch (\Exception $e) {
+            Log::error($e);
+
         }
         Schema::dropIfExists('plants');
     }

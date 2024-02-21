@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Plant;
 use Illuminate\Support\Facades\Log;
+use App\Constants\ValidationRules;
 
 class PlantController extends Controller
 {
@@ -31,17 +32,18 @@ class PlantController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'specie_name' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
-            'url_photo' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
+            'specie_name' => ValidationRules::MAX_STRING_LENGTH,
+            'location' => ValidationRules::MAX_STRING_LENGTH,
+            'url_photo' => ValidationRules::MAX_STRING_LENGTH,
+            'status' => ValidationRules::MAX_STRING_LENGTH,
             'description' => 'required|long|max:2000',
         ]);
 
         try {
             $plant = Plant::create($validatedData);
             Log::info('Plant created: ' . $plant->id);
-            return redirect()->route('plants.index')->with('success', 'Plant: ' . $plant->id . ' created successfully.');
+            return redirect()->route('plants.index')->
+            with('success', 'Plant: ' . $plant->id . ' created successfully.');
         } catch (\Throwable $e) {
             return "<div>test</div>";
         }
@@ -69,11 +71,11 @@ class PlantController extends Controller
     public function update(Request $request, Plant $plant)
     {
         $validateData = $request->validate([
-            'specie_name' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
-            'url_photo' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'specie_name' => ValidationRules::MAX_STRING_LENGTH,
+            'location' => ValidationRules::MAX_STRING_LENGTH,
+            'url_photo' => ValidationRules::MAX_STRING_LENGTH,
+            'status' => ValidationRules::MAX_STRING_LENGTH,
+            'description' => ValidationRules::MAX_STRING_LENGTH,
         ]);
 
         $plant->update($validateData);
@@ -89,9 +91,11 @@ class PlantController extends Controller
         try{
             $plant->delete();
             Log::info('Plant deleted: '.$plant->id);
-            return redirect()->route('plants.index')->with('success', 'Plant: '.$plant->id.' deleted successfully ✅');
+            return redirect()->route('plants.index')->
+            with('success', 'Plant: '.$plant->id.' deleted successfully ✅');
         }catch (\Exception $e){
-            return redirect()->route('plants.index')->with('error', 'An error occured while deleting the plant : '.$e->getMessage().'❌');
+            return redirect()->route('plants.index')->
+            with('error', 'An error occured while deleting the plant : '.$e->getMessage().'❌');
         }
     }
 }

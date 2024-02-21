@@ -37,4 +37,4 @@ class Mission extends Model
         'start_date' => 'datetime',
         'end_date' => 'datetime',
     ];
-};
+}

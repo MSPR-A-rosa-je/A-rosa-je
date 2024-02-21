@@ -15,6 +15,7 @@ return new class extends Migration
         try {
             Log::info('Creating answers table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
@@ -36,6 +37,7 @@ return new class extends Migration
         try {
             Log::info('Dropping answers table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::dropIfExists('answers');
     }

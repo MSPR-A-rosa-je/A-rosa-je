@@ -15,6 +15,7 @@ return new class extends Migration
         try {
             Log::info('Creating questions table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
@@ -40,6 +41,7 @@ return new class extends Migration
         try {
             Log::info('Dropping questions table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::dropIfExists('answer_question');
         Schema::dropIfExists('questions');

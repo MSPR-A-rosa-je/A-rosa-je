@@ -50,12 +50,14 @@ class AddressesTableSeeder extends Seeder
             try {
                 Log::info('Addresses table seeded ✅');
             } catch (\Exception $e) {
+                Log::error($e);
             }
         } catch (\Exception $e) {
             try {
                 Log::error('Failed to seed addresses table ❌', ['error' => $e->getMessage()]);
             } catch (\Exception $e) {
+            Log::error($e);
             }
         }
     }
-};
+}

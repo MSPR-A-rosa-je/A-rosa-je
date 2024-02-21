@@ -4,6 +4,7 @@
     <h2 class="logo">Profil of '{{ $advice->id }}'</h2>
     <div class="advice-table">
         <table>
+            <caption>Menu</caption>
             <thead>
             <tr>
                 <th>Title</th>
@@ -28,7 +29,8 @@
             @method('DELETE')
             <a href="/advices" class="button" style="margin-right: 66em; margin-left: 2em">Back</a>
             <a class="button" href="{{route('advices.edit', $advice->id)}}">Edit</a>
-            <button class="button" type="submit" onclick="return confirm('Are you sure you want to delete this advice?');">Delete</button>
+            <button class="button" type="submit" onclick="return
+             confirm('Are you sure you want to delete this advice?');">Delete</button>
         </form>
     </div>
 </div>

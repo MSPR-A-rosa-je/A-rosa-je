@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mission;
 use Illuminate\Support\Facades\Log;
+use App\Constants\ValidationRules;
 
 class MissionController extends Controller
 {
@@ -31,19 +32,20 @@ class MissionController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'start_date' => 'required|datetime',
-            'end_date' => 'required|datetime',
-            'candidates_list' => 'required|string|max:255',
+            'start_date' => ValidationRules::DATE,
+            'end_date' => ValidationRules::DATE,
+            'candidates_list' => ValidationRules::MAX_STRING_LENGTH,
             'price' => 'required|float',
             'description' => 'required|long|max:2000',
-            'number_of_sessions' => 'required|integer',
-            'plants_list' => 'required|string|max:255',
+            'number_of_sessions' => ValidationRules::REQ_INT,
+            'plants_list' => ValidationRules::MAX_STRING_LENGTH,
         ]);
 
         try {
             $mission = Mission::create($validatedData);
             Log::info('Mission created: ' . $mission->id);
-            return redirect()->route('missions.index')->with('success', 'Mission: ' . $mission->id . ' created successfully.');
+            return redirect()->route('missions.index')->
+            with('success', 'Mission: ' . $mission->id . ' created successfully.');
         } catch (\Throwable $e) {
             return "<div>test</div>";
         }
@@ -71,15 +73,15 @@ class MissionController extends Controller
     public function update(Request $request, Mission $mission)
     {
         $validateData = $request->validate([
-            'start_date' => 'required|datetime',
-            'end_date' => 'required|datetime',
-            'owner_id' => 'required|integer',
-            'candidates_list' => 'required|string|max:255',
+            'start_date' => ValidationRules::DATE,
+            'end_date' => ValidationRules::DATE,
+            'owner_id' => ValidationRules::REQ_INT,
+            'candidates_list' => ValidationRules::MAX_STRING_LENGTH,
             'price' => 'required|float',
             'description' => 'required|long|max:2000',
-            'gardien_id' => 'required|integer',
-            'number_of_sessions' => 'required|integer',
-            'plants_list' => 'required|string|max:255',
+            'gardien_id' => ValidationRules::REQ_INT,
+            'number_of_sessions' => ValidationRules::REQ_INT,
+            'plants_list' => ValidationRules::MAX_STRING_LENGTH,
         ]);
 
         $mission->update($validateData);
@@ -95,9 +97,11 @@ class MissionController extends Controller
         try{
             $mission->delete();
             Log::info('Mission deleted: '.$mission->id);
-            return redirect()->route('missions.index')->with('success', 'Mission: '.$mission->id.'deleted successfully ✅');
+            return redirect()->route('missions.index')->
+            with('success', 'Mission: '.$mission->id.'deleted successfully ✅');
         }catch (\Exception $e){
-            return redirect()->route('missions.index')->with('error', 'An error occured while deleting the mission : '.$e->getMessage().'❌');
+            return redirect()->route('missions.index')->
+            with('error', 'An error occured while deleting the mission : '.$e->getMessage().'❌');
         }
     }
 }

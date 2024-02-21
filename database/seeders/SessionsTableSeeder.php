@@ -52,11 +52,13 @@ class SessionsTableSeeder extends Seeder
             try {
                 Log::info('Sessions table seeded ✅');
             } catch (\Exception $e) {
+                Log::error('$e');
             }
         } catch (\Exception $e) {
             try {
                 Log::error('Failed to seed sessions table ❌', ['error' => $e->getMessage()]);
             } catch (\Exception $e) {
+                Log::error('$e');
             }
         }
     }

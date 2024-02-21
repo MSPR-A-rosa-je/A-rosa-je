@@ -15,6 +15,7 @@ return new class extends Migration
         try {
             Log::info('Creating users table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::create('users', function (Blueprint $table) {
             $table->id();
@@ -45,6 +46,7 @@ return new class extends Migration
         try {
             Log::info('Dropping users table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::dropIfExists('users');
     }

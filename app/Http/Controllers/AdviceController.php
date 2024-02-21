@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Advice;
 use Illuminate\Support\Facades\Log;
+use App\Constants\ValidationRules;
+
+const MAX_STRING_LENGTH = 255;
+
 
 class AdviceController extends Controller
 {
@@ -31,17 +35,18 @@ class AdviceController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title'=> 'required|string|max:255',
+            'title'=> ValidationRules::MAX_STRING_LENGTH,
             'creation_date' => 'nullable|datetime',
             'description' => 'required|string|max:2000',
-            'owner_id' => 'required|integer',
+            'owner_id' => ValidationRules::REQ_INT,
             'like_number' => 'nullable|integer'
         ]);
 
         try {
             $advice = Advice::create($validatedData);
             Log::info('Advice created: ' . $advice->id);
-            return redirect()->route('advices.index')->with('success', 'Advice: ' . $advice->id . ' created successfully.');
+            return redirect()->route('advices.index')->
+            with('success', 'Advice: ' . $advice->id . ' created successfully.');
         } catch (\Throwable $e) {
             return "<div>test</div>";
         }
@@ -69,10 +74,10 @@ class AdviceController extends Controller
     public function update(Request $request, Advice $advice)
     {
         $validateData = $request->validate([
-            'title'=> 'required|string|max:255',
+            'title'=> ValidationRules::MAX_STRING_LENGTH,
             'creation_date' => 'nullable|datetime',
             'description' => 'required|string|max:2000',
-            'owner_id' => 'required|integer',
+            'owner_id' => ValidationRules::REQ_INT,
             'like_number' => 'nullable|integer'
         ]);
 
@@ -91,7 +96,8 @@ class AdviceController extends Controller
             Log::info('advice deleted: '.$advice->id);
             return redirect()->route('advices.index')->with('success', 'Advice: '.$advice->id.'deleted successfully ✅');
         }catch (\Exception $e){
-            return redirect()->route('advices.index')->with('error', 'An error occured while deleting the advice : '.$e->getMessage().'❌');
+            return redirect()->route('advices.index')->
+            with('error', 'An error occured while deleting the advice : '.$e->getMessage().'❌');
         }
     }
 }

@@ -5,6 +5,7 @@
     <input class="filter" type="text" id="id-filter" placeholder="ID">
     <input class="filter" type="text" id="end_date-filter" placeholder="Mission's End">
     <table style="padding-bottom: 2%">
+        <caption>Menu</caption>
         <thead>
         <tr>
             <th>Date of Mission's Starting</th>

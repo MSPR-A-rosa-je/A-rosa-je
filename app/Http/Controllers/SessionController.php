@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Session;
 use Illuminate\Support\Facades\Log;
+use App\Constants\ValidationRules;
 
 class SessionController extends Controller
 {
@@ -33,15 +34,16 @@ class SessionController extends Controller
         $validatedData = $request->validate([
             'creation_date' => 'nullable|datetime',
             'plants_list' => 'required|string|max:2000',
-            'owner_id' => 'required|integer',
-            'mission_id' => 'required|integer',
+            'owner_id' => ValidationRules::REQ_INT,
+            'mission_id' => ValidationRules::REQ_INT,
             'note' => 'nullable|string|max:2000'
         ]);
 
         try {
             $session = Session::create($validatedData);
             Log::info('Session created: ' . $session->id);
-            return redirect()->route('sessions.index')->with('success', 'Session: ' . $session->id . ' created successfully.');
+            return redirect()->route('sessions.index')->
+            with('success', 'Session: ' . $session->id . ' created successfully.');
         } catch (\Throwable $e) {
             return "<div>test</div>";
         }
@@ -71,8 +73,8 @@ class SessionController extends Controller
         $validateData = $request->validate([
             'creation_date' => 'nullable|datetime',
             'plants_list' => 'required|string|max:2000',
-            'owner_id' => 'required|integer',
-            'mission_id' => 'required|integer',
+            'owner_id' => ValidationRules::REQ_INT,
+            'mission_id' => ValidationRules::REQ_INT,
             'note' => 'nullable|string|max:2000'
         ]);
 
@@ -89,9 +91,11 @@ class SessionController extends Controller
         try{
             $session->delete();
             Log::info('session deleted: '.$session->id);
-            return redirect()->route('sessions.index')->with('success', 'Session: '.$session->id.'deleted successfully ✅');
+            return redirect()->route('sessions.index')->
+            with('success', 'Session: '.$session->id.'deleted successfully ✅');
         }catch (\Exception $e){
-            return redirect()->route('sessions.index')->with('error', 'An error occured while deleting the session : '.$e->getMessage().'❌');
+            return redirect()->route('sessions.index')->
+            with('error', 'An error occured while deleting the session : '.$e->getMessage().'❌');
         }
     }
 }

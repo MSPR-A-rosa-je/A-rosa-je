@@ -17,6 +17,7 @@ return new class extends Migration
         try {
             Log::info('Renaming users mail to email.');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('mail', 'email');
@@ -33,6 +34,7 @@ return new class extends Migration
         try {
             Log::info('Renaming users email to mail...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('email', 'mail');

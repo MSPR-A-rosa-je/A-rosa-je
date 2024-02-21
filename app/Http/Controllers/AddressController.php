@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Address;
 use Illuminate\Support\Facades\Log;
+use App\Constants\ValidationRules;
+
+
+const MAX_STRING_LENGTH = 255;
 
 class AddressController extends Controller
 {
@@ -31,16 +35,17 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'address' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
+            'address' => ValidationRules::MAX_STRING_LENGTH,
+            'city' => ValidationRules::MAX_STRING_LENGTH,
             'zip_code' => 'required|integer|max:10'
         ]);
 
-        try{
+        try {
             $address = Address::create($validateData);
-            Log::info('Address created:'.$address->id);
-            return redirect()->route('addresses.index')->with('success', 'Address'.$address->id.'created successfully.');
-        } catch (\Throwable $e){
+            Log::info('Address created:' . $address->id);
+            return redirect()->route('addresses.index')->
+            with('success', 'Address' . $address->id . 'created successfully.');
+        } catch (\Throwable $e) {
             return "<div>test</div>";
         }
     }
@@ -67,8 +72,8 @@ class AddressController extends Controller
     public function update(Request $request, Address $address)
     {
         $validateData = $request->validate([
-            'address' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
+            'address' => ValidationRules::MAX_STRING_LENGTH,
+            'city' => ValidationRules::MAX_STRING_LENGTH,
             'zip_code' => 'required|integer|max:10'
         ]);
 
@@ -80,15 +85,20 @@ class AddressController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Address$address)
+    public function destroy(Address $address)
     {
-        try{
+        try {
             $address->delete();
-            Log::info('Address deleted:'.$address->id);
+            Log::info('Address deleted:' . $address->id);
             return redirect()->route('addresses.index')->with(
-                'success', 'Adress: '.$address->id.' deleted successfully ✅');
-        }catch(\Exception $e){
-            return redirect()->route('addresses.index')->with('error', 'An error occured while deleting the adress : '.$e->getMessage().'❌');
+                'success',
+                'Adress: ' . $address->id . ' deleted successfully ✅'
+            );
+        } catch (\Exception $e) {
+            return redirect()->route('addresses.index')->with(
+                'error',
+                'An error occured while deleting the adress : ' . $e->getMessage() . '❌'
+            );
         }
     }
 }

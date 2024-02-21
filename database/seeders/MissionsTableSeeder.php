@@ -46,7 +46,7 @@ class MissionsTableSeeder extends Seeder
             foreach ($missions as $mission) {
                 DB::table('missions')->insert($mission);
             }
-            \App\Models\Mission::factory()->count($seed_sample / 2)->create(function (array $attributes) {
+            \App\Models\Mission::factory()->count($seed_sample / 2)->create(function () {
                 return [
                     'owner_id' => rand(1, 10),
                     'gardien_id' => rand(1, 10)
@@ -55,11 +55,13 @@ class MissionsTableSeeder extends Seeder
             try {
                 Log::info('Missions table seeded ✅');
             } catch (\Exception $e) {
+                Log::error($e);
             }
         } catch (\Exception $e) {
             try {
                 Log::error('Failed to seed missions table ❌', ['error' => $e->getMessage()]);
             } catch (\Exception $e) {
+                Log::error($e);
             }
         }
     }

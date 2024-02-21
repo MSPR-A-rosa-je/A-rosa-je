@@ -15,6 +15,7 @@ return new class extends Migration
         try {
             Log::info('Refactoring missions table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::dropIfExists('missions');
 
@@ -46,6 +47,7 @@ return new class extends Migration
         try {
             Log::info('Creating missions table...');
         } catch (\Exception $e) {
+            Log::error($e);
         }
         Schema::create('missions', function (Blueprint $table) {
             $table->id();

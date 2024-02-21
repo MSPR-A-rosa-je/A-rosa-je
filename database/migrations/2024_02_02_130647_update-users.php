@@ -15,7 +15,9 @@ return new class extends Migration
 
         try {
             Log::info('Update users table...');
-        } catch (\Exception $e) {}
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
 
         Schema::table('users', function (Blueprint $table){
            $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
@@ -32,7 +34,9 @@ return new class extends Migration
     {
         try {
             Log::info('Update users table...');
-        } catch (\Exception $e) {}
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
 
         Schema::table('users', function (Blueprint $table){
             $table->dropColumn('address_id');
