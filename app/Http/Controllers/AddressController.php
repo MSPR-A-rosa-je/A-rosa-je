@@ -1,3 +1,4 @@
+--- {Lkrms\Utility\Env::apply:83} Locale: en_US.UTF-8
 <?php
 
 namespace App\Http\Controllers;
@@ -63,7 +64,9 @@ class AddressController extends Controller
 
         $address->update($validateData);
 
-        return redirect()->route('addresses.index')->with('success', 'Adress updated successfully');
+        return redirect()
+                   ->route('addresses.index')
+                   ->with('success', 'Adress updated successfully');
     }
 
     public function destroy(Address $address)
