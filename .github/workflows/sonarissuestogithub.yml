@@ -1,0 +1,36 @@
+name: SonarCloud Issues to GitHub
+
+on:
+  workflow_run:
+    workflows: ["SonarCloud analysis"]
+    types:
+      - completed
+
+jobs:
+  sync-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Sync SonarCloud Issues to GitHub
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOK: ${{ secrets.TOK_GIT }}
+          SONAR_PROJECT_KEY: 'MSPR-A-rosa-je_A-rosa-je'
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_LABEL: 'SONAR'
+        run: |
+          issues_to_delete=$(curl -s -H "Authorization: bearer $GITHUB_TOK" "https://api.github.com/repos/$GITHUB_REPOSITORY/issues?labels=$GITHUB_LABEL&state=open")
+
+          echo "$issues_to_delete" | jq -r '.[] | .number' | while read -r issue_number; do
+            curl -s -X PATCH -H "Authorization: bearer $GITHUB_TOK" -d "{\"state\": \"closed\"}" "https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$issue_number"
+          done
+
+          issues=$(curl -s -u $SONAR_TOKEN: "https://sonarcloud.io/api/issues/search?projects=$SONAR_PROJECT_KEY&statuses=OPEN")
+
+          body_template='{"title": "SonarCloud Issues", "body": "", "labels": ["SONAR"]}'
+          body=$(echo "$issues" | jq -r '.issues[] | "- [ ] [\(.message)](https://sonarcloud.io/project/issues?id='$SONAR_PROJECT_KEY'&issues=\(.key)&open=\(.key))"' | jq -sR '{"body": .}')
+          data=$(echo $body_template | jq --argjson body "$body" '.body = $body.body | .')
+
+          curl -s -X POST -H "Authorization: bearer $GITHUB_TOK" -H "Content-Type: application/json" -d "$data" "https://api.github.com/repos/$GITHUB_REPOSITORY/issues"
