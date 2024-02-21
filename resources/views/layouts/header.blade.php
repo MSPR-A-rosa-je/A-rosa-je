@@ -16,21 +16,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<header class="header">
+<header class="h-20 header">
     <div class="logo">
         <a href="/">
             <img src="{{ asset('assets/pictures/logo.png') }}"/>
         </a>
     </div>
-    <nav>
-        <ul>
-            <li class="list"><a href="#">Missions</a>
+    <nav class="testt">
+        <ul class="h-20">
+            <li class="h-20 list"><a href="#">Missions</a>
                 <ul class="under">
                     <li><a href="#">View</a></li>
                     <li><a href="#">Create</a></li>
                 </ul>
             </li>
-            <li class="list"><a href="#">Chat</a>
+            <li class="h-20 list"><a href="#">Chat</a>
                 <ul class="under">
                     <li><a href="#">View</a></li>
                     <li><a href="#">Create</a></li>
@@ -38,6 +38,13 @@
             </li>
         </ul>
     </nav>
+    <div id="burger-menu">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 </header>
 
 <div class="message-container">
