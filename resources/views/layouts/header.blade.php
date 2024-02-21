@@ -39,6 +39,29 @@
             </li>
         </ul>
     </nav>
+
+    <div id="bloc-cnx-hd" class="flex-class-center">
+        @if (Auth::guest())
+            <p>Log in</p>
+            <i class="fa-solid fa-circle-user"></i>
+        @else
+            <p>{{Auth::user()->pseudo}}</p>
+            <i class="fa-solid fa-circle-user"></i>
+        @endif
+    </div>
+
+    <div id="bloc-cnx">
+        <ul>
+        @if (Auth::guest())
+            <li><a href="#">Sign in</a></li>
+            <li><a href="#">Log in</a></li>
+        @else
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Log out</a></li>
+        @endif
+        </ul>
+    </div>
+
     <div id="burger-menu">
         <div>
             <div></div>

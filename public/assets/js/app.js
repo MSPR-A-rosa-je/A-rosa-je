@@ -11,3 +11,16 @@ if (menuBurger){
         menuBurger.classList.toggle('burger-active');
     });
 }
+
+let logHeader = document.getElementById('bloc-cnx-hd');
+let blocHeader = document.getElementById('bloc-cnx');
+if (logHeader){
+    logHeader.addEventListener("click", () => {
+        console.log(blocHeader.style.display);
+        if (blocHeader.style.display != "block"){
+            blocHeader.style.display = "block";
+        }else {
+            blocHeader.style.display = "none";
+        }
+    })
+}

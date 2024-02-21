@@ -16,7 +16,7 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    background-color: #c4e7cd;
+    /*background-color: #c4e7cd;*/
 }
 
 a {
@@ -150,6 +150,27 @@ nav>ul li:hover .under {
     font-size: 12px;
     background-color: #c8c8c81a;
 
+}
+
+#bloc-cnx-hd {
+    min-width: 110px;
+    cursor: pointer;
+}
+#bloc-cnx-hd i {
+    font-size: 35px;
+    margin-right: 20px;
+}
+#bloc-cnx {
+    display: none;
+    background-color: rgba(229, 231, 235, 0.8);
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 120px;
+}
+#bloc-cnx a {
+    padding: 10px 15px;
+    display: inline-block;
 }
 
 #burger-menu {
