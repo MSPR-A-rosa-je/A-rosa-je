@@ -22,14 +22,28 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Analyze with SonarQube
-        uses: SonarSource/sonarqube-scan-action@7295e71c9583053f5bf40e9d4068a0c974603ec8
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Install SonarScanner
+        run: |
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+          unzip sonar-scanner-cli-4.7.0.2747-linux.zip
+          echo "${GITHUB_WORKSPACE}/sonar-scanner-4.7.0.2747-linux/bin" >> $GITHUB_PATH
+
+      - name: Run SonarScanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        with:
-          args: >
-            -Dsonar.projectKey=MSPR-A-rosa-je_A-rosa-je
-            -Dsonar.organization=mspr-a-rosa-je
-            -Dsonar.scm.provider=git
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=MSPR-A-rosa-je_A-rosa-je \
+            -Dsonar.organization=mspr-a-rosa-je \
+            -Dsonar.scm.provider=git \
+            -Dsonar.host.url=${SONAR_HOST_URL} \
+            -Dsonar.login=${SONAR_TOKEN}
