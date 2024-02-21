@@ -1,0 +1,166 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.left-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/*button style*/
+button {
+    background: linear-gradient(to right, rgba(105, 198, 129, 1), rgba(8, 85, 54, 1));
+    color: white;
+    border: none;
+    border-radius: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    position: absolute;
+    left: 30%;
+    top: 0;
+    padding: 5px 10px;
+}
+
+.cancel-button svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+#Validate-button {
+    margin-top: 20px;
+}
+
+/*bottom link style*/
+div {
+    .bottom-link {
+        & button {
+            background: none;
+            color: black;
+            padding: 1px;
+            margin: 10px;
+            transition: color 0.3s ease;
+        }
+
+        & button:hover {
+            color: #35c01f;
+        }
+    }
+}
+
+/*input style*/
+.wave-group {
+    position: relative;
+}
+
+.wave-group .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 25vw;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+}
+
+.wave-group .input:focus {
+    outline: none;
+}
+
+.wave-group .label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
+}
+
+.wave-group .label-char {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * .05s);
+}
+
+.wave-group .input:focus ~ label .label-char,
+.wave-group .input:valid ~ label .label-char {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: #52ae6c;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 35px;
+    text-align: center;
+}
+
+.wave-group .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.wave-group .bar:before, .wave-group .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #52ae6c;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+    left: 50%;
+}
+
+.wave-group .bar:after {
+    right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+    width: 50%;
+}
+
+.bottom-link {
+    position: absolute;
+    bottom: 0;
+}
+
+
+.right-side img {
+    width: 70vw;
+    height: auto;
+}
+
+.centered-content {
+    text-align: center;
+}
+
