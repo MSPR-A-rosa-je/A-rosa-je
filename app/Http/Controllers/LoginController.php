@@ -16,23 +16,33 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // Récupérer les données du formulaire
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        // Récupérer l'utilisateur par email
+        if (Auth::guard('web')->attempt($credentials)) {
+            if (Auth::user()->is_admin) {
+                return redirect()->intended('/home');
+            } else {
+                Auth::logout();
+                return back()->withErrors(['email' => 'You do not have access to admin panel.']);
+            }
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+
         $user = User::where('email', $credentials['email'])->first();
 
-        // Vérifier si l'utilisateur existe et que le mot de passe correspond au hash
         if ($user && Hash::check($credentials['password'], $user->password)) {
-            // Authentification réussie, connecter l'utilisateur
             Auth::login($user);
             log($user);
 
 
-            // Rediriger vers la page d'accueil
             return redirect('/welcome');
         } else {
-            // Informations incorrectes, rediriger avec un message d'erreur
             return redirect()->back()->with('error', 'Invalid email or password');
         }
     }

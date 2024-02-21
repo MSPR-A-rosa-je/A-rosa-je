@@ -40,8 +40,7 @@
                 </div>
                 <br>
                 <div class="wave-group">
-                    <input required="" type="text" class="input"
-                           pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}">
+                    <input required="" type="text" class="input" maxlength="50">
                     <span class="bar"></span>
                     <label class="label">
                         <span class="label-char" style="--index: 1">P</span>
@@ -55,7 +54,7 @@
                 <br>
                 <div class="container" id="specific-container">
                     <div class="wave-group">
-                        <input required="" type="text" class="input"
+                        <input required="" type="text" class="input" maxlength="50"
                         <span class="bar"></span>
                         <label class="label">
                             <span class="label-char" style="--index: 1">F</span>
@@ -70,7 +69,7 @@
                         </label>
                     </div>
                     <div class="wave-group">
-                        <input required="" type="text" class="input"
+                        <input required="" type="text" class="input" maxlength="50"
                         <span class="bar"></span>
                         <label class="label">
                             <span class="label-char" style="--index: 1">L</span>
@@ -88,7 +87,7 @@
                 <br>
                 <div class="container" id="specific-container">
                     <div class="wave-group">
-                        <input required="" type="text" class="input"
+                        <input required="" type="text" class="input" maxlength="255"
                         <span class="bar"></span>
                         <label class="label">
                             <span class="label-char" style="--index: 1">C</span>
@@ -98,7 +97,7 @@
                         </label>
                     </div>
                     <div class="wave-group">
-                        <input required="" type="text" class="input"
+                        <input required="" type="text" class="input" maxlength="10"
                         <span class="bar"></span>
                         <label class="label">
                             <span class="label-char" style="--index: 1">Z</span>
@@ -115,7 +114,7 @@
 
                 <br>
                 <div class="wave-group">
-                    <input required="" type="text" class="input">
+                    <input required="" type="text" class="input" maxlength="255">
                     <span class="bar"></span>
                     <label class="label">
                         <span class="label-char" style="--index: 1">A</span>
@@ -129,7 +128,7 @@
                 </div>
                 <br>
                 <div class="wave-group">
-                    <input required="" type="text" class="input">
+                    <input required="" type="text" class="input" maxlength="20">
                     <span class="bar"></span>
                     <label class="label">
                         <span class="label-char" style="--index: 1">P</span>
@@ -151,13 +150,13 @@
                 <div class="container" id="specific-container">
                     <input required="" type="date" class="input" id="birthdate-input" placeholder="birthdate">
                     <div class="wave-group">
-                        <input required="" type="file" class="input" id="picture-input">
+                        <input type="file" class="input" id="picture-input">
                         <span class="bar"></span>
                     </div>
                 </div>
                 <br>
                 <div class="wave-group">
-                    <input required="required" type="password" class="input" name="password"
+                    <input required="required" type="password" class="input" name="password" minlength="8"
                            oninput="comparePasswords()">
                     <span class="bar"></span>
                     <label class="label">
@@ -173,7 +172,8 @@
                 </div>
                 <br>
                 <div class="wave-group">
-                    <input required="" type="password" class="input" name="confirmation" oninput="comparePasswords()">
+                    <input required="" type="password" class="input" name="confirmation" minlength="8"
+                           oninput="comparePasswords()">
                     <span class="bar"></span>
                     <label class="label">
                         <span class="label-char" style="--index: 1">C</span>
@@ -198,7 +198,7 @@
                 <div class="container" id="validation-container">
                     <div class="container" id="condition-container">
                         <label class="switch">
-                            <input checked="" type="checkbox">
+                            <input checked="" type="checkbox" required="">
                             <div class="slider">
                                 <div class="circle">
                                     <svg class="cross" xml:space="preserve" style="enable-background:new 0 0 512 512"
