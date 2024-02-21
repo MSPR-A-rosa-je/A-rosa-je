@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Constants\OtherConstants;
+use App\Models\Plant;
 
 class PlantsTableSeeder extends Seeder
 {
@@ -16,97 +17,87 @@ class PlantsTableSeeder extends Seeder
     {
         $seed_sample = config('app.seed_sample');
         try {
-            $plants = [
-                [
-                    'advices_list' =>  json_encode([3, 4]),
-                    'owner_id' => 1,
-                    'specie_name' => 'Rose',
-                    'location' => 'Jardin',
-                    'url_photo' => OtherConstants::FAKE_PIC_URL,
-                    'status' => 'En bonne santé',
-                    'description' => 'Belle rose rouge épanouie.'
-                ],
-                [
-                    'advices_list' =>  json_encode([3, 4]),
-                    'owner_id' => 1,
-                    'specie_name' => 'Tulipe',
-                    'location' => 'Balcon',
-                    'url_photo' => OtherConstants::FAKE_PIC_URL,
-                    'status' => 'Besoin d\'eau',
-                    'description' => 'Tulipes jaunes nécessitant un arrosage régulier.'
-                ],
-                [
-                    'advices_list' =>  json_encode([3, 4]),
-                    'owner_id' => 2,
-                    'specie_name' => 'Chêne',
-                    'location' => 'Cour arrière',
-                    'url_photo' => OtherConstants::FAKE_PIC_URL,
-                    'status' => 'Robuste',
-                    'description' => 'Grand chêne avec une large canopée.'
-                ],
-                [
-                    'advices_list' =>  json_encode([3, 4]),
-                    'owner_id' => 2,
-                    'specie_name' => 'Lavande',
-                    'location' => 'Jardin avant',
-                    'url_photo' => OtherConstants::FAKE_PIC_URL,
-                    'status' => 'Florissante',
-                    'description' => 'Lavande parfumée attirant les abeilles et les papillons.'
-                ],
-                [
-                    'advices_list' =>  json_encode([3, 4]),
-                    'owner_id' => 3,
-                    'specie_name' => 'Cactus',
-                    'location' => 'Fenêtre intérieure',
-                    'url_photo' => OtherConstants::FAKE_PIC_URL,
-                    'status' => 'Nécessite peu de soins',
-                    'description' => 'Un cactus résistant nécessitant peu d\'arrosage.'
-                ],
-                [
-                    'advices_list' =>  json_encode([3, 4]),
-                    'owner_id' => 3,
-                    'specie_name' => 'Orchidée',
-                    'location' => 'Serre',
-                    'url_photo' => OtherConstants::FAKE_PIC_URL,
-                    'status' => 'Délicate',
-                    'description' => 'Orchidée exotique avec de magnifiques fleurs.'
-                ],
-                [
-                    'advices_list' =>  json_encode([3, 4]),
-                    'owner_id' => 4,
-                    'specie_name' => 'Bambou',
-                    'location' => 'Bord de l\'étang',
-                    'url_photo' => OtherConstants::FAKE_PIC_URL,
-                    'status' => 'Croissance rapide',
-                    'description' => 'Bambou vert poussant rapidement près de l\'eau.'
-                ],
-                [
-                    'advices_list' =>  json_encode([3, 4]),
-                    'owner_id' => 4,
-                    'specie_name' => 'Érable japonais',
-                    'location' => 'Jardin japonais',
-                    'url_photo' => OtherConstants::FAKE_PIC_URL,
-                    'status' => 'Coloré',
-                    'description' => 'Petit érable avec des feuilles rouges et oranges éclatantes.'
-                ]
-
-            ];
+            $plants = $this->getPlantsData();
 
             foreach ($plants as $plant) {
                 DB::table('plants')->insert($plant);
             }
-            \App\Models\Plant::factory()->count($seed_sample)->create();
-            try {
-                Log::info('Plants table seeded ✅');
-            } catch (\Exception $e) {
-                Log::error('$e');
-            }
+
+            Plant::factory()->count($seed_sample)->create();
+
+            Log::info('Plants table seeded ✅');
         } catch (\Exception $e) {
-            try {
-                Log::error('Failed to seed plants table ❌', ['error' => $e->getMessage()]);
-            } catch (\Exception $e) {
-                Log::error('$e');
-            }
+            Log::error('Failed to seed plants table ❌', ['error' => $e->getMessage()]);
         }
+    }
+
+    /**
+     * Get the plants data array.
+     */
+    private function getPlantsData()
+    {
+        $basePlant = [
+            'advices_list' => json_encode([3, 4]),
+            'url_photo' => OtherConstants::FAKE_PIC_URL,
+        ];
+
+        return [
+            array_merge($basePlant, [
+                'owner_id' => 1,
+                'specie_name' => 'Rose',
+                'location' => 'Jardin',
+                'status' => 'En bonne santé',
+                'description' => 'Belle rose rouge épanouie.'
+            ]),
+            array_merge($basePlant, [
+                'owner_id' => 1,
+                'specie_name' => 'Tulipe',
+                'location' => 'Balcon',
+                'status' => 'Besoin d\'eau',
+                'description' => 'Tulipes jaunes nécessitant un arrosage régulier.'
+            ]),
+            array_merge($basePlant, [
+                'owner_id' => 2,
+                'specie_name' => 'Chêne',
+                'location' => 'Cour arrière',
+                'status' => 'Robuste',
+                'description' => 'Grand chêne avec une large canopée.'
+            ]),
+            array_merge($basePlant, [
+                'owner_id' => 2,
+                'specie_name' => 'Lavande',
+                'location' => 'Jardin avant',
+                'status' => 'Florissante',
+                'description' => 'Lavande parfumée attirant les abeilles et les papillons.'
+            ]),
+            array_merge($basePlant, [
+                'owner_id' => 3,
+                'specie_name' => 'Cactus',
+                'location' => 'Fenêtre intérieure',
+                'status' => 'Nécessite peu de soins',
+                'description' => 'Un cactus résistant nécessitant peu d\'arrosage.'
+            ]),
+            array_merge($basePlant, [
+                'owner_id' => 3,
+                'specie_name' => 'Orchidée',
+                'location' => 'Serre',
+                'status' => 'Délicate',
+                'description' => 'Orchidée exotique avec de magnifiques fleurs.'
+            ]),
+            array_merge($basePlant, [
+                'owner_id' => 4,
+                'specie_name' => 'Bambou',
+                'location' => 'Bord de l\'étang',
+                'status' => 'Croissance rapide',
+                'description' => 'Bambou vert poussant rapidement près de l\'eau.'
+            ]),
+            array_merge($basePlant, [
+                'owner_id' => 4,
+                'specie_name' => 'Érable japonais',
+                'location' => 'Jardin japonais',
+                'status' => 'Coloré',
+                'description' => 'Petit érable avec des feuilles rouges et oranges éclatantes.'
+            ]),
+        ];
     }
 }
