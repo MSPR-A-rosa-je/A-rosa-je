@@ -11,7 +11,7 @@ class AdminLoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
+            'email'    => 'required|email',
             'password' => 'required',
         ]);
 
@@ -20,6 +20,7 @@ class AdminLoginController extends Controller
                 return redirect()->intended('/home');
             } else {
                 Auth::logout();
+
                 return back()->withErrors(['email' => 'You do not have access to admin panel.']);
             }
         }

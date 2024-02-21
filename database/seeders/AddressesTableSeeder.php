@@ -4,43 +4,38 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class AddressesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-
     public function run()
     {
         $seed_sample = config('app.seed_sample');
         try {
             $addresses = [
                 [
-                    'address' => '123 Main St',
-                    'city' => 'Anytown',
+                    'address'  => '123 Main St',
+                    'city'     => 'Anytown',
                     'zip_code' => '12345',
-                    'user_id' => 1,
+                    'user_id'  => 1,
                 ],
                 [
-                    'address' => '456 Oak St',
-                    'city' => 'Sometown',
+                    'address'  => '456 Oak St',
+                    'city'     => 'Sometown',
                     'zip_code' => '67890',
-                    'user_id' => 2,
+                    'user_id'  => 2,
                 ],
                 [
-                    'address' => '789 Pine St',
-                    'city' => 'Yourtown',
+                    'address'  => '789 Pine St',
+                    'city'     => 'Yourtown',
                     'zip_code' => '13579',
-                    'user_id' => 3,
+                    'user_id'  => 3,
                 ],
                 [
-                    'address' => '101 Maple Ave',
-                    'city' => 'TheirTown',
+                    'address'  => '101 Maple Ave',
+                    'city'     => 'TheirTown',
                     'zip_code' => '24680',
-                    'user_id' => 4,
+                    'user_id'  => 4,
                 ]
             ];
             foreach ($addresses as $address) {
@@ -56,7 +51,7 @@ class AddressesTableSeeder extends Seeder
             try {
                 Log::error('Failed to seed addresses table ❌', ['error' => $e->getMessage()]);
             } catch (\Exception $e) {
-            Log::error($e);
+                Log::error($e);
             }
         }
     }

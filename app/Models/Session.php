@@ -22,7 +22,6 @@ class Session extends Model
         return $this->belongsTo(User::class, 'owner_id');
     }
 
-
     public function mission()
     {
         return $this->belongsTo(Mission::class, 'mission_id');

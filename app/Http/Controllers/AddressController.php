@@ -2,78 +2,62 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Address;
-use Illuminate\Support\Facades\Log;
 use App\Constants\ValidationRules;
-
+use App\Models\Address;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 const MAX_STRING_LENGTH = 255;
 
 class AddressController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $addresses = Address::all();
+
         return view('addresses.index', compact('addresses'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('addresses.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'address' => ValidationRules::MAX_STRING_LENGTH,
-            'city' => ValidationRules::MAX_STRING_LENGTH,
+            'address'  => ValidationRules::MAX_STRING_LENGTH,
+            'city'     => ValidationRules::MAX_STRING_LENGTH,
             'zip_code' => 'required|integer|max:10'
         ]);
 
         try {
             $address = Address::create($validateData);
             Log::info('Address created:' . $address->id);
-            return redirect()->route('addresses.index')->
-            with('success', 'Address' . $address->id . 'created successfully.');
+
+            return redirect()
+                       ->route('addresses.index')
+                       ->with('success', 'Address' . $address->id . 'created successfully.');
         } catch (\Throwable $e) {
-            return "<div>test</div>";
+            return '<div>test</div>';
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Address $address)
     {
         return view('addresses.show', compact('address'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Address $address)
     {
         return view('addresses.edit', compact('address'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Address $address)
     {
         $validateData = $request->validate([
-            'address' => ValidationRules::MAX_STRING_LENGTH,
-            'city' => ValidationRules::MAX_STRING_LENGTH,
+            'address'  => ValidationRules::MAX_STRING_LENGTH,
+            'city'     => ValidationRules::MAX_STRING_LENGTH,
             'zip_code' => 'required|integer|max:10'
         ]);
 
@@ -82,14 +66,12 @@ class AddressController extends Controller
         return redirect()->route('addresses.index')->with('success', 'Adress updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Address $address)
     {
         try {
             $address->delete();
             Log::info('Address deleted:' . $address->id);
+
             return redirect()->route('addresses.index')->with(
                 'success',
                 'Adress: ' . $address->id . ' deleted successfully ✅'

@@ -2,14 +2,10 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
     public function up()
     {
         try {
@@ -32,15 +28,11 @@ return new class extends Migration
             $table->unsignedBigInteger('gardien_id');
             $table->integer('number_of_sessions')->unsigned()->nullable();
             $table->json('plants_list')->nullable();
-
             $table->foreign('gardien_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down()
     {
         Schema::dropIfExists('missions');
@@ -60,7 +52,6 @@ return new class extends Migration
             $table->float('price');
             $table->text('description');
             $table->timestamps();
-
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('botanist_id')->references('id')->on('users')->onDelete('cascade');
         });
