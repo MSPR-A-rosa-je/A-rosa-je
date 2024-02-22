@@ -14,6 +14,6 @@ class HomeController extends Controller
         $plantCount   = Plant::count();
         $missionCount = Mission::count();
 
-        return view('home', compact('userCount', 'plantCount', 'missionCount'));
+        return view('back.home', compact('userCount', 'plantCount', 'missionCount'));
     }
 }

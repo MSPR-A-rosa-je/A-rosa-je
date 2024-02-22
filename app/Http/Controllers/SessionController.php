@@ -13,12 +13,12 @@ class SessionController extends Controller
     {
         $sessions = Session::all();
 
-        return view('sessions.index', compact('sessions'));
+        return view('back.sessions.index', compact('sessions'));
     }
 
     public function create()
     {
-        return view('sessions.create');
+        return view('back.sessions.create');
     }
 
     public function store(Request $request)
@@ -39,18 +39,18 @@ class SessionController extends Controller
                        ->route('sessions.index')
                        ->with('success', 'Session: ' . $session->id . ' created successfully.');
         } catch (\Throwable $e) {
-            return '<div>test</div>';
+            Log::error($e);
         }
     }
 
     public function show(Session $session)
     {
-        return view('sessions.show', compact('session'));
+        return view('back.sessions.show', compact('session'));
     }
 
     public function edit(Session $session)
     {
-        return view('sessions.edit', compact('session'));
+        return view('back.sessions.edit', compact('session'));
     }
 
     public function update(Request $request, Session $session)
