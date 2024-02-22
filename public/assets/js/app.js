@@ -1,3 +1,4 @@
+import './bootstrap.js';
 let menuBurger = document.querySelector('#burger-menu div');
 let navBar = document.querySelector('header.header nav');
 

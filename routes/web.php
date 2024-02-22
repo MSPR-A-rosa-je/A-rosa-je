@@ -1,29 +1,32 @@
+--- {Lkrms\Utility\Env::apply:83} Locale: en_US.UTF-8
 <?php
 
-use App\Http\Controllers\AdviceController;
-use App\Http\Controllers\MissionController;
-use App\Http\Controllers\SessionController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PlantController;
 use App\Http\Controllers\Auth\AdminLoginController;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\BenchmarkController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MissionController;
+use App\Http\Controllers\PlantController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::controller(LoginRegisterController::class)->group(function () {
+    Route::get('/register', 'register')->name('register');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/authenticate', 'authenticate')->name('authenticate');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::post('/logout', 'logout')->name('logout');
+});
 Route::get('/admin-login', function () {
     return view('back.admin-login');
 })->name('admin.login.form');
@@ -34,6 +37,7 @@ Route::get('/admin', [HomeController::class, 'index'])->middleware('admin');
 
 Route::post('/admin/logout', function () {
     Auth::logout();
+
     return redirect('/');
 })->name('admin.logout');
 
