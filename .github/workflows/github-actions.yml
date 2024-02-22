@@ -33,8 +33,8 @@ jobs:
 
       - name: Configure MySQL server
         run: |
-          docker exec a-rosa-je_db_1 mysql --user=root --password=testrootpassword --execute="SET GLOBAL max_allowed_packet=16777216;"
-          docker exec a-rosa-je_db_1 mysql --user=root --password=testrootpassword --execute="SET GLOBAL wait_timeout=28800;"
+          docker exec a-rosa-je_db_1 mysql --user=root --password=testrootpassword --host=127.0.0.1 --execute="SET GLOBAL max_allowed_packet=16777216;"
+          docker exec a-rosa-je_db_1 mysql --user=root --password=testrootpassword --host=127.0.0.1 --execute="SET GLOBAL wait_timeout=28800;"
 
       - name: Migrate
         run: php artisan migrate --seed --force
