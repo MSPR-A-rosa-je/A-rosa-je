@@ -21,3 +21,4 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN chown -R www-data:www-data /var/www/html/storage
 RUN chown -R www-data:www-data /var/www/html/bootstrap/cache
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
