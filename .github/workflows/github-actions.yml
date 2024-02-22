@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
         with:
           php-version: '8.2'
 
@@ -26,16 +28,24 @@ jobs:
       - name: Build with Docker Compose
         run: docker-compose build
 
-      - name: Lauch container
+      - name: Launch container
         run: docker-compose up -d
+
+      - name: Wait for MySQL to be ready
+        run: |
+          until docker exec db mysqladmin --user=root --password=testrootpassword --host "127.0.0.1" ping --silent; do
+            echo "Waiting for MySQL to be ready..."
+            sleep 2
+          done
+          echo "MySQL is ready."
 
       - name: Configure MySQL server
         run: |
-            mysql -h mysql -uroot -ptestrootpassword -e "SET GLOBAL max_allowed_packet=16777216;"
-            mysql -h mysql -uroot -ptestrootpassword -e "SET GLOBAL wait_timeout=28800;"
+          docker exec db mysql --user=root --password=testrootpassword --host "127.0.0.1" -e "SET GLOBAL max_allowed_packet=16777216;"
+          docker exec db mysql --user=root --password=testrootpassword --host "127.0.0.1" -e "SET GLOBAL wait_timeout=28800;"
 
       - name: Migrate
-        run: php artisan migrate --seed  --force
+        run: php artisan migrate --seed --force
 
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
