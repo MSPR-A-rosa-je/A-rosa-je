@@ -26,11 +26,11 @@ jobs:
       - name: Build with Docker Compose
         run: docker-compose build
 
-      - name: Migrate
-        run: php artisan migrate --seed  --force
-
       - name: Lauch container
         run: docker-compose up -d
+
+      - name: Migrate
+        run: php artisan migrate --seed  --force
 
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
