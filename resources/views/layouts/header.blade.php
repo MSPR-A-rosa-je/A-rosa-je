@@ -10,12 +10,12 @@
 <header class="header">
     <div class="logo">
         <a href="/">
-            <img src="{{ asset('assets/pictures/logo2.png') }}"/>
+            <img src="{{ asset('assets/pictures/logo2.png') }}" alt="logo"/>
             <p>Sabota'je</p>
         </a>
         <!-- Sabota'je -->
     </div>
-    <nav>
+    <nav aria-label="Main">
         <ul>
             <li class="list"><a href="#">Missions</a>
                 <ul class="under">
@@ -32,7 +32,6 @@
                     <li><a href="#">Update</a></li>
                     <li><a href="#">Delete</a></li>
 
-<title>Arosa'Je - @yield('title')</title>
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,10 +48,10 @@
 <header class="h-20 header">
     <div class="logo">
         <a href="/">
-            <img src="{{ asset('assets/pictures/logo.png') }}"/>
+            <img src="{{ asset('assets/pictures/logo.png') }}" alt="logo"/>
         </a>
     </div>
-    <nav class="header-nav">
+    <nav class="header-nav" aria-label="Main">
         <ul class="h-20">
             <li class="h-20 list"><a href="#">Missions</a>
                 <ul class="under">
