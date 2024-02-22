@@ -1,26 +1,25 @@
+--- {Lkrms\Utility\Env::apply:83} Locale: en_US.UTF-8
 <?php
 
-use App\Http\Controllers\AdviceController;
-use App\Http\Controllers\MissionController;
-use App\Http\Controllers\SessionController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\PlantController;
 use App\Http\Controllers\Auth\AdminLoginController;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AddressController;
-use App\Http\Controllers\BenchmarkController;
-use GuzzleHttp\Middleware;
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\AdviceController;
+use App\Http\Controllers\BenchmarkController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MissionController;
+use App\Http\Controllers\PlantController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::controller(LoginRegisterController::class)->group(function() {
+Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
@@ -38,6 +37,7 @@ Route::get('/admin', [HomeController::class, 'index'])->middleware('admin');
 
 Route::post('/admin/logout', function () {
     Auth::logout();
+
     return redirect('/');
 })->name('admin.logout');
 
@@ -53,4 +53,3 @@ Route::get('/benchmark', function () {
     return view('back.benchmark');
 })->middleware('admin');
 Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest'])->middleware('admin');
-
