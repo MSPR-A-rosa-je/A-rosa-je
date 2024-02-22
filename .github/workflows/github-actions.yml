@@ -31,14 +31,6 @@ jobs:
       - name: Launch container
         run: docker-compose up -d
 
-      - name: Wait for MySQL to be ready
-        run: |
-          until docker exec db mysqladmin --user=root --password=testrootpassword --host "127.0.0.1" ping --silent; do
-            echo "Waiting for MySQL to be ready..."
-            sleep 2
-          done
-          echo "MySQL is ready."
-
       - name: Configure MySQL server
         run: |
           docker exec  a-rosa-je_db_1 --user=root --password=testrootpassword --host "127.0.0.1" -e "SET GLOBAL max_allowed_packet=16777216;"
