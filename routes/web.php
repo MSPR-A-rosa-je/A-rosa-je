@@ -24,10 +24,6 @@ use GuzzleHttp\Middleware;
 |
 */
 
-Route::get('/', function () {
-    return view('back.welcome');
-});
-
 Route::get('/admin-login', function () {
     return view('back.admin-login');
 })->name('admin.login.form');
