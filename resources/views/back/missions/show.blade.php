@@ -4,6 +4,7 @@
     <h2 class="logo">Profil of '{{ $mission->id }}'</h2>
     <div class="mission-table">
         <table>
+            <caption>Menu</caption>
             <thead>
             <tr>
                 <th>Date of Mission's Starting</th>
@@ -32,7 +33,8 @@
             @method('DELETE')
             <a href="/missions" class="button" style="margin-right: 66em; margin-left: 2em">Back</a>
             <a class="button" href="{{route('missions.edit', $mission->id)}}">Edit</a>
-            <button class="button" type="submit" onclick="return confirm('Are you sure you want to delete this mission?');">Delete</button>
+            <button class="button" type="submit" onclick="return
+            confirm('Are you sure you want to delete this mission?');">Delete</button>
         </form>
     </div>
 </div>

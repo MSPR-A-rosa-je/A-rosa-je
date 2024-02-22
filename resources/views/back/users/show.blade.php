@@ -4,6 +4,7 @@
         <h2 class="logo">Profil of '{{ $user->pseudo }}'</h2>
         <div class="list-table">
         <table>
+        <caption>Menu</caption>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -42,6 +43,7 @@
             @method('DELETE')
             <a href="/users" class="button" style="margin-right: 66em; margin-left: 2em">Back</a>
             <a class="button" href="{{ route('users.edit', [$user->id]) }}">Edit</a>
-            <button class="button" type="submit" onclick="return confirm('Are you sure you want to delete this user?');">Delete</button>
+            <button class="button" type="submit" onclick="return
+            confirm('Are you sure you want to delete this user?');">Delete</button>
         </div>
     </div>

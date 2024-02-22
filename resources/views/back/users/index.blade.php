@@ -6,6 +6,7 @@
     <input class="search" type="text" id="email-filter" placeholder="Email">
 </div>
     <table>
+        <caption>Menu</caption>
         <thead>
             <tr>
                 <th>Pseudo</th>

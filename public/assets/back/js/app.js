@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const cityFilter = document.getElementById("city-filter");
     const zipCodeFilter = document.getElementById("zip_code-filter");
     const userIdFilter = document.getElementById("user_id-filter");
-    const tableBody = document.getElementById("table-body");
 
     function filterRows() {
         const idValue = idFilter.value.toLowerCase();

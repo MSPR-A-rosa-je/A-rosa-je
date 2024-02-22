@@ -4,6 +4,7 @@
     <h2 class="logo">Profil of '{{ $session->id }}'</h2>
     <div class="session-table">
         <table>
+        <caption>Menu</caption>
             <thead>
             <tr>
                 <th>List Of Plants</th>
@@ -28,7 +29,8 @@
             @method('DELETE')
             <a href="/sessions" class="button" style="margin-right: 66em; margin-left: 2em">Back</a>
             <a class="button" href="{{route('sessions.edit', $session->id)}}">Edit</a>
-            <button class="button" type="submit" onclick="return confirm('Are you sure you want to delete this session?');">Delete</button>
+            <button class="button" type="submit" onclick="return
+            confirm('Are you sure you want to delete this session?');">Delete</button>
         </form>
     </div>
 </div>

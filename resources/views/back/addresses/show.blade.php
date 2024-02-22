@@ -5,6 +5,7 @@
         <h2 class="logo">Profil of '{{ $address->id }}'</h2>
         <div class="adress-table">
             <table>
+            <caption>Menu</caption>
                 <caption>Menu</caption>
                 <thead>
                     <tr>

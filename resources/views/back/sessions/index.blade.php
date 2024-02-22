@@ -5,6 +5,7 @@
     <input class="filter" type="text" id="owner_id-filter" placeholder="Owner ID">
     <input class="filter" type="text" id="mission_id-filter" placeholder="Mission ID">
     <table style="padding-bottom: 2%">
+        <caption>Menu</caption>
         <thead>
         <tr>
             <th>List of Plants</th>

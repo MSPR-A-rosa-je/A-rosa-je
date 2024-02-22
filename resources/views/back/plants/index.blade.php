@@ -8,6 +8,7 @@
     <input class="search" type="text" id="user_id-filter" placeholder="User ID">
 </div>
     <table style="padding-bottom: 2%">
+        <caption>Menu</caption>
         <thead>
             <tr>
                 <th>Specie Name</th>

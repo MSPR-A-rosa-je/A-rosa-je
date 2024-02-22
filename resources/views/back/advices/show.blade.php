@@ -4,6 +4,7 @@
     <h2 class="logo">Profil of '{{ $advice->id }}'</h2>
     <div class="advice-table">
         <table>
+        <caption>Menu</caption>
             <caption>Menu</caption>
             <thead>
             <tr>
