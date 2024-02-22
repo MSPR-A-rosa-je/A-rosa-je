@@ -1,9 +1,19 @@
 <?php
 
-
+use App\Http\Controllers\AdviceController;
+use App\Http\Controllers\MissionController;
+use App\Http\Controllers\SessionController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PlantController;
+use App\Http\Controllers\Auth\AdminLoginController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\BenchmarkController;
+use GuzzleHttp\Middleware;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +28,29 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
+Route::get('/admin-login', function () {
+    return view('back.admin-login');
+})->name('admin.login.form');
+
+Route::post('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
+
+Route::get('/admin', [HomeController::class, 'index'])->middleware('admin');
+
+Route::post('/admin/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('admin.logout');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('admin');
+Route::resource('users', UserController::class)->middleware('admin');
+Route::resource('plants', PlantController::class)->middleware('admin');
+Route::resource('addresses', AddressController::class)->middleware('admin');
+Route::resource('missions', MissionController::class)->middleware('admin');
+Route::resource('advices', AdviceController::class)->middleware('admin');
+Route::resource('sessions', SessionController::class)->middleware('admin');
+
+Route::get('/benchmark', function () {
+    return view('back.benchmark');
+})->middleware('admin');
+Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest'])->middleware('admin');
+

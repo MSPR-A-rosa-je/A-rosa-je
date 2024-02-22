@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mission extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'number_of_sessions',
         'plants_list',
@@ -33,8 +34,8 @@ class Mission extends Model
 
     protected $casts = [
         'candidates_list' => 'array',
-        'creation_date' => 'datetime',
-        'start_date' => 'datetime',
-        'end_date' => 'datetime',
+        'creation_date'   => 'datetime',
+        'start_date'      => 'datetime',
+        'end_date'        => 'datetime',
     ];
-};
+}
