@@ -39,12 +39,8 @@ jobs:
           done
           echo "MySQL is ready."
 
-      - name: Configure MySQL server
-        run: |
-          docker exec a-rosa-je_db_1 mysql --user=testuser --password=testpassword --host=db --execute="SET GLOBAL max_allowed_packet=16777216;"
-          docker exec a-rosa-je_db_1 mysql --user=testuser --password=testpassword --host=db --execute="SET GLOBAL wait_timeout=28800;"
-            - name: Migrate
-              run: php artisan migrate --seed --force
+      - name: Migrate
+        run: php artisan migrate --seed --force
 
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
