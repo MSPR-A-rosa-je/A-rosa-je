@@ -17,7 +17,6 @@
     </head>
     <body class="antialiased">
         @include('auth.layouts')
-
     </body>
 </html>
 @section('title', 'Home')
