@@ -85,7 +85,7 @@ class LoginRegisterController extends Controller
         ]);
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->route('dashboard')->withSuccess('You have successfully logged in!');
+            return redirect()->route('welcome')->withSuccess('You have successfully logged in!');
         }
         return back()->withErrors([
             'email' => 'Your provided credentials do not match in our records.',

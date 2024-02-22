@@ -1,4 +1,3 @@
---- {Lkrms\Utility\Env::apply:83} Locale: en_US.UTF-8
 <?php
 
 use App\Http\Controllers\Auth\AdminLoginController;
@@ -17,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::controller(LoginRegisterController::class)->group(function () {
     Route::get('/register', 'register')->name('register');

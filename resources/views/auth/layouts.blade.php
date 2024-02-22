@@ -10,7 +10,7 @@
     M80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="nabar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{URL('/')}}">Custom Login Register</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

@@ -3,35 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.2">
-    <title>ADMIN PANEL</title>
-    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
-</head>
-<header class="header">
-    <div class="logo">
-        <a href="/">
-            <img src="{{ asset('assets/pictures/logo2.png') }}" alt="logo"/>
-            <p>Sabota'je</p>
-        </a>
-        <!-- Sabota'je -->
-    </div>
-    <nav aria-label="Main">
-        <ul>
-            <li class="list"><a href="#">Missions</a>
-                <ul class="under">
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Create</a></li>
-                    <li><a href="#">Update</a></li>
-                    <li><a href="#">Delete</a></li>
-                </ul>
-            </li>
-            <li class="list"><a href="#">Chat</a>
-                <ul class="under">
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Create</a></li>
-                    <li><a href="#">Update</a></li>
-                    <li><a href="#">Delete</a></li>
-
+    <title>Arosa-Je - @yield('title')</title>
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,13 +17,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
+<body>
 <header class="h-20 header">
     <div class="logo">
         <a href="/">
-            <img src="{{ asset('assets/pictures/logo.png') }}" alt="logo"/>
+            <img src="{{ asset('assets/pictures/logo.png') }}"/>
         </a>
     </div>
-    <nav class="header-nav" aria-label="Main">
+    <nav class="header-nav">
         <ul class="h-20">
             <li class="h-20 list"><a href="#">Missions</a>
                 <ul class="under">
@@ -67,28 +40,40 @@
             </li>
         </ul>
     </nav>
-</header>
 
     <div id="bloc-cnx-hd" class="flex-class-center">
         @if (Auth::guest())
-            <p>Log in</p>
-            <i class="fa-solid fa-circle-user"></i>
-        @else
-            <p>{{Auth::user()->pseudo}}</p>
-            <i class="fa-solid fa-circle-user"></i>
-        @endif
-    </div>
+        <nav class="header-nav">
+            <ul class="h-20">
+                <li class="h-10 list"><a href="{{ route('login') }}"><p>Log in</p>
+                        <i class="fa-solid fa-circle-user"></i></a>
+                    <ul class="under">
+                        <li><a href="{{ route('register') }}">Sign in</a></li>
+                        <li><a href="{{ route('login') }}">Log in</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
-    <div id="bloc-cnx">
-        <ul>
-        @if (Auth::guest())
-            <li><a href="#">Sign in</a></li>
-            <li><a href="#">Log in</a></li>
         @else
-            <li><a href="#">My Account</a></li>
-            <li><a href="#">Log out</a></li>
+        <nav class="header-nav">
+            <ul class="h-20">
+                <li class="h-10 list"><a href=""><p>{{Auth::user()->pseudo}}</p>
+                        <i class="fa-solid fa-circle-user"></i></a>
+                    <ul class="under">
+                        <li><a href="#">My Account</a></li>
+                        <li> <a class="dropdown-item" href="{{route('logout')}}"
+                                onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{route('logout')}}" method="POST">
+                                @csrf
+                            </form></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
         @endif
-        </ul>
     </div>
 
     <div id="burger-menu">
