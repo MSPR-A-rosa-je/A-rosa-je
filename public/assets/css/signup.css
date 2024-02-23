@@ -44,8 +44,6 @@ margin-bottom: 50%;
         padding: 10px 5px 10px 2px;
     }
 
-    #picture-input {
-    }
 }
 
 /*calendar style*/
@@ -239,9 +237,6 @@ button {
     display: none;
 }
 
-.switch {
-    display: inline-block;
-}
 
 .switch svg {
     -webkit-transition: var(--icon-transition);
