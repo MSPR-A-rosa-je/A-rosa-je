@@ -24,7 +24,7 @@ class PlantFactory extends Factory
             'url_photo'    => $this->faker->imageUrl(),
             'status'       => $status,
             'description'  => $this->faker->paragraph,
-            'advices_list' => rand(1, 10),
+            'advices_list' => json_encode([rand(1, 10)]),
         ];
     }
 }

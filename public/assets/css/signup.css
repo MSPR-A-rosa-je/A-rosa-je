@@ -237,9 +237,6 @@ button {
     display: none;
 }
 
-.switch {
-    display: inline-block;
-}
 
 .switch svg {
     -webkit-transition: var(--icon-transition);

@@ -10,45 +10,45 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         try {
-            $this->call(UsersTableSeeder::class);
             Log::info('Seeding users table...');
+            $this->call(UsersTableSeeder::class);
         } catch (\Exception $e) {
             $this->call(UsersTableSeeder::class);
         }
 
         try {
-            $this->call(PlantsTableSeeder::class);
-            Log::info('Seeding plants table...');
-        } catch (\Exception $e) {
-            $this->call(PlantsTableSeeder::class);
-        }
-
-        try {
-            $this->call(AdvicesTableSeeder::class);
-            Log::info('Seeding advices table...');
-        } catch (\Exception $e) {
-            $this->call(AdvicesTableSeeder::class);
-        }
-
-        try {
-            $this->call(MissionsTableSeeder::class);
             Log::info('Seeding missions table...');
+            $this->call(MissionsTableSeeder::class);
         } catch (\Exception $e) {
             $this->call(MissionsTableSeeder::class);
         }
 
         try {
-            $this->call(SessionsTableSeeder::class);
             Log::info('Seeding sessions table...');
+            $this->call(SessionsTableSeeder::class);
         } catch (\Exception $e) {
             $this->call(SessionsTableSeeder::class);
         }
 
         try {
-            $this->call(AddressesTableSeeder::class);
+            Log::info('Seeding advices table...');
+            $this->call(AdvicesTableSeeder::class);
+        } catch (\Exception $e) {
+            $this->call(AdvicesTableSeeder::class);
+        }
+
+        try {
             Log::info('Seeding Addresses table...');
+            $this->call(AddressesTableSeeder::class);
         } catch (\Exception $e) {
             $this->call(AddressesTableSeeder::class);
+        }
+
+        try {
+            Log::info('Seeding plants table...');
+            $this->call(PlantsTableSeeder::class);
+        } catch (\Exception $e) {
+            $this->call(PlantsTableSeeder::class);
         }
     }
 }

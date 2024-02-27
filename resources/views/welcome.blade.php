@@ -2,6 +2,7 @@
 @section('title', 'Home')
 @include('layouts/header')
 
+
 <div class="container mx-auto content-center">
     <img class="m-auto" src="{{ asset('assets/pictures/Arosa-je.png') }}" alt="logo arosa-je">
 </div>
@@ -25,7 +26,6 @@
     </p>
 </div>
 
-
 <div class="background-container2">
 
     <div class="bgc-white-trans" style="width: 50%; margin: 2%">
@@ -33,6 +33,7 @@
         <p style="text-align: center; font-size: .7em">
             Unlock the full potential of your plant care routine with Arosa-je! By signing up today, you gain exclusive access to a comprehensive suite of features designed to streamline your plant care experience. From personalized care schedules that cater to each plant's unique needs to tailored reminders ensuring no task goes unnoticed, Arosa-je empowers you to become a master gardener with ease. But that's not all – delve into a treasure trove of expert tips and advice, curated to help you nurture healthier, more vibrant plants. With Arosa-je, you're not just caring for your plants; you're fostering a thriving ecosystem right in your home. And the journey doesn't end there. Track your plants' growth and progress over time, witnessing firsthand the fruits of your labor as your green companions flourish under your care. Join the Arosa-je community today and embark on a botanical adventure unlike any other. Let's cultivate beauty, one plant at a time. Sign up now and transform your plant care routine forever.
         </p>
+
     </div>
     <div style="width: 50%; padding: 5%">
         <p></p>

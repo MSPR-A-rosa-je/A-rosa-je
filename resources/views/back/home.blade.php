@@ -3,7 +3,7 @@
     <div class="row">
         <div>
             <div class="card">
-            <img src="{{ asset('assets/svg/users.svg') }}" alt="User Icon">
+            <img src="{{ asset('assets/pictures/users.svg') }}" alt="User Icon">
                 <div>Users</div>
                 <div>
                     {{ $userCount }}
@@ -12,7 +12,7 @@
         </div>
         <div>
             <div class="card">
-                <img src="{{ asset('assets/svg/plants.svg') }}" alt="Plant Icon">
+                <img src="{{ asset('assets/pictures/plants.svg') }}" alt="Plant Icon">
                 <div>Plants</div>
                 <div>
                     {{ $plantCount }}
@@ -21,7 +21,7 @@
         </div>
         <div>
             <div class="card">
-                <img src="{{ asset('assets/svg/missions.svg') }}" alt="Mission Icon">
+                <img src="{{ asset('assets/pictures/missions.svg') }}" alt="Mission Icon">
                 <div>Missions</div>
                 <div>
                     {{ $missionCount }}
