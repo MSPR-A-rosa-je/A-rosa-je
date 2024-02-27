@@ -25,17 +25,23 @@
     </div>
     <nav class="header-nav">
         <ul class="h-20">
+            <li class="h-20 list">
+                <a href="{{ route('front.plants.index') }}">Plants</a>
+                <ul class="under">
+                    <li><a href="{{ route('front.plants.index') }}">My Plants</a></li>
+                    <li><a href="{{ route('front.plants.create') }}">Create</a></li>
+                </ul>
+            </li>
             <li class="h-20 list"><a href="#">Missions</a>
                 <ul class="under">
                     <li><a href="#">View</a></li>
                     <li><a href="#">Create</a></li>
                 </ul>
             </li>
-            <li class="h-20 list"><a href="#">Chat</a>
-                <ul class="under">
-                    <li><a href="#">View</a></li>
-                    <li><a href="#">Create</a></li>
-                </ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="h-20"><a href="#">Chat</a>
             </li>
         </ul>
     </nav>

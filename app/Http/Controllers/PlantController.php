@@ -13,12 +13,12 @@ class PlantController extends Controller
     {
         $plants = Plant::all();
 
-        return view('back.plants.index', compact('plants'));
+        return view('plants.index', compact('plants'));
     }
 
     public function create()
     {
-        return view('back.plants.create');
+        return view('plants.create');
     }
 
     public function store(Request $request)

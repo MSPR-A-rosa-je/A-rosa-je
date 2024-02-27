@@ -10,6 +10,7 @@ body {
     line-height: 1.6;
     margin: 0;
     min-height: 100vh;
+
 }
 
 ul {
@@ -78,6 +79,7 @@ header .logo p {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    z-index: 1000;
 }
 
 nav.header-nav {
@@ -201,8 +203,8 @@ nav>ul li:hover .under {
 }
 
 .button {
-    color: #CCC;
-    background-color: #34495e;
+    color: #b4e7ce;
+    background-color: #f8c808;
     border-radius: 0.5rem;
     font-size: 1rem;
     line-height: 2rem;

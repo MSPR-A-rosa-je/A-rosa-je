@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\BenchmarkController;
+use App\Http\Controllers\FrontPlantController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\PlantController;
@@ -48,7 +49,18 @@ Route::resource('missions', MissionController::class)->middleware('admin');
 Route::resource('advices', AdviceController::class)->middleware('admin');
 Route::resource('sessions', SessionController::class)->middleware('admin');
 
+
 Route::get('/benchmark', function () {
     return view('back.benchmark');
 })->middleware('admin');
 Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest'])->middleware('admin');
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/plants', [FrontPlantController::class, 'index'])->name('front.plants.index');
+    Route::get('/plants/create', [FrontPlantController::class, 'create'])->name('front.plants.create');
+    Route::post('/plants', [FrontPlantController::class, 'store'])->name('front.plants.store');
+    Route::delete('/plants/{plant}', [FrontPlantController::class, 'destroy'])->name('front.plants.destroy');
+});
+
