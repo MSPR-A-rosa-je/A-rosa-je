@@ -16,7 +16,6 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    /*background-color: #c4e7cd;*/
 }
 
 a {
@@ -24,7 +23,6 @@ a {
     text-decoration: none;
 }
 
-/* TITLES */
 body h2 {
     font-size: 32px;
 }
@@ -73,8 +71,6 @@ header .logo p {
     height: 3em;
     position: sticky;
     top: 0;
-    /*padding-top: 2em;*/
-    /*padding-bottom: 2em;*/
     background-color: #c4e7cd;
     -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
@@ -87,8 +83,6 @@ header .logo p {
 nav.header-nav {
     width: 100%;
     margin: 0 auto;
-    /*background-color: white;*/
-    /*position: sticky;*/
     top: 0px;
 }
 
@@ -264,7 +258,6 @@ td {
 }
 
 .accueil-bg-img {
-    /*height: 400px;*/
     background-size: cover;
     background-position: center;
 }
@@ -277,7 +270,7 @@ td {
 .background-container1 {
     display: flex;
     width: 100%;
-    height: 50vh; /* ajustez la hauteur selon vos besoins */
+    height: 50vh;
     background-image: url('../pictures/ficus.jpg');
     background-size: cover;
     background-position: center;
@@ -287,7 +280,7 @@ td {
 .background-container2 {
     display: flex;
     width: 100%;
-    height: 50vh; /* ajustez la hauteur selon vos besoins */
+    height: 50vh;
     background-image: url('../pictures/cactus.jpg');
     background-size: cover;
     background-position: center;
@@ -297,7 +290,7 @@ td {
 .background-container3 {
     display: flex;
     width: 100%;
-    height: 50vh; /* ajustez la hauteur selon vos besoins */
+    height: 50vh;
     background-image: url('../pictures/pot.jpg');
     background-size: cover;
     background-position: center;
@@ -320,31 +313,6 @@ footer.footer nav.nav-soc-net ul li {
 footer.footer nav.nav-footer-spec ul li a {
     padding: 10px 15px;
 }
-/*footer.footer nav.nav-footer-spec ul li a:hover {*/
-/*    color: initial;*/
-/*}*/
-
-/* =================================
-Media Queries
-==================================== */
-
-/*@media (min-width: 769px) {*/
-
-/*    !*.header,*!*/
-/*    !*.main-nav {*!*/
-/*    !*    display: flex;*!*/
-/*    !*}*!*/
-
-/*    !*.header {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        justify-content: space-between;*/
-/*        !*width: 80%;*!*/
-/*        margin: 0 auto;*/
-/*        padding: 0;*/
-/*        !*max-width: 1150px;*!*/
-/*    }*!*/
-/*}*/
 
 .flex-class-center {
     display: flex;
