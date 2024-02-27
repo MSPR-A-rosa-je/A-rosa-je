@@ -112,10 +112,14 @@ nav.header-nav a {
     display: block;
     text-decoration: none;
     border-bottom: 2px solid transparent;
-    padding: 27px 0px;
+    padding: 27px 0;
     background-color: #c4e7cd;
     width: 10em;
     text-align: center;
+}
+
+nav.header-nav .profil {
+    padding: 5% 5% 0 0;
 }
 
 nav.header-nav a:hover {
@@ -264,19 +268,40 @@ td {
     background-size: cover;
     background-position: center;
 }
-#accueil-img-1 {
-    background-image: url("/assets/pictures/img_plant_001.jpg");
-}
-#accueil-img-2 {
-    background-image: url("/assets/pictures/img_plant_002.jpg");
-}
-#accueil-img-3 {
-    height: 500px;
-    background-image: url("/assets/pictures/img_plant_003.jpg");
+
+
+.bgc-white-trans {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-.bgc-white-transp {
-    background-color: rgba(255, 255, 255, 0.8);
+.background-container1 {
+    display: flex;
+    width: 100%;
+    height: 50vh; /* ajustez la hauteur selon vos besoins */
+    background-image: url('../pictures/ficus.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.background-container2 {
+    display: flex;
+    width: 100%;
+    height: 50vh; /* ajustez la hauteur selon vos besoins */
+    background-image: url('../pictures/cactus.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.background-container3 {
+    display: flex;
+    width: 100%;
+    height: 50vh; /* ajustez la hauteur selon vos besoins */
+    background-image: url('../pictures/pot.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
 footer.footer {

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Arosa-Je - @yield('title')</title>
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts -->
@@ -45,7 +44,7 @@
         @if (Auth::guest())
         <nav class="header-nav">
             <ul class="h-20">
-                <li class="h-10 list"><a href="{{ route('login') }}"><p>Log in</p>
+                <li class="h-10 list"><a class="profil" href="{{ route('login') }}"><p>Log in</p>
                         <i class="fa-solid fa-circle-user"></i></a>
                     <ul class="under">
                         <li><a href="{{ route('register') }}">Sign in</a></li>
@@ -58,10 +57,10 @@
         @else
         <nav class="header-nav">
             <ul class="h-20">
-                <li class="h-10 list"><a href=""><p>{{Auth::user()->pseudo}}</p>
+                <li class="h-10 list"><a class="profil" href=""><p>{{Auth::user()->pseudo}}</p>
                         <i class="fa-solid fa-circle-user"></i></a>
                     <ul class="under">
-                        <li><a href="#">My Account</a></li>
+                        <li><a  href="#">My Account</a></li>
                         <li> <a class="dropdown-item" href="{{route('logout')}}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 Logout
