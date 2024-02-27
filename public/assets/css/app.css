@@ -16,9 +16,6 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
-
-    background-color: #c4e7cd;
-
 }
 
 a {
@@ -26,8 +23,6 @@ a {
     text-decoration: none;
 }
 
-
-/* TITLES */
 body h2 {
     font-size: 32px;
 }
@@ -35,15 +30,13 @@ body h3 {
     font-size: 26px;
 }
 
-
 .logo {
     margin: 0;
     font-size: 1.45em;
 }
 header .logo a {
     height: 80px;
-    width: 200px;
-
+    width: 100px;
     display: inline-flex;
     padding: 10px;
 }
@@ -78,8 +71,6 @@ header .logo p {
     height: 3em;
     position: sticky;
     top: 0;
-    /*padding-top: 2em;*/
-    /*padding-bottom: 2em;*/
     background-color: #c4e7cd;
     -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
@@ -89,16 +80,9 @@ header .logo p {
     border-radius: 5px;
 }
 
-nav {
-    width: 100%;
-    margin: 0 auto;
-    background-color: white;
-    position: sticky;
 nav.header-nav {
     width: 100%;
     margin: 0 auto;
-    /*background-color: white;*/
-    /*position: sticky;*/
     top: 0px;
 }
 
@@ -106,35 +90,32 @@ nav ul {
     list-style-type: none;
 }
 
-nav ul li {
 nav.header-nav ul li {
     float: left;
     text-align: center;
     position: relative;
 }
 
-nav ul::after {
 nav.header-nav ul::after {
     content: "";
     display: table;
     clear: both;
 }
 
-    display: block;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    padding: 10px 0px;
 nav.header-nav a {
     display: block;
     text-decoration: none;
     border-bottom: 2px solid transparent;
-    padding: 27px 0px;
+    padding: 27px 0;
     background-color: #c4e7cd;
     width: 10em;
     text-align: center;
 }
 
-nav a:hover {
+nav.header-nav .profil {
+    padding: 5% 5% 0 0;
+}
+
 nav.header-nav a:hover {
     border-bottom: 2px solid #c8c8c81a;
     cursor: pointer;
@@ -277,23 +258,43 @@ td {
 }
 
 .accueil-bg-img {
-    /*height: 400px;*/
     background-size: cover;
     background-position: center;
 }
-#accueil-img-1 {
-    background-image: url("/assets/pictures/img_plant_001.jpg");
-}
-#accueil-img-2 {
-    background-image: url("/assets/pictures/img_plant_002.jpg");
-}
-#accueil-img-3 {
-    height: 500px;
-    background-image: url("/assets/pictures/img_plant_003.jpg");
+
+
+.bgc-white-trans {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-.bgc-white-transp {
-    background-color: rgba(255, 255, 255, 0.8);
+.background-container1 {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    background-image: url('../pictures/ficus.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.background-container2 {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    background-image: url('../pictures/cactus.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.background-container3 {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    background-image: url('../pictures/pot.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
 footer.footer {
@@ -312,58 +313,6 @@ footer.footer nav.nav-soc-net ul li {
 footer.footer nav.nav-footer-spec ul li a {
     padding: 10px 15px;
 }
-/*footer.footer nav.nav-footer-spec ul li a:hover {*/
-/*    color: initial;*/
-/*}*/
-
-/* =================================
-Media Queries
-==================================== */
-
-@media (min-width: 769px) {
-
-    .header,
-    .main-nav {
-        display: flex;
-
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: center;
-
-        .header {
-            width: 80%;
-            margin: 0 auto;
-            max-width: 1150px;
-        }
-    }
-
-}
-
-@media (min-width: 1025px) {
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-/*@media (min-width: 769px) {*/
-
-/*    !*.header,*!*/
-/*    !*.main-nav {*!*/
-/*    !*    display: flex;*!*/
-/*    !*}*!*/
-
-/*    !*.header {*/
-/*        display: flex;*/
-/*        flex-direction: row;*/
-/*        justify-content: space-between;*/
-/*        !*width: 80%;*!*/
-/*        margin: 0 auto;*/
-/*        padding: 0;*/
-/*        !*max-width: 1150px;*!*/
-/*    }*!*/
-/*}*/
 
 .flex-class-center {
     display: flex;
@@ -404,8 +353,8 @@ Media Queries
     #burger-menu div.burger-active div:nth-child(2) {
         display: none;
     }#burger-menu div.burger-active div:last-child {
-        transform: rotate(-45deg);
-    }
+         transform: rotate(-45deg);
+     }
     #burger-menu div.burger-active {
         margin-right: 37px;
         margin-bottom: 13px;

@@ -18,7 +18,7 @@
 <body>
 <div class="container">
     <div class="left-side">
-        <button class="cancel-button" onclick="window.location.href='/login'">
+        <button class="cancel-button" onclick="window.location.href='/'">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M7.07 7.07l9.17 9.17M7.07 16.24L16.24 7.07" fill="none" stroke="#ffffff" stroke-width="2"/>
             </svg>
