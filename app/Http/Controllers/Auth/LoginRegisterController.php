@@ -16,7 +16,7 @@ class LoginRegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except(['logout', 'dashboard']);
+        $this->middleware('guest')->except(['logout', 'welcome']);
     }
 
     /**
@@ -62,7 +62,7 @@ class LoginRegisterController extends Controller
         Auth::attempt($credentials);
         $request->session()->regenerate();
 
-        return redirect()->route('dashboard')->withSuccess('You have successfully registered & logged in!');
+        return redirect()->route('welcome')->withSuccess('You have successfully registered & logged in!');
     }
 
     /**
@@ -84,7 +84,7 @@ class LoginRegisterController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email'    => 'required|email',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
         if (Auth::attempt($credentials)) {
@@ -94,28 +94,9 @@ class LoginRegisterController extends Controller
 
         }
 
-        return response()-> back()->withErrors([
+        return response()->back()->withErrors([
             'email' => 'Your provided credentials do not match in our records.',
         ])->onlyInput('email');
-    }
-
-    /**
-     * Display a dashboard to authenticated users.
-     *
-     * @return Response
-     */
-    public function dashboard()
-    {
-        if (Auth::check()) {
-            return response ()->view('auth.dashboard');
-        }
-
-        return response ()->redirect()
-                   ->route('login')
-                   ->withErrors([
-                       'email' => 'Please login to access the dashboard.',
-                   ])
-                   ->onlyInput('email');
     }
 
     /**

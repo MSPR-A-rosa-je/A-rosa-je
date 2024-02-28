@@ -33,8 +33,13 @@
         <p style="text-align: center; font-size: .7em">
             Unlock the full potential of your plant care routine with Arosa-je! By signing up today, you gain exclusive access to a comprehensive suite of features designed to streamline your plant care experience. From personalized care schedules that cater to each plant's unique needs to tailored reminders ensuring no task goes unnoticed, Arosa-je empowers you to become a master gardener with ease. But that's not all – delve into a treasure trove of expert tips and advice, curated to help you nurture healthier, more vibrant plants. With Arosa-je, you're not just caring for your plants; you're fostering a thriving ecosystem right in your home. And the journey doesn't end there. Track your plants' growth and progress over time, witnessing firsthand the fruits of your labor as your green companions flourish under your care. Join the Arosa-je community today and embark on a botanical adventure unlike any other. Let's cultivate beauty, one plant at a time. Sign up now and transform your plant care routine forever.
         </p>
-        <a href="{{ route('login') }}" class="button" type="button">Log In</a>
-        <a href="{{ route('register') }}" class="button" type="button">Sign In</a>
+
+        @if(Auth::guest())
+        <a href="{{ route('login') }}" class="button" type="button" style="color:#033C2E;background-color: #f0c808; margin:2% 0 0 35%">Log In</a>
+        <a href="{{ route('register') }}" class="button" type="button" style="color:#033C2E;background-color: #f0c808;">Sign In</a>
+        @else
+        <p></p>
+        @endif
 
     </div>
     <div style="width: 50%; padding: 5%">

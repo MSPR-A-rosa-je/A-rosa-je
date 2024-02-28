@@ -110,12 +110,12 @@ nav.header-nav a {
     border-bottom: 2px solid transparent;
     padding: 27px 0;
     background-color: #c4e7cd;
-    width: 10em;
+    width: 6.5em;
     text-align: center;
 }
 
 nav.header-nav .profil {
-    padding: 5% 5% 0 0;
+    padding: 5% 0 0 0;
 }
 
 nav.header-nav a:hover {
