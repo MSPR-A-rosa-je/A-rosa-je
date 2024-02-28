@@ -26,7 +26,7 @@
 
         @foreach ($plants as $plant)
         <tr class="clickable-row" data-href="{{ url('/plants/' . $plant->id) }}">
-            <td><img src="{{$plant->url_photo" alt=""></td>
+            <td><img src="{{$plant->url_photo}}" alt=""></td>
             <td>{{ $plant->location }}</td>
             <td>{{ $plant->id }}</td>
             <td>{{ $plant->owner_id }}</td>

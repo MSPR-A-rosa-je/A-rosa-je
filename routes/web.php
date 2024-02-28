@@ -43,18 +43,27 @@ Route::post('/admin/logout', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('admin');
 Route::resource('users', UserController::class)->middleware('admin');
-Route::resource('plants', PlantController::class)->middleware('admin');
+
 Route::resource('addresses', AddressController::class)->middleware('admin');
 Route::resource('missions', MissionController::class)->middleware('admin');
 Route::resource('advices', AdviceController::class)->middleware('admin');
 Route::resource('sessions', SessionController::class)->middleware('admin');
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/back/plants', [PlantController::class, 'index'])->name('back.plants.index');
+    Route::get('/back/plants/create', [PlantController::class, 'create'])->name('back.plants.create');
+    Route::get('/back/plants/{id}', [PlantController::class, 'show'])->name('back.plants.show');
+    Route::post('/back/plants', [PlantController::class, 'store'])->name('back.plants.store');
+    Route::get('/back/plants/{id}/edit', [PlantController::class, 'edit'])->name('back.plants.edit');
+    Route::put('/back/plants/{id    }', [PlantController::class, 'update'])->name('back.plants.update');
+    Route::delete('/back/plants/{plant}', [PlantController::class, 'destroy'])->name('back.plants.destroy');
+});
 
 
 Route::get('/benchmark', function () {
     return view('back.benchmark');
 })->middleware('admin');
 Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest'])->middleware('admin');
-
 
 
 Route::middleware(['auth'])->group(function () {
