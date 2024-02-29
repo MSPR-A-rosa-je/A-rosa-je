@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Plant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use function Laravel\Prompts\error;
 
 class FrontPlantController extends Controller
 {
@@ -28,17 +27,25 @@ return view('front.plants.create');
 public function store(Request $request)
 {
     $validateData = $request->validate([
-        "specie_name" => ValidationRules::MAX_STRING_LENGTH,
-        "location" => ValidationRules::MAX_STRING_LENGTH,
-        "url_photo" => ValidationRules::MAX_STRING_LENGTH,
-        "status" => ValidationRules::MAX_STRING_LENGTH,
-        "description" => 'required|log|max:2000',
+        "specie_name" => 'required|max:255',
+        "location" => 'required|max:255',
+        "url_photo" => 'required|max:255',
+        "status" => 'required|max:255',
+        "description" => 'required|max:2000',
     ]);
+
+
 
     try {
         $user = Auth::user();
 
-        $plant = $user->plants()->create($validateData);
+        $plant = new Plant();
+        $plant->specie_name = $validateData['specie_name'];
+        $plant->location = $validateData['location'];
+        $plant->url_photo = $validateData['url_photo'];
+        $plant->status = $validateData['status'];
+        $plant->description = $validateData['description'];
+        $plant->id_owner = $user->id;
 
         $plant->save();
 

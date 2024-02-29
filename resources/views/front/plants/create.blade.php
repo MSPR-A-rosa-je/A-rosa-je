@@ -1,10 +1,10 @@
 @include ('layouts/header')
 @section ('title', 'Create Plant')
-<form autocomplete="off" action="/plants" method="POST">
+<form autocomplete="off" action="{{ route('front.plants.store') }}" method="POST">
     @csrf
     <div style="display: flex; align-items: center; flex-direction: column;">
-        <h2 style="width: 100%; text-align: center;">Create Plant </h2>
-        <div style="display: flex; flex-direction: column; gap:2em;">
+        <h2 style="width: 100%; text-align: center;padding-bottom: 2%; font-weight: bolder">Create Plant </h2>
+        <div style=" border:1px black ;display: flex; flex-direction: column; gap:2em;">
             <div>
                 <label for="specie_name">Specie Name:</label>
                 <input type="text" id="specie_name" name="specie_name" required>
