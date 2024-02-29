@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Carbon;
 
 class User extends Authenticatable
 {
@@ -45,6 +46,7 @@ class User extends Authenticatable
         'birth_date',
     ];
 
+
     public function address()
     {
         return $this->hasOne(Address::class, 'user_id');
@@ -58,6 +60,12 @@ class User extends Authenticatable
     protected static function boot()
     {
         parent::boot();
+
+        static::creating(function ($user) {
+            $user->creation_date = Carbon::now();
+            $user->is_botanist = $user->is_botanist ?? false;
+            $user->is_admin = $user->is_admin ?? false;
+        });
 
         static::deleting(function ($user) {
             $user->address()->delete();
