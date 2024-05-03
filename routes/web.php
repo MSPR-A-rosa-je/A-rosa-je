@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\BenchmarkController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FrontPlantController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MissionController;
@@ -49,7 +50,7 @@ Route::resource('advices', AdviceController::class)->middleware('admin');
 Route::resource('sessions', SessionController::class)->middleware('admin');
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('/back/plants', [PlantController::class, 'index'])->name('back.plants.index');
+    Route::get('/back/plants', [PlantController::class, 'index'])->name('back.plants.index.blade.php');
     Route::get('/back/plants/create', [PlantController::class, 'create'])->name('back.plants.create');
     Route::get('/back/plants/{id}', [PlantController::class, 'show'])->name('back.plants.show');
     Route::post('/back/plants', [PlantController::class, 'store'])->name('back.plants.store');
@@ -66,9 +67,12 @@ Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest'])->mi
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/plants', [FrontPlantController::class, 'index'])->name('front.plants.index');
+    Route::get('/plants', [FrontPlantController::class, 'index'])->name('front.plants.index.blade.php');
     Route::get('/plants/create', [FrontPlantController::class, 'create'])->name('front.plants.create');
     Route::post('/plants', [FrontPlantController::class, 'store'])->name('front.plants.store');
     Route::delete('/plants/{plant}', [FrontPlantController::class, 'destroy'])->name('front.plants.destroy');
 });
+
+Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+Route::get('/chat/{id}', [ChatController::class, 'show'])->name('chat.show');
 

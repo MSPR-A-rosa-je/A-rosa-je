@@ -14,7 +14,7 @@ public function index()
 {
 $user = auth()->user();
 $plants = $user->plants; // Récupérer les plantes de l'utilisateur authentifié
-return view('front.plants.index', compact('plants'));
+return view('front.plants.index.blade.php', compact('plants'));
 }
 
 // Afficher le formulaire de création de plante
@@ -45,14 +45,14 @@ public function store(Request $request)
         $plant->url_photo = $validateData['url_photo'];
         $plant->status = $validateData['status'];
         $plant->description = $validateData['description'];
-        $plant->id_owner = $user->id;
+        $plant->owner_id = $user->id;
 
         $plant->save();
 
         Log::info('Plant created:' . $plant->id);
 
         return redirect()
-            ->route('plantes.index')
+            ->route('plants.index.blade.php')
             ->with('success', 'Plant: ' . $plant->id . 'created successfully');
     } catch (\Throwable $e) {
         Log::error($e);
@@ -68,6 +68,6 @@ $user = auth()->user();
 if ($plant->user_id === $user->id) {
 $plant->delete();
 }
-return redirect()->route('plants.index');
+return redirect()->route('plants.index.blade.php');
 }
 }

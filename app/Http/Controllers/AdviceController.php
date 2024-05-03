@@ -15,7 +15,7 @@ class AdviceController extends Controller
     {
         $advices = Advice::all();
 
-        return view('back.advices.index', compact('advices'));
+        return view('back.advices.index.blade.php', compact('advices'));
     }
 
     public function create()
@@ -38,7 +38,7 @@ class AdviceController extends Controller
             Log::info('Advice created: ' . $advice->id);
 
             return redirect()
-                       ->route('advices.index')
+                       ->route('advices.index.blade.php')
                        ->with('success', 'Advice: ' . $advice->id . ' created successfully.');
         } catch (\Throwable $e) {
             Log::error($e);
@@ -67,7 +67,7 @@ class AdviceController extends Controller
 
         $advice->update($validateData);
 
-        return redirect()->route('advices.index')->with('success', 'Advice updated successfully');
+        return redirect()->route('advices.index.blade.php')->with('success', 'Advice updated successfully');
     }
 
     public function destroy(Advice $advice)
@@ -77,11 +77,11 @@ class AdviceController extends Controller
             Log::info('advice deleted: ' . $advice->id);
 
             return redirect()
-                       ->route('advices.index')
+                       ->route('advices.index.blade.php')
                        ->with('success', 'Advice: ' . $advice->id . 'deleted successfully ✅');
         } catch (\Exception $e) {
             return redirect()
-                       ->route('advices.index')
+                       ->route('advices.index.blade.php')
                        ->with('error', 'An error occured while deleting the advice : ' . $e->getMessage() . '❌');
         }
     }
