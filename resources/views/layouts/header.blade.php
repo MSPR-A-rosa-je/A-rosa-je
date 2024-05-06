@@ -41,7 +41,7 @@
             <li></li>
             <li></li>
             <li></li>
-            <li class="h-20"><a href="#">Chat</a>
+            <li class="h-20"><a href="{{ route('chat') }}">Chat</a>
             </li>
         </ul>
     </nav>

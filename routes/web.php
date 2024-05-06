@@ -67,12 +67,13 @@ Route::get('/benchmark/run/{test}', [BenchmarkController::class, 'runTest'])->mi
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/plants', [FrontPlantController::class, 'index'])->name('front.plants.index.blade.php');
+    Route::get('/plants', [FrontPlantController::class, 'index'])->name('front.plants.index');
     Route::get('/plants/create', [FrontPlantController::class, 'create'])->name('front.plants.create');
     Route::post('/plants', [FrontPlantController::class, 'store'])->name('front.plants.store');
     Route::delete('/plants/{plant}', [FrontPlantController::class, 'destroy'])->name('front.plants.destroy');
 });
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-Route::get('/chat/{id}', [ChatController::class, 'show'])->name('chat.show');
+Route::get('/chat/{user}', [ChatController::class, 'show'])->name('chat.show');
+Route::post('/chat/{user}', [ChatController::class, 'store']);
 
