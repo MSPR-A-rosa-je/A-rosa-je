@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $fillable = [
-        'content',
-        'from_id',
-        'to_id',
-        'created_at',
-        'read_at'
+        'content','from_id','to_id','read_at','created_at'
     ];
 
     public $timestamps = false;
 
-    protected $dates=['created_at', 'read_at'];
+    protected $dates = ['read_at', 'created_at'];
+
+    public function from()
+    {
+        return $this->belongsTo(User::class, 'from_id');
+    }
 }

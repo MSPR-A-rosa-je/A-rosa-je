@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreMessageRequest;
 use App\Models\User;
 use App\Repository\ChatRepository;
 use Illuminate\Auth\AuthManager;
@@ -34,16 +35,17 @@ class ChatController extends Controller
     public function show(User $user){
         return view('front/chat/show', [
             'users'=> $this->r->getChat($this->auth->user()->id),
-            'user'=> $user
+            'user'=> $user,
+            'messages' => $this->r->getMessagesFor($this->auth->user()->id, $user->id)->paginate(25)
         ]);
     }
 
-    public function store(User $user, Request $request){
+    public function store(User $user, StoreMessageRequest $request){
         $this->r->createChat(
             $request->get('content'),
             $this->auth->user()->id,
             $user->id
         );
-        return redirect(route('messages.show', ['id'=>$user->id]));
+        return redirect(route('chat.show', ['user'=>$user->id]));
     }
 }

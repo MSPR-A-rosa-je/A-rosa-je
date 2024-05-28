@@ -55,7 +55,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/back/plants/{id}', [PlantController::class, 'show'])->name('back.plants.show');
     Route::post('/back/plants', [PlantController::class, 'store'])->name('back.plants.store');
     Route::get('/back/plants/{id}/edit', [PlantController::class, 'edit'])->name('back.plants.edit');
-    Route::put('/back/plants/{id    }', [PlantController::class, 'update'])->name('back.plants.update');
+    Route::put('/back/plants/{id}', [PlantController::class, 'update'])->name('back.plants.update');
     Route::delete('/back/plants/{plant}', [PlantController::class, 'destroy'])->name('back.plants.destroy');
 });
 
@@ -74,6 +74,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-Route::get('/chat/{user}', [ChatController::class, 'show'])->name('chat.show');
-Route::post('/chat/{user}', [ChatController::class, 'store']);
+Route::get('/chat/{user}', [ChatController::class, 'show'])
+    ->middleware('can:talkTo,user')
+    ->name('chat.show');
+Route::post('/chat/{user}', [ChatController::class, 'store'])->middleware('can:talkTo,user');
 

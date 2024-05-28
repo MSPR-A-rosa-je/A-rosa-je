@@ -7,7 +7,6 @@ use App\Models\Advice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-const MAX_STRING_LENGTH = 255;
 
 class AdviceController extends Controller
 {
