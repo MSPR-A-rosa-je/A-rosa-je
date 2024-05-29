@@ -3,7 +3,7 @@
 
 <div class="container mx-auto">
     <div class="flex flex-wrap -mx-4">
-        @include('front.chat.users', ['users'=>$users])
+        @include('front.chat.users', ['users'=>$users, 'unread'=> $unread])
         <div class="md:w-9/12 px-4">
             <div class="bg-white shadow rounded overflow-hidden">
                 <div class="bg-gray-100 p-4 border-b">{{$user->first_name}} {{$user->last_name}}</div>
@@ -15,7 +15,7 @@
                         </a>
                     </div>
                     @endif
-                    @foreach($messages as $message)
+                    @foreach(array_reverse($messages->items()) as $message)
                     <div class="flex flex-wrap -mx-4">
                         <div class="md:w-10/12 {{ $message->from->id !== $user->id ? 'offset-md:w-2/12 text-right': ''}}">
                             <p>

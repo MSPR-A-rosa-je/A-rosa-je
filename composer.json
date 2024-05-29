@@ -6,14 +6,18 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "ext-http": "*",
         "arcanedev/log-viewer": "^10.0",
         "barryvdh/laravel-debugbar": "^3.9",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^11.0",
         "laravel/pail": "^1.1.1",
+        "laravel/passport": "^12.2",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.8",
         "marvinlabs/laravel-discord-logger": "^1.4",
+        "paragonie/sodium_compat": "^2.0",
+        "predis/predis": "^2.2",
         "twbs/bootstrap": "4.0.0"
     },
     "require-dev": {

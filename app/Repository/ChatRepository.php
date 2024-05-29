@@ -25,14 +25,6 @@ class ChatRepository{
             ->select('first_name', 'last_name', 'id')
             ->where('id', '!=', $userId)
             ->get();
-        $unread = $this->unreadCount($userId);
-        foreach($chats as $chat){
-            if (isset($unread[$chat->id])){
-                $chat->unread = $unread[$chat->id];
-            } else{
-                $chat->unread = 0;
-            }
-        }
         return $chats;
     }
 
@@ -61,7 +53,7 @@ class ChatRepository{
      * récupère le nombre de messages non-lus pour chaque conversation
      * @param int $userId
      */
-    private function unreadCount(int $userId){
+    public function unreadCount(int $userId){
         return $this->message->newQuery()
             ->where('to_id', $userId)
             ->groupBy('from_id')
@@ -69,5 +61,15 @@ class ChatRepository{
             ->whereRaw('read_at IS NULL')
             ->get()
             ->pluck('count', 'from_id');
+    }
+
+    /***
+     * Marque tous les messages de cet utilisateur comme lu
+     * @param $id
+     *
+     */
+    public function readAllFrom(int $from, int $to)
+    {
+        $this->message->where('from_id', $from)->where('to_id', $to)->update(['read_at'=> Carbon::now()]);
     }
 }
