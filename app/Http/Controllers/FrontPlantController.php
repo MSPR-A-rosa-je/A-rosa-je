@@ -13,8 +13,8 @@ class FrontPlantController extends Controller
 public function index()
 {
 $user = auth()->user();
-$plants = $user->plants; // Récupérer les plantes de l'utilisateur authentifié
-return view('front.plants.index.blade.php', compact('plants'));
+$plants = Plant::all();
+return view('front.plants.index', compact('plants'));
 }
 
 // Afficher le formulaire de création de plante
