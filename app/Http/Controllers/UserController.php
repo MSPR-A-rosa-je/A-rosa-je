@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace OpenApi\Users;
 
 use App\Constants\ValidationRules;
 use App\Models\User;
@@ -20,7 +21,23 @@ class UserController extends Controller
     {
         return view('back.users.create');
     }
-
+    /**
+     * Add a new user.
+     *
+     * @OA\Post(
+     *     path="/pet",
+     *     tags={"pet"},
+     *     operationId="addUser",
+     *     @OA\Response(
+     *         response=405,
+     *         description="Invalid input"
+     *     ),
+     *     security={
+     *         {"users_auth": {"write:users", "read:users"}}
+     *     },
+     *     @OA\RequestBody(ref="#/components/requestBodies/users")
+     * )
+     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
