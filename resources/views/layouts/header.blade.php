@@ -14,6 +14,9 @@
 
     <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -41,7 +44,7 @@
             <li></li>
             <li></li>
             <li></li>
-            <li class="h-20"><a href="#">Chat</a>
+            <li class="h-20"><a href="{{ route('chat') }}">Chat</a>
             </li>
         </ul>
     </nav>
