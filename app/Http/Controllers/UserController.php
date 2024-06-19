@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('back.users.index.blade.php', compact('users'));
+        return view('back.users.index', compact('users'));
     }
 
     public function create()

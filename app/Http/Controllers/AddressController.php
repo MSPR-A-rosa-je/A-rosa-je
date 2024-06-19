@@ -15,7 +15,7 @@ class AddressController extends Controller
     {
         $addresses = Address::all();
 
-        return view('back.addresses.index.blade.php', compact('addresses'));
+        return view('back.addresses.index', compact('addresses'));
     }
 
     public function create()

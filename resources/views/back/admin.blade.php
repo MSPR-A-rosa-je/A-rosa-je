@@ -17,9 +17,9 @@
                     <li><a href="{{ route('users.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li class="list" style="width: 12%"><a href="{{ route('back.plants.index') }}">Plants</a>
+            <li class="list" style="width: 12%"><a href="{{ route('back.plants.index.blade.php') }}">Plants</a>
                 <ul class="under">
-                    <li><a href="{{ route('back.plants.index') }}">View</a></li>
+                    <li><a href="{{ route('back.plants.index.blade.php') }}">View</a></li>
                     <li><a href="{{ route('back.plants.create') }}">Create</a></li>
                 </ul>
             </li>

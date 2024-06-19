@@ -1,10 +1,9 @@
 @include('layouts/header')
 @section('title', 'Plants')
-
 <div class="list-table">
-    @if($plants === null)
-    <p> You have no plants !</p>
-    <a href="{{ route('front.plants.create') }}" class="button" type="button">Create One !</a>
+    @if($plants === null || $plants->isEmpty())
+    <p style="text-align: center"> You have no plants !</p>
+    <a href="{{ route('front.plants.create') }}" class="button" type="button" style="justify-it: center">Create One !</a>
     @else
     <div class="filter">
         <input class="search" type="text" id="specie-filter" placeholder="Specie">
@@ -31,11 +30,14 @@
             <td>{{ $plant->id }}</td>
             <td>{{ $plant->owner_id }}</td>
         </tr>
+        @endforeach
+        @endif
+    </table>
 </div>
-@endforeach
-@endif
-</table>
-</div>
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ class SessionController extends Controller
     {
         $sessions = Session::all();
 
-        return view('back.sessions.index.blade.php', compact('sessions'));
+        return view('back.sessions.index', compact('sessions'));
     }
 
     public function create()

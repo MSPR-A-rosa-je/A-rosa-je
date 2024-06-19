@@ -14,7 +14,7 @@ class AdviceController extends Controller
     {
         $advices = Advice::all();
 
-        return view('back.advices.index.blade.php', compact('advices'));
+        return view('back.advices.index', compact('advices'));
     }
 
     public function create()

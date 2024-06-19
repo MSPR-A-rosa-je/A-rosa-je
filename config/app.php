@@ -172,6 +172,7 @@ return [
 
         MarvinLabs\DiscordLogger\ServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class
     ])->toArray(),
 
     /*

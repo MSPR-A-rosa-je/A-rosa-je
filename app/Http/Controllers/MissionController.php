@@ -13,7 +13,7 @@ class MissionController extends Controller
     {
         $missions = Mission::all();
 
-        return view('back.missions.index.blade.php', compact('missions'));
+        return view('back.missions.index', compact('missions'));
     }
 
     public function create()

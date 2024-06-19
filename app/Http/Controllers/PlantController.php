@@ -13,7 +13,7 @@ class PlantController extends Controller
     {
         $plants = Plant::all();
 
-        return view('back.plants.index.blade.php', compact('plants'));
+        return view('back.plants.index', compact('plants'));
     }
 
     public function create()
