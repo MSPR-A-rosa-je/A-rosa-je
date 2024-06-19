@@ -81,7 +81,7 @@ class AddressController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('addresses.index')->with(
                 'error',
-                'An error occured while deleting the adress : ' . $e->getMessage() . '❌'
+                'An error occurred while deleting the address : ' . $e->getMessage() . '❌'
             );
         }
     }
