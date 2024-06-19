@@ -13,7 +13,7 @@ class PlantController extends Controller
     {
         $plants = Plant::all();
 
-        return view('back.plants.index.blade.php', compact('plants'));
+        return view('back.plants.index', compact('plants'));
     }
 
     public function create()
@@ -36,7 +36,7 @@ class PlantController extends Controller
             Log::info('Plant created: ' . $plant->id);
 
             return redirect()
-                       ->route('plants.index.blade.php')
+                       ->route('plants.index')
                        ->with('success', 'Plant: ' . $plant->id . ' created successfully.');
         } catch (\Throwable $e) {
             Log::error($e);
@@ -65,7 +65,7 @@ class PlantController extends Controller
 
         $plant->update($validateData);
 
-        return redirect()->route('plants.index.blade.php')->with('success', 'Plant updated successfully');
+        return redirect()->route('plants.index')->with('success', 'Plant updated successfully');
     }
 
     public function destroy(Plant $plant)
@@ -75,11 +75,11 @@ class PlantController extends Controller
             Log::info('Plant deleted: ' . $plant->id);
 
             return redirect()
-                       ->route('plants.index.blade.php')
+                       ->route('plants.index')
                        ->with('success', 'Plant: ' . $plant->id . ' deleted successfully ✅');
         } catch (\Exception $e) {
             return redirect()
-                       ->route('plants.index.blade.php')
+                       ->route('plants.index')
                        ->with('error', 'An error occured while deleting the plant : ' . $e->getMessage() . '❌');
         }
     }

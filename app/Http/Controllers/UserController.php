@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('back.users.index.blade.php', compact('users'));
+        return view('back.users.index', compact('users'));
     }
 
     public function create()
@@ -45,11 +45,11 @@ class UserController extends Controller
             Log::info('User created: ' . $user->pseudo);
 
             return redirect()
-                       ->route('users.index.blade.php')
+                       ->route('users.index')
                        ->with('success', 'User : ' . $user->pseudo . ' created successfully.');
         } catch (\Throwable $e) {
             return redirect()
-                       ->route('users.index.blade.php')
+                       ->route('users.index')
                        ->with('error', 'An error occurred while creating the user: ' . $e->getMessage());
         }
     }
@@ -94,11 +94,11 @@ class UserController extends Controller
             Log::info('User updated: ' . $user->pseudo);
 
             return redirect()
-                       ->route('users.index.blade.php')
+                       ->route('users.index')
                        ->with('success', 'User: ' . $user->pseudo . ' Edited successfully ✅');
         } catch (\Exception $e) {
             return redirect()
-                       ->route('users.index.blade.php')
+                       ->route('users.index')
                        ->with('error', 'An error occurred while editing the user: ' . $e->getMessage() . '❌');
         }
     }
@@ -110,11 +110,11 @@ class UserController extends Controller
             Log::info('User deleted: ' . $user->pseudo);
 
             return redirect()
-                       ->route('users.index.blade.php')
+                       ->route('users.index')
                        ->with('success', 'User: ' . $user->pseudo . ' deleted successfully ✅');
         } catch (\Exception $e) {
             return redirect()
-                       ->route('users.index.blade.php')
+                       ->route('users.index')
                        ->with('error', 'An error occurred while deleting the user: ' . $e->getMessage() . '❌');
         }
     }

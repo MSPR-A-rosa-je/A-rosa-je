@@ -50,7 +50,7 @@ Route::resource('advices', AdviceController::class)->middleware('admin');
 Route::resource('sessions', SessionController::class)->middleware('admin');
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('/back/plants', [PlantController::class, 'index'])->name('back.plants.index.blade.php');
+    Route::get('/back/plants', [PlantController::class, 'index'])->name('back.plants.index');
     Route::get('/back/plants/create', [PlantController::class, 'create'])->name('back.plants.create');
     Route::get('/back/plants/{id}', [PlantController::class, 'show'])->name('back.plants.show');
     Route::post('/back/plants', [PlantController::class, 'store'])->name('back.plants.store');
