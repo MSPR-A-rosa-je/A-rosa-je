@@ -168,6 +168,155 @@
                     }
                 }
             }
+        },
+        "/api/plants": {
+            "get": {
+                "tags": [
+                    "Plants"
+                ],
+                "summary": "Get all plants",
+                "operationId": "2176c387bdb5f6523fb7444bc061bd49",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Plants"
+                ],
+                "summary": "Create a plant",
+                "operationId": "c2d26f95c13b45aba4cdfcd381a7df02",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "specie_name": {
+                                        "type": "string",
+                                        "example": "My plant"
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "My location"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "example": "My status"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "My description"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            }
+        },
+        "/api/plants/{id}": {
+            "put": {
+                "tags": [
+                    "Plants"
+                ],
+                "summary": "Update a plant",
+                "operationId": "156161f701c66840dba6863178409e1a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "specie_name": {
+                                        "type": "string",
+                                        "example": "My plant"
+                                    },
+                                    "location": {
+                                        "type": "string",
+                                        "example": "My location"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "example": "My status"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "My description"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Plants"
+                ],
+                "summary": "Delete a plant",
+                "operationId": "62f9cbf2082f5e7554b5ca752a034b20",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
         }
     }
 }

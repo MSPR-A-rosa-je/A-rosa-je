@@ -26,3 +26,5 @@ Route::middleware('auth:sanctum')->post('/logout', [ApiAuthController::class, 'l
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/plants', [ApiPlantController::class, 'store']);
 });
+
+Route::apiResource('plants', ApiPlantController::class);
