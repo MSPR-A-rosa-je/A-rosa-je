@@ -939,6 +939,162 @@
                     }
                 }
             }
+        },
+        "/api/v1/sessions": {
+            "get": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "Returns all sessions",
+                "operationId": "e80b4822b4d17bd40b23bca94196c9ae",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "Create a new session",
+                "operationId": "d9b9bcc729494775e1b42fa8e6fdfad3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "creation_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "plants_list": {
+                                        "type": "string",
+                                        "maxLength": 2000
+                                    },
+                                    "owner_id": {
+                                        "type": "integer"
+                                    },
+                                    "mission_id": {
+                                        "type": "integer"
+                                    },
+                                    "note": {
+                                        "type": "string",
+                                        "maxLength": 2000,
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/sessions/{id}": {
+            "get": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "Returns a session",
+                "operationId": "f7eb155562f90283bed0e07b3cbe9b5a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "Update a session",
+                "operationId": "f3c4949c0884d86397e65d1707039608",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "creation_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "plants_list": {
+                                        "type": "string",
+                                        "maxLength": 2000
+                                    },
+                                    "owner_id": {
+                                        "type": "integer"
+                                    },
+                                    "mission_id": {
+                                        "type": "integer"
+                                    },
+                                    "note": {
+                                        "type": "string",
+                                        "maxLength": 2000,
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sessions"
+                ],
+                "summary": "Delete a session",
+                "operationId": "1ed66d42713bbeeab89447ecf97b9262",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
         }
     },
     "tags": [

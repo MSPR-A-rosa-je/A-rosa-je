@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ApiPlantController;
 use App\Http\Controllers\Api\ApiAddressController;
 use App\Http\Controllers\Api\ApiMissionsController;
 use App\Http\Controllers\Api\ApiAdvicesController;
+use App\Http\Controllers\Api\ApiSessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,6 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('address', ApiAddressController::class);
     Route::apiResource('missions', ApiMissionsController::class);
     Route::apiResource('advices', ApiAdvicesController::class);
+    Route::apiResource('sessions', ApiSessionsController::class);
 
 });
