@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Auth\LoginRegisterController;
 use App\Http\Controllers\AddressController;
@@ -72,6 +73,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/plants', [FrontPlantController::class, 'store'])->name('front.plants.store');
     Route::delete('/plants/{plant}', [FrontPlantController::class, 'destroy'])->name('front.plants.destroy');
 });
+
+Route::get('/account', [AccountController::class, 'index'])->name('account');
+Route::get('/account/{user}', [AccountController::class, 'show']);
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 Route::get('/chat/{user}', [ChatController::class, 'show'])
