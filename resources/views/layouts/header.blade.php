@@ -69,7 +69,7 @@
                 <li class="h-10 list"><a class="profil" href=""><p>{{Auth::user()->pseudo}}</p>
                         <i class="fa-solid fa-circle-user"></i></a>
                     <ul class="under">
-                        <li><a  href="#">My Account</a></li>
+                        <li><a  href="{{ route('chat') }}">My Account</a></li>
                         <li> <a class="dropdown-item" href="{{route('logout')}}"
                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 Logout
