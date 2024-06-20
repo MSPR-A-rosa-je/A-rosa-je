@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ApiAuthController;
 use App\Http\Controllers\Api\ApiPlantController;
 use App\Http\Controllers\Api\ApiAddressController;
 use App\Http\Controllers\Api\ApiMissionsController;
+use App\Http\Controllers\Api\ApiAdvicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,6 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('plants', ApiPlantController::class);
     Route::apiResource('address', ApiAddressController::class);
     Route::apiResource('missions', ApiMissionsController::class);
+    Route::apiResource('advices', ApiAdvicesController::class);
 
 });

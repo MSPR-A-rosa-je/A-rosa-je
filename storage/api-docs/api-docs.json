@@ -157,6 +157,160 @@
                 }
             }
         },
+        "/api/v1/advices": {
+            "get": {
+                "tags": [
+                    "Advices"
+                ],
+                "summary": "Get all advices",
+                "operationId": "03ae2a4ea347c8b86d21235f28bb47d5",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Advices"
+                ],
+                "summary": "Create a new advice",
+                "operationId": "d9037495ac87794ecdd12cd10fe921ce",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "maxLength": 255
+                                    },
+                                    "creation_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "maxLength": 2000
+                                    },
+                                    "owner_id": {
+                                        "type": "integer"
+                                    },
+                                    "like_number": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/advices/{id}": {
+            "get": {
+                "tags": [
+                    "Advices"
+                ],
+                "summary": "Get an advice by ID",
+                "operationId": "ee9fc42d8332292a743dc2d7b90b71c4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Advices"
+                ],
+                "summary": "Update an advice by ID",
+                "operationId": "8bc33451293b45bd107ecfcc4d17bf71",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "maxLength": 255
+                                    },
+                                    "creation_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "maxLength": 2000
+                                    },
+                                    "owner_id": {
+                                        "type": "integer"
+                                    },
+                                    "like_number": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Advices"
+                ],
+                "summary": "Delete an advice by ID",
+                "operationId": "668d0503858ee31dda604c7e51df4820",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
         "/api/v1/register": {
             "post": {
                 "tags": [
