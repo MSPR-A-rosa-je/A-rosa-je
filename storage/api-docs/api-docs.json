@@ -6,13 +6,13 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/register": {
+        "/api/v1/register": {
             "post": {
                 "tags": [
                     "Auth"
                 ],
                 "summary": "Register",
-                "operationId": "7b7d9f145c573b3f98473d32bde11f94",
+                "operationId": "1499a22892a80ca806fa8cad4707fca7",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -169,13 +169,129 @@
                 }
             }
         },
-        "/api/plants": {
+        "/api/v1/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Authenticate a user and return a token.",
+                "operationId": "664a6289cc3eb0e16de42a36748bb63b",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john@test.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "johnjohn1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "meta": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "number",
+                                                    "example": 200
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "success"
+                                                },
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": null
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "access_token": {
+                                                    "type": "string",
+                                                    "example": "1|f16n345m0G0hI0j406342L6ZhQxTKgG"
+                                                },
+                                                "token_type": {
+                                                    "type": "string",
+                                                    "example": "Bearer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Revoke the token of the authenticated user.",
+                "operationId": "16f50a80a3393cee8600d5a26f09075d",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "meta": {
+                                            "properties": {
+                                                "code": {
+                                                    "type": "number",
+                                                    "example": 200
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "success"
+                                                },
+                                                "message": {
+                                                    "type": "string",
+                                                    "example": "You have successfully logged out and the token was successfully deleted"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": []
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/plants": {
             "get": {
                 "tags": [
                     "Plants"
                 ],
                 "summary": "Get all plants",
-                "operationId": "2176c387bdb5f6523fb7444bc061bd49",
+                "operationId": "26cdaf75d14d614ecc7fa69af4dbc493",
                 "responses": {
                     "200": {
                         "description": "Successful operation"
@@ -187,7 +303,7 @@
                     "Plants"
                 ],
                 "summary": "Create a plant",
-                "operationId": "c2d26f95c13b45aba4cdfcd381a7df02",
+                "operationId": "be9d330153ac9ffc6e331b8aa2c8b697",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -232,13 +348,13 @@
                 }
             }
         },
-        "/api/plants/{id}": {
+        "/api/v1/plants/{id}": {
             "put": {
                 "tags": [
                     "Plants"
                 ],
                 "summary": "Update a plant",
-                "operationId": "156161f701c66840dba6863178409e1a",
+                "operationId": "9facc20f5f512e2c48f8d512ddd8fbf1",
                 "parameters": [
                     {
                         "name": "id",
@@ -297,7 +413,7 @@
                     "Plants"
                 ],
                 "summary": "Delete a plant",
-                "operationId": "62f9cbf2082f5e7554b5ca752a034b20",
+                "operationId": "5949d336e2d34d7efde419117440e135",
                 "parameters": [
                     {
                         "name": "id",

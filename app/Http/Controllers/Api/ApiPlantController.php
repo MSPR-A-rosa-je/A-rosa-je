@@ -13,7 +13,7 @@ class ApiPlantController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/plants",
+     *     path="/api/v1/plants",
      *     summary="Get all plants",
      *     tags={"Plants"},
      *     @OA\Response(response="200", description="Successful operation")
@@ -28,7 +28,7 @@ class ApiPlantController extends Controller
 
     /**
      * @OA\Post(
-     *     path="/api/plants",
+     *     path="/api/v1/plants",
      *     summary="Create a plant",
      *     tags={"Plants"},
      *
@@ -104,7 +104,7 @@ class ApiPlantController extends Controller
 
     /**
      * @OA\Put(
-     *     path="/api/plants/{id}",
+     *     path="/api/v1/plants/{id}",
      *     summary="Update a plant",
      *     tags={"Plants"},
      *     @OA\Parameter(
@@ -172,7 +172,7 @@ class ApiPlantController extends Controller
 
     /**
      * @OA\Delete(
-     *     path="/api/plants/{id}",
+     *     path="/api/v1/plants/{id}",
      *     summary="Delete a plant",
      *     tags={"Plants"},
      *     @OA\Parameter(

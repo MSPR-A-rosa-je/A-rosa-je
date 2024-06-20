@@ -16,15 +16,19 @@ use App\Http\Controllers\Api\ApiPlantController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->group(function () {
+
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::post('/register', [ApiAuthController::class, 'register']);
+    Route::middleware('auth:sanctum')->post('/login', [ApiAuthController::class, 'login']);
+    Route::middleware('auth:sanctum')->post('/logout', [ApiAuthController::class, 'logout']);
+    Route::middleware('auth:sanctum')->group(function () {
+    });
 });
 
-Route::post('/register', [ApiAuthController::class, 'register']);
-Route::middleware('auth:sanctum')->post('/login', [ApiAuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('/logout', [ApiAuthController::class, 'logout']);
-Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/plants', [ApiPlantController::class, 'store']);
+Route::prefix('v1')->group(function () {
+    Route::apiResource('plants', ApiPlantController::class);
 });
-
-Route::apiResource('plants', ApiPlantController::class);
