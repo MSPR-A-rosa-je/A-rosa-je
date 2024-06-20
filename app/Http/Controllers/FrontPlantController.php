@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Log;
 class FrontPlantController extends Controller
 {
 // Afficher les plantes de l'utilisateur
-public function index()
-{
-$user = auth()->user();
-$plants = $user->plants; // Récupérer les plantes de l'utilisateur authentifié
-return view('front.plants.index', compact('plants'));
-}
+    public function index()
+    {
+        $user = auth()->user();
+        $plants = Plant::where('owner_id', $user->id)->get();
+        return view('front.plants.index', compact('plants'));
+    }
+
 
 // Afficher le formulaire de création de plante
 public function create()
