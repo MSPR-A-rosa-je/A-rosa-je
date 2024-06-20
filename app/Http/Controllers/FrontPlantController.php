@@ -53,7 +53,7 @@ public function store(Request $request)
         Log::info('Plant created:' . $plant->id);
 
         return redirect()
-            ->route('plants.index.blade.php')
+            ->route('plants.index')
             ->with('success', 'Plant: ' . $plant->id . 'created successfully');
     } catch (\Throwable $e) {
         Log::error($e);
@@ -69,6 +69,6 @@ $user = auth()->user();
 if ($plant->user_id === $user->id) {
 $plant->delete();
 }
-return redirect()->route('plants.index.blade.php');
+return redirect()->route('plants.index');
 }
 }

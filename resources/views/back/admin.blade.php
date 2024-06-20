@@ -47,7 +47,7 @@
                     <li><a href="{{ route('addresses.create') }}">Create</a></li>
                 </ul>
             <li class="list" style="width: 12%"><a href="#">Settings</a>
-                <ul class="under">
+                <ul class="under">&
                     <li><a href="#">My account</a></li>
                     <li><a href="#">Informations</a></li>
                     <li><a href=/log-viewer>Logs Dashboard</a></li>

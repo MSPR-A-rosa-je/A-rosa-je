@@ -13,7 +13,7 @@ class MissionController extends Controller
     {
         $missions = Mission::all();
 
-        return view('back.missions.index.blade.php', compact('missions'));
+        return view('back.missions.index', compact('missions'));
     }
 
     public function create()
@@ -38,7 +38,7 @@ class MissionController extends Controller
             Log::info('Mission created: ' . $mission->id);
 
             return redirect()
-                       ->route('missions.index.blade.php')
+                       ->route('missions.index')
                        ->with('success', 'Mission: ' . $mission->id . ' created successfully.');
         } catch (\Throwable $e) {
             Log::error($e);
@@ -71,7 +71,7 @@ class MissionController extends Controller
 
         $mission->update($validateData);
 
-        return redirect()->route('missions.index.blade.php')->with('success', 'Mission updated successfully');
+        return redirect()->route('missions.index')->with('success', 'Mission updated successfully');
     }
 
     public function destroy(Mission $mission)
@@ -81,11 +81,11 @@ class MissionController extends Controller
             Log::info('Mission deleted: ' . $mission->id);
 
             return redirect()
-                       ->route('missions.index.blade.php')
+                       ->route('missions.index')
                        ->with('success', 'Mission: ' . $mission->id . 'deleted successfully ✅');
         } catch (\Exception $e) {
             return redirect()
-                       ->route('missions.index.blade.php')
+                       ->route('missions.index')
                        ->with('error', 'An error occured while deleting the mission : ' . $e->getMessage() . '❌');
         }
     }

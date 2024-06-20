@@ -13,7 +13,7 @@ class SessionController extends Controller
     {
         $sessions = Session::all();
 
-        return view('back.sessions.index.blade.php', compact('sessions'));
+        return view('back.sessions.index', compact('sessions'));
     }
 
     public function create()
@@ -36,7 +36,7 @@ class SessionController extends Controller
             Log::info('Session created: ' . $session->id);
 
             return redirect()
-                       ->route('sessions.index.blade.php')
+                       ->route('sessions.index')
                        ->with('success', 'Session: ' . $session->id . ' created successfully.');
         } catch (\Throwable $e) {
             Log::error($e);
@@ -65,7 +65,7 @@ class SessionController extends Controller
 
         $session->update($validateData);
 
-        return redirect()->route('sessions.index.blade.php')->with('success', 'Session updated successfully');
+        return redirect()->route('sessions.index')->with('success', 'Session updated successfully');
     }
 
     public function destroy(Session $session)
@@ -75,11 +75,11 @@ class SessionController extends Controller
             Log::info('session deleted: ' . $session->id);
 
             return redirect()
-                       ->route('sessions.index.blade.php')
+                       ->route('sessions.index')
                        ->with('success', 'Session: ' . $session->id . 'deleted successfully ✅');
         } catch (\Exception $e) {
             return redirect()
-                       ->route('sessions.index.blade.php')
+                       ->route('sessions.index')
                        ->with('error', 'An error occured while deleting the session : ' . $e->getMessage() . '❌');
         }
     }

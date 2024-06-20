@@ -15,7 +15,7 @@ class AddressController extends Controller
     {
         $addresses = Address::all();
 
-        return view('back.addresses.index.blade.php', compact('addresses'));
+        return view('back.addresses.index', compact('addresses'));
     }
 
     public function create()
@@ -36,7 +36,7 @@ class AddressController extends Controller
             Log::info('Address created:' . $address->id);
 
             return redirect()
-                       ->route('addresses.index.blade.php')
+                       ->route('addresses.index')
                        ->with('success', 'Address' . $address->id . 'created successfully.');
         } catch (\Throwable $e) {
             Log::error($e);
@@ -64,7 +64,7 @@ class AddressController extends Controller
         $address->update($validateData);
 
         return redirect()
-                   ->route('addresses.index.blade.php')
+                   ->route('addresses.index')
                    ->with('success', 'Adress updated successfully');
     }
 
@@ -74,14 +74,14 @@ class AddressController extends Controller
             $address->delete();
             Log::info('Address deleted:' . $address->id);
 
-            return redirect()->route('addresses.index.blade.php')->with(
+            return redirect()->route('addresses.index')->with(
                 'success',
                 'Adress: ' . $address->id . ' deleted successfully ✅'
             );
         } catch (\Exception $e) {
-            return redirect()->route('addresses.index.blade.php')->with(
+            return redirect()->route('addresses.index')->with(
                 'error',
-                'An error occured while deleting the adress : ' . $e->getMessage() . '❌'
+                'An error occurred while deleting the address : ' . $e->getMessage() . '❌'
             );
         }
     }
