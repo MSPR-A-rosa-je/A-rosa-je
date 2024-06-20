@@ -25,6 +25,26 @@ class ApiPlantController extends Controller
 
         return response()->json($plants);
     }
+        /**
+     * @OA\Get(
+     *     path="/api/v1/plants/{id}",
+     *     summary="Get an plants by ID",
+     *     tags={"Plants"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer"
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Successful operation")
+     * )
+     */
+    public function show (Plant $plant)
+    {
+        return response()->json($plant);
+    }
 
     /**
      * @OA\Post(
@@ -105,7 +125,7 @@ class ApiPlantController extends Controller
     /**
      * @OA\Put(
      *     path="/api/v1/plants/{id}",
-     *     summary="Update a plant",
+     *     summary="Update a plant by ID",
      *     tags={"Plants"},
      *     @OA\Parameter(
      *         name="id",
@@ -173,7 +193,7 @@ class ApiPlantController extends Controller
     /**
      * @OA\Delete(
      *     path="/api/v1/plants/{id}",
-     *     summary="Delete a plant",
+     *     summary="Delete a plant by ID",
      *     tags={"Plants"},
      *     @OA\Parameter(
      *         name="id",

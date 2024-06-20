@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiAuthController;
 use App\Http\Controllers\Api\ApiPlantController;
+use App\Http\Controllers\Api\ApiAddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,6 @@ Route::prefix('v1')->group(function () {
 
 Route::prefix('v1')->group(function () {
     Route::apiResource('plants', ApiPlantController::class);
+    Route::apiResource('address', ApiAddressController::class);
+
 });

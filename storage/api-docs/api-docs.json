@@ -6,6 +6,157 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/v1/address": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Get all addresses",
+                "operationId": "9ec6f4000f15f43ab455dc6bdec8a404",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Create an address",
+                "operationId": "1b883694408b8de9adbe5859004418e4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address": {
+                                        "type": "string",
+                                        "maxLength": 255
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "maxLength": 255
+                                    },
+                                    "zip_code": {
+                                        "type": "integer",
+                                        "maximum": 9999999999
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Address created"
+                    },
+                    "500": {
+                        "description": "Failed to create address"
+                    }
+                }
+            }
+        },
+        "/api/v1/address/{id}": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Get an address by ID",
+                "operationId": "ff4170875a219f507803622ffcd8af04",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Update an address by ID",
+                "operationId": "37c73f3ebbf29028718a4c785ee7b9d7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address": {
+                                        "type": "string",
+                                        "maxLength": 255
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "maxLength": 255
+                                    },
+                                    "zip_code": {
+                                        "type": "integer",
+                                        "maximum": 9999999999
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Address updated"
+                    },
+                    "500": {
+                        "description": "Failed to update address"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Delete an address by ID",
+                "operationId": "41ae644f8ba71c5fae7631cc35420477",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Address deleted"
+                    },
+                    "500": {
+                        "description": "Failed to delete address"
+                    }
+                }
+            }
+        },
         "/api/v1/register": {
             "post": {
                 "tags": [
@@ -241,13 +392,13 @@
                 }
             }
         },
-        "/api/logout": {
+        "/api/v1/logout": {
             "post": {
                 "tags": [
                     "Auth"
                 ],
                 "summary": "Revoke the token of the authenticated user.",
-                "operationId": "16f50a80a3393cee8600d5a26f09075d",
+                "operationId": "1b936523615e92547a8c006bd6ff8109",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -349,11 +500,33 @@
             }
         },
         "/api/v1/plants/{id}": {
+            "get": {
+                "tags": [
+                    "Plants"
+                ],
+                "summary": "Get an plants by ID",
+                "operationId": "9922e0e38fc73eeb88019d8a41751b80",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
             "put": {
                 "tags": [
                     "Plants"
                 ],
-                "summary": "Update a plant",
+                "summary": "Update a plant by ID",
                 "operationId": "9facc20f5f512e2c48f8d512ddd8fbf1",
                 "parameters": [
                     {
@@ -412,7 +585,7 @@
                 "tags": [
                     "Plants"
                 ],
-                "summary": "Delete a plant",
+                "summary": "Delete a plant by ID",
                 "operationId": "5949d336e2d34d7efde419117440e135",
                 "parameters": [
                     {
@@ -434,5 +607,10 @@
                 }
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "Address"
+        }
+    ]
 }
