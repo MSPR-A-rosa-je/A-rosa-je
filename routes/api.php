@@ -4,6 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiAuthController;
 use App\Http\Controllers\Api\ApiPlantController;
+use App\Http\Controllers\Api\ApiAddressController;
+use App\Http\Controllers\Api\ApiMissionsController;
+use App\Http\Controllers\Api\ApiAdvicesController;
+use App\Http\Controllers\Api\ApiSessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +20,24 @@ use App\Http\Controllers\Api\ApiPlantController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->group(function () {
+
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::post('/register', [ApiAuthController::class, 'register']);
+    Route::middleware('auth:sanctum')->post('/login', [ApiAuthController::class, 'login']);
+    Route::middleware('auth:sanctum')->post('/logout', [ApiAuthController::class, 'logout']);
+    Route::middleware('auth:sanctum')->group(function () {
+    });
 });
 
-Route::post('/register', [ApiAuthController::class, 'register']);
-Route::middleware('auth:sanctum')->post('/login', [ApiAuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('/logout', [ApiAuthController::class, 'logout']);
-Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/plants', [ApiPlantController::class, 'store']);
+Route::prefix('v1')->group(function () {
+    Route::apiResource('plants', ApiPlantController::class);
+    Route::apiResource('address', ApiAddressController::class);
+    Route::apiResource('missions', ApiMissionsController::class);
+    Route::apiResource('advices', ApiAdvicesController::class);
+    Route::apiResource('sessions', ApiSessionsController::class);
+
 });
