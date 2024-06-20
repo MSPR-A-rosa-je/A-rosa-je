@@ -34,8 +34,6 @@
             <td>{{ $plant->status }}</td>
             <td>{{ $plant->description }}</td>
             <td>{{ $plant->url_photo }}</td>
-
-
         </tr>
         @endforeach
 
