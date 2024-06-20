@@ -436,6 +436,185 @@
                 }
             }
         },
+        "/api/v1/missions": {
+            "get": {
+                "tags": [
+                    "Missions"
+                ],
+                "summary": "Get all missions",
+                "operationId": "1a1a9a3e5b56a1409bec1446d4f85435",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Missions"
+                ],
+                "summary": "Create a mission",
+                "operationId": "200d2f223132e7c1278ba2f8bcfadd42",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "candidates_list": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "float"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "number_of_sessions": {
+                                        "type": "integer"
+                                    },
+                                    "plants_list": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Mission created"
+                    }
+                }
+            }
+        },
+        "/api/v1/missions/{id}": {
+            "get": {
+                "tags": [
+                    "Missions"
+                ],
+                "summary": "Get an mission by ID",
+                "operationId": "0e2b0824ec16519b1608e31e5a4478d2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Missions"
+                ],
+                "summary": "Update an mission by ID",
+                "operationId": "6a43b46e2d30e09509ccbac5575fba62",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2022-01-01"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2022-01-01"
+                                    },
+                                    "owner_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "candidates_list": {
+                                        "type": "string",
+                                        "example": "My candidates list"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": "10.00"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "My description"
+                                    },
+                                    "gardien_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "number_of_sessions": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "plants_list": {
+                                        "type": "string",
+                                        "example": "My plants list"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Mission updated"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Missions"
+                ],
+                "summary": "Delete an mission by ID",
+                "operationId": "d325d2506014c45bfe72c2ff4406c015",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mission deleted"
+                    }
+                }
+            }
+        },
         "/api/v1/plants": {
             "get": {
                 "tags": [
