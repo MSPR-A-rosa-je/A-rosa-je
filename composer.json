@@ -19,7 +19,7 @@
         "marvinlabs/laravel-discord-logger": "^1.4",
         "paragonie/sodium_compat": "^2.0",
         "predis/predis": "^2.2",
-        "twbs/bootstrap": "4.0.0"
+        "twbs/bootstrap": "4.3.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
